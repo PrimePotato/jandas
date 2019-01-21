@@ -1,0 +1,30 @@
+# Yield Curve Configuration
+
+# ir curve default parameters
+dayCountFraction: ACT/365F
+interpolationMethod: linear_constant
+
+yieldCurves:
+  AUD AONIA:
+    dayCountFraction: ACT/365F
+    interpolationMethod: linear_constant
+
+  CHF SARON:
+    dayCountFraction: ACT/365F
+    interpolationMethod: linear_constant
+
+  EUR EONIA:
+    dayCountFraction: ACT/365F
+    interpolationMethod: linear_constant
+
+  GBP SONIA:
+    dayCountFraction: ACT/365F
+    interpolationMethod: linear_constant
+
+  JPY TONA:
+    dayCountFraction: ACT/365F
+    interpolationMethod: linear_constant
+
+  USD FEDFUND:
+    dayCountFraction: ACT/365F
+    interpolationMethod: linear_constant

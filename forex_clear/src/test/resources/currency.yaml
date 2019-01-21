@@ -1,0 +1,26 @@
+# Currency Configuration
+
+# currency default parameters
+discountCurve: $CCY$ FX
+fxForwardImpliedCurve: $CCY$ FX
+
+currencies:
+#  AUD:
+#    discountCurve: AUD AONIA
+#  CHF:
+#    discountCurve: CHF SARON
+#
+#  EUR:
+#    discountCurve: EUR EONIA
+#
+#  GBP:
+#    discountCurve: GBP SONIA
+#
+#  JPY:
+#    discountCurve: JPY TONA
+
+  USD:
+    discountCurve: USD FEDFUND
+    fxForwardImpliedCurve: USD :STD
+
+
