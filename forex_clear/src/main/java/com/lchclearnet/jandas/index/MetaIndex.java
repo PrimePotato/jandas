@@ -8,6 +8,7 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import java.lang.reflect.Array;
 import java.util.List;
 import java.util.function.Function;
+import javax.sound.midi.SysexMessage;
 
 public class MetaIndex {
 
@@ -52,9 +53,14 @@ public class MetaIndex {
     for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
       IntArrayList rows = p.getValue();
       double[] objAry = new double[rows.size()];
-      for (int i = 0; i < rows.size(); i++) {
-        objAry[i] = values[rows.getInt(i)];
+      try {
+        for (int i = 0; i < rows.size(); i++) {
+          objAry[i] = values[rows.getInt(i)];
+        }
+      } catch (Exception e){
+        System.out.println(1);
       }
+
       result.put(p.getIntKey(), daf.apply(objAry));
     }
     return result;

@@ -40,8 +40,12 @@ public abstract class AbstractColumn implements Column {
   }
 
   public ColIndex index() {
-
-    return index;
+    if (index==null){
+      rebuildIndex();
+      return index();
+    } else {
+      return index;
+    }
   }
 
   public <T> T firstValue() {

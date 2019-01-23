@@ -1,11 +1,8 @@
 package com.lchclearnet.jandas.column;
 
 import com.lchclearnet.jandas.index.IntegerIndex;
-import com.lchclearnet.table.column.parsers.AbstractParser;
 import com.lchclearnet.utils.CurrencyPair;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import java.awt.SystemTray;
-import java.time.LocalDate;
 import java.util.AbstractCollection;
 import java.util.Arrays;
 
@@ -98,7 +95,7 @@ public class CurrencyPairColumn extends AbstractColumn {
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
 
     try {
       append((CurrencyPair) parser.parse(value));

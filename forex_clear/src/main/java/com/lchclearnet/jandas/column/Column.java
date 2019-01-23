@@ -1,6 +1,6 @@
 package com.lchclearnet.jandas.column;
 
-import com.lchclearnet.jandas.column.parsers.AbstractParser;
+import com.lchclearnet.jandas.io.parsers.AbstractParser;
 import com.lchclearnet.jandas.index.ColIndex;
 
 import java.util.AbstractCollection;

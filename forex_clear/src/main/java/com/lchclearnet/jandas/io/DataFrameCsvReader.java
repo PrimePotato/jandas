@@ -7,7 +7,7 @@ import com.lchclearnet.jandas.column.Column;
 import com.lchclearnet.jandas.column.ColumnParserFactory;
 import com.lchclearnet.jandas.column.DoubleColumn;
 import com.lchclearnet.jandas.dataframe.DataFrame;
-import com.lchclearnet.jandas.column.parsers.AbstractParser;
+import com.lchclearnet.jandas.io.parsers.AbstractParser;
 
 import com.lchclearnet.utils.ArrayHelper;
 import com.lchclearnet.utils.Config;
@@ -18,7 +18,6 @@ import com.univocity.parsers.common.processor.RowProcessor;
 import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import it.unimi.dsi.fastutil.objects.ObjectCollection;
 import java.io.File;
 
 import java.nio.file.Path;
@@ -189,6 +188,7 @@ public class DataFrameCsvReader implements RowProcessor {
 
     return dataFrameName;
   }
+
 
   public boolean header() {
 

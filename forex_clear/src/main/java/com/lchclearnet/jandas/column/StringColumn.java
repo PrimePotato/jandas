@@ -3,8 +3,10 @@ package com.lchclearnet.jandas.column;
 import com.lchclearnet.jandas.index.StringIndex;
 import com.lchclearnet.table.column.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import java.time.LocalDate;
 import java.util.AbstractCollection;
+import java.util.Arrays;
+import java.util.Iterator;
+import javax.swing.plaf.synth.SynthUI;
 
 public class StringColumn extends AbstractColumn {
 
@@ -20,10 +22,18 @@ public class StringColumn extends AbstractColumn {
     dataType = Integer.class;
   }
 
+  public StringColumn(String name, Boolean indexed, ObjectArrayList<String> values) {
+
+    this.indexed = indexed;
+    this.name = name;
+    dataType = Integer.class;
+    appendAll(values);
+  }
+
   @Override
   public void rebuildIndex() {
     //TODO: remove and make incremental
-    index = new StringIndex(data.elements());
+    index = new StringIndex(rawData());
   }
 
   public StringColumn append(String val) {
@@ -54,7 +64,7 @@ public class StringColumn extends AbstractColumn {
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
 
     append(value);
   }
@@ -73,7 +83,7 @@ public class StringColumn extends AbstractColumn {
   @Override
   public String[] rawData() {
 
-    return data.elements();
+    return Arrays.copyOfRange(data.elements(), 0, data.size());
   }
 
   public StringColumn append(String[] vals) {
@@ -84,9 +94,11 @@ public class StringColumn extends AbstractColumn {
 
   @Override
   public void appendAll(AbstractCollection vals) {
+
     String[] d = new String[vals.size()];
-    for (int i=0; i<vals.size();i++){
-      d[i] = (String)vals.iterator().next();
+    Iterator it = vals.iterator();
+    for (int i = 0; i < vals.size(); i++) {
+      d[i] = (String) it.next();
     }
     data = ObjectArrayList.wrap(d);
   }

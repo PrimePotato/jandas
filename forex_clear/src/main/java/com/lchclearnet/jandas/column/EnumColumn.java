@@ -4,10 +4,8 @@ import com.lchclearnet.jandas.index.IntegerIndex;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import java.lang.reflect.Array;
-import java.time.LocalDate;
 import java.util.AbstractCollection;
 import java.util.Arrays;
-import org.apache.hadoop.yarn.webapp.hamlet.HamletSpec.OBJECT;
 
 public class EnumColumn<E extends Enum> extends AbstractColumn {
 
@@ -70,7 +68,7 @@ public class EnumColumn<E extends Enum> extends AbstractColumn {
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
 
     try {
       append((E) parser.parse(value));

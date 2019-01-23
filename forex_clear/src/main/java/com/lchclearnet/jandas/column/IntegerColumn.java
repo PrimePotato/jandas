@@ -2,8 +2,8 @@ package com.lchclearnet.jandas.column;
 
 import com.lchclearnet.jandas.index.IntegerIndex;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import java.util.AbstractCollection;
+import java.util.Arrays;
 
 public class IntegerColumn extends AbstractColumn {
 
@@ -11,11 +11,21 @@ public class IntegerColumn extends AbstractColumn {
   private IntArrayList data;
 
   public IntegerColumn(String name, Boolean indexed, int[] values) {
+
     this.indexed = indexed;
-    index = new IntegerIndex(values);
     data = new IntArrayList(values);
     this.name = name;
     dataType = Integer.class;
+    index = indexed ? new IntegerIndex(values) : null;
+  }
+
+  public IntegerColumn(String name, Boolean indexed, IntArrayList values) {
+
+    this.indexed = indexed;
+    data = values;
+    this.name = name;
+    dataType = Integer.class;
+    index = indexed ? new IntegerIndex(rawData()) : null;
   }
 
   public IntegerColumn append(int val) {
@@ -62,7 +72,8 @@ public class IntegerColumn extends AbstractColumn {
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
+
     try {
       append(parser.parseInt(value));
     } catch (final NumberFormatException e) {
@@ -79,20 +90,24 @@ public class IntegerColumn extends AbstractColumn {
 
   @Override
   public void appendAll(AbstractCollection vals) {
+
     data = (IntArrayList) vals;
   }
+
   @Override
   public void rebuildIndex() {
-    index = new IntegerIndex(data.elements());
+
+    index = new IntegerIndex(rawData());
   }
 
   @Override
   public int[] rawData() {
 
-    return data.elements();
+    return Arrays.copyOfRange(data.elements(), 0, data.size());
   }
 
   public IntegerColumn append(int[] vals) {
+
     data.addElements(data.size(), vals, 0, vals.length);
     return this;
   }

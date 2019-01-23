@@ -3,7 +3,6 @@ package com.lchclearnet.jandas.column;
 import com.lchclearnet.jandas.index.ColIndex;
 import com.lchclearnet.jandas.index.DoubleIndex;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Set;
@@ -14,7 +13,6 @@ import org.ejml.data.Matrix;
 import org.ejml.data.MatrixType;
 import org.ejml.ops.ConvertDMatrixStruct;
 import org.ejml.simple.SimpleBase;
-import org.ejml.simple.SimpleMatrix;
 
 public class DoubleColumn extends SimpleBase implements Column {
 
@@ -28,6 +26,7 @@ public class DoubleColumn extends SimpleBase implements Column {
   private static double GROWTH_BASE = 1.5;
 
   public DoubleColumn(String name, Boolean indexed, double[] values) {
+
     this.indexed = indexed;
     data = new DoubleArrayList();
     this.name = name;
@@ -37,14 +36,24 @@ public class DoubleColumn extends SimpleBase implements Column {
     buildMatrix();
   }
 
-  public DoubleColumn(DMatrixRBlock mat) {
+  public DoubleColumn(String name, Boolean indexed, DoubleArrayList values) {
 
+    this.indexed = indexed;
+    data = values;
+    this.name = name;
+    dataType = Double.class;
+    //    index = buildIndex(values);
+    buildMatrix();
+  }
+
+  public DoubleColumn(String name, Boolean indexed, DMatrixRBlock mat) {
+
+    this.indexed = indexed;
     data = new DoubleArrayList();
-    this.name = "";
+    this.name = name;
     dataType = Double.class;
     append(mat.data);
     index = buildIndex(mat.data);
-
     DMatrixRMaj a = new DMatrixRMaj(mat.getNumRows(), mat.getNumCols());
     ConvertDMatrixStruct.convert(mat, a);
     this.setMatrix(a);
@@ -58,11 +67,6 @@ public class DoubleColumn extends SimpleBase implements Column {
   public void rebuildIndex(double[] vals) {
 
     index = buildIndex(vals);
-  }
-
-  public void rebuildIndex() {
-
-    index = buildIndex(rawData());
   }
 
   public DoubleIndex buildIndex(double[] vals) {
@@ -88,7 +92,7 @@ public class DoubleColumn extends SimpleBase implements Column {
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
 
     try {
       append(parser.parseDouble(value));
@@ -124,8 +128,10 @@ public class DoubleColumn extends SimpleBase implements Column {
 
   @Override
   public void appendAll(AbstractCollection vals) {
-    data = (DoubleArrayList)vals;
+
+    data = (DoubleArrayList) vals;
   }
+
   @Override
   public DoubleArrayList newDataContainer(int size) {
 
@@ -186,13 +192,12 @@ public class DoubleColumn extends SimpleBase implements Column {
   @Override
   protected DoubleColumn createMatrix(int i, int i1, MatrixType matrixType) {
 
-    //    setMatrix(new DMatrixRMaj(i, i1));
-    return new DoubleColumn(this.name, indexed, new double[i]);
+    return new DoubleColumn(this.name, indexed, data.clone());
   }
 
   @Override
   protected DoubleColumn wrapMatrix(Matrix matrix) {
 
-    return new DoubleColumn(this.name, indexed, ((DMatrixRMaj) matrix).data);
+    return new DoubleColumn(this.name, indexed, (DMatrixRBlock) matrix);
   }
 }

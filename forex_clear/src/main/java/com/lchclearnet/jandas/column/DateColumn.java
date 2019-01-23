@@ -21,6 +21,14 @@ public class DateColumn extends AbstractColumn {
     dataType = Integer.class;
   }
 
+  public DateColumn(String name, Boolean indexed, ObjectArrayList<LocalDate> col) {
+
+    this.indexed = indexed;
+    this.name = name;
+    dataType = LocalDate.class;
+    appendAll(col);
+  }
+
   public DateColumn append(LocalDate val) {
 
     data.add(val);
@@ -60,12 +68,12 @@ public class DateColumn extends AbstractColumn {
   @Override
   public String getString(int row) {
 
-    return null;
+    return data.get(row).toString();
   }
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
 
     try {
       append((LocalDate) parser.parse(value));

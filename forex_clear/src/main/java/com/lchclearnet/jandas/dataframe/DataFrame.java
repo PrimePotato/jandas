@@ -15,9 +15,26 @@ import java.util.stream.Collectors;
 
 public class DataFrame implements Iterable<Record> {
 
-  List<Column> columns;
-  List<String> headers;
-  String name;
+  public List<Column> columns;
+  public List<String> headers;
+  public String name;
+
+  public DataFrame(String name, List<Column> cols) {
+
+    this.name = name;
+    columns = cols;
+    headers = cols.stream().map(Column::name).collect(Collectors.toList());
+  }
+
+  public boolean wellFormed() {
+
+    for (Column c : columns) {
+      if (rowCount() != c.size()) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   public int columnCount() {
 
@@ -39,21 +56,23 @@ public class DataFrame implements Iterable<Record> {
     return columns.get(0).size();
   }
 
-  public DataFrame(String name, List<Column> cols) {
+  public void addColumn(Column col) {
 
-    this.name = name;
-    columns = cols;
-    headers = cols.stream().map(x -> x.name()).collect(Collectors.toList());
+    columns.add(col);
+    headers.add(col.name());
   }
 
   public DataFrame select(String name, String... colNames) {
 
     List<String> cols = Arrays.stream(colNames).collect(Collectors.toList());
-
     return new DataFrame(this.name, getColumns(cols, Column.class));
   }
 
   public String getString(int row, int col) {
+
+    if (column(col).getString(row) == null) {
+      System.out.println("bvob");
+    }
 
     return column(col).getString(row);
   }
@@ -101,10 +120,9 @@ public class DataFrame implements Iterable<Record> {
     return column(headers.indexOf(name));
   }
 
-
   <T extends Column> T getColumn(String name, Class<T> tClass) {
 
-    return tClass.cast(column(headers.indexOf(name)));
+    return tClass.cast(column(name));
   }
 
   <T extends Column> List<T> getColumns(List<String> names, Class<T> tClass) {
@@ -112,7 +130,7 @@ public class DataFrame implements Iterable<Record> {
     return names.stream().map(x -> getColumn(x, tClass)).collect(Collectors.toList());
   }
 
-  Map<String, Int2DoubleOpenHashMap> groupBy(List<String> grpCols, List<String> aggCols) {
+  public Map<String, Int2DoubleOpenHashMap> groupBy(List<String> grpCols, List<String> aggCols) {
 
     List<Column> gCols = getColumns(grpCols, Column.class);
     List<DoubleColumn> aCols = getColumns(aggCols, DoubleColumn.class);
@@ -121,7 +139,6 @@ public class DataFrame implements Iterable<Record> {
     for (DoubleColumn dc : aCols) {
       results.put(dc.name, mi.aggregateDouble(dc.rawData(), DoubleAggregateFunc.SUM));
     }
-
     return results;
   }
 
@@ -148,7 +165,7 @@ public class DataFrame implements Iterable<Record> {
     return new DataFrame("Joined" + name, joinCols);
   }
 
-  DataFrame quickJoin(List<String> joinHeaders, DataFrame other) {
+  public DataFrame quickJoin(List<String> joinHeaders, DataFrame other) {
     // Optomised 1 to many inner join
     List<Column> thisCols = getColumns(joinHeaders, Column.class);
     MetaIndex thisMi = buildMetaIndex(thisCols);
@@ -158,14 +175,14 @@ public class DataFrame implements Iterable<Record> {
     return resolveJoin(qjAry, this, other);
   }
 
-  public Optional<Record> matchFirst(String colName, Object value){
+  public Optional<Record> matchFirst(String colName, Object value) {
 
-      Column col = column(colName);
-      col.index();
-      return Optional.of(new Record(this));
+    Column col = column(colName);
+    col.index();
+    return Optional.of(new Record(this));
   }
 
-    @Override
+  @Override
   public Iterator<Record> iterator() {
 
     return new Iterator<Record>() {

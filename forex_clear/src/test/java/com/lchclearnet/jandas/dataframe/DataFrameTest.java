@@ -90,7 +90,6 @@ public class DataFrameTest {
     List<String> jhs = new ArrayList<String>() {{
       add("str");
     }};
-    //    List<Column> cols1 = df1.getColumns(jhs, Column.class);
 
     List<Column> cols2 = df2.getColumns(jhs, Column.class);
 

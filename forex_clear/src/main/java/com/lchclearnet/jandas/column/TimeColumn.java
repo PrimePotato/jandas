@@ -21,6 +21,14 @@ public class TimeColumn extends AbstractColumn {
     dataType = LocalTime.class; //TODO: makes this the golden source in construction calls
   }
 
+  public TimeColumn(String name, Boolean indexed, ObjectArrayList<LocalTime> values) {
+
+    this.indexed = indexed;
+    this.name = name;
+    dataType = LocalTime.class; //TODO: makes this the golden source in construction calls
+    appendAll(values);
+  }
+
   public TimeColumn append(LocalTime val) {
 
     data.add(val);
@@ -65,7 +73,7 @@ public class TimeColumn extends AbstractColumn {
 
   @Override
   public void appendString(String value,
-      com.lchclearnet.jandas.column.parsers.AbstractParser<?> parser) {
+      com.lchclearnet.jandas.io.parsers.AbstractParser<?> parser) {
 
     try {
       append((LocalTime) parser.parse(value));
