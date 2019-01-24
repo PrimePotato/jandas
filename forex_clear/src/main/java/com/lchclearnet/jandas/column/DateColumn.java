@@ -43,8 +43,9 @@ public class DateColumn extends AbstractColumn {
   public LocalDate[] getRows(int[] rows) {
 
     LocalDate[] res = new LocalDate[rows.length];
+    LocalDate[] elm = data.elements();
     for (int i = 0; i < rows.length; i++) {
-      res[i] = getObject(rows[i]);
+      res[i] = elm[rows[i]];
     }
     return res;
   }

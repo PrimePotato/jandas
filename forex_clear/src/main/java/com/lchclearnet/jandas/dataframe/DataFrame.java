@@ -156,17 +156,17 @@ public class DataFrame implements Iterable<Record> {
 
     List<Column> joinCols = new ArrayList<>();
     for (Column c : dfLeft.columns) {
-      joinCols.add(c.subColumn(c.name() + "subL", left));
+      joinCols.add(c.subColumn(c.name() + "L", left));
     }
     for (Column c : dfRight.columns) {
-      joinCols.add(c.subColumn(c.name() + "subR", right));
+      joinCols.add(c.subColumn(c.name() + "R", right));
     }
 
     return new DataFrame("Joined" + name, joinCols);
   }
 
   public DataFrame quickJoin(List<String> joinHeaders, DataFrame other) {
-    // Optomised 1 to many inner join
+
     List<Column> thisCols = getColumns(joinHeaders, Column.class);
     MetaIndex thisMi = buildMetaIndex(thisCols);
     List<Column> otherCols = other.getColumns(joinHeaders, Column.class);

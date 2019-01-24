@@ -61,8 +61,8 @@ public class JandasTest {
   public void quickJoin(){
     DataFrame df =
         Jandas.readCsv("Z:\\data\\FxReports\\20181115\\20181115_2359_EOD_22017_FXMD0007.csv");
-    DataFrame dfJoin = df.quickJoin(Arrays.asList("CurrencyPair"), dataFrame);
-    dfJoin.print(20);
+    DataFrame dfJoin = dataFrame.quickJoin(Arrays.asList("CurrencyPair"), df);
+//    dfJoin.print(20);
   }
 
 }

@@ -7,46 +7,28 @@ public class IndexUtils {
 
   public static int[][] quickJoin(MetaIndex miLeft, MetaIndex miRight) {
 
+
+    if (!miLeft.unique()) {
+      throw new RuntimeException("Left index must be unique");
+    }
+
     if (miLeft.colCount != miRight.colCount) {
       throw new RuntimeException("Indicies different dimension");
     }
 
-    if (!miLeft.unique() && !miRight.unique()) {
-      throw new RuntimeException("At least one index must be unique");
-    }
+    int[][] joinedRowMap = new int[3][miRight.rowCount];
 
-    if (miLeft.index.positions().keySet().size() != miRight.index.positions().keySet().size()) {
-      throw new RuntimeException("Unique elements mismatch");
-    }
-    ;
-
-    MetaIndex miUnique;
-    MetaIndex miMany;
-    int leftCol = 2;
-    int rightCol = 1;
-
-    if (miLeft.unique()) {
-      miUnique = miLeft;
-      miMany = miRight;
-    } else {
-      leftCol = 1;
-      rightCol = 2;
-      miUnique = miRight;
-      miMany = miLeft;
-    }
-
-    int[][] joinedRowMap = new int[3][miMany.rowCount];
-
-    int[] rw = miMany.index.rowMap();
-    Int2ObjectArrayMap<IntArrayList> pos = miUnique.index.positions();
-    for (int i = 0; i < miMany.rowCount; i++) {
+    int[] rw = miRight.index.rowMap();
+    Int2ObjectArrayMap<IntArrayList> pos = miLeft.index.positions();
+    for (int i = 0; i < miRight.rowCount; i++) {
       joinedRowMap[0][i] = rw[i];
-      joinedRowMap[leftCol][i] = i;
-      joinedRowMap[rightCol][i] = pos.get(rw[i]).getInt(0);
+      joinedRowMap[1][i] = pos.get(rw[i]).getInt(0);
+      joinedRowMap[2][i] = i;
     }
 
     return joinedRowMap;
   }
+
 
 }
 
