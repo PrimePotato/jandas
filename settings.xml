@@ -13,7 +13,7 @@
         <server>
             <id>oss.sonatype.org</id>
             <username>PrimePotato</username>
-            <password>C0ntent123</password>
+            <password>123456789</password>
         </server>
     </servers>
 </settings>
