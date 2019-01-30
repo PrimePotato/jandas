@@ -4,16 +4,6 @@
     <list default="true" id="6b0b8336-d0bd-4fc8-84d1-38d0234b137c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleN.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleN.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="384">
+              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -99,7 +89,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548863887311" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548864112964" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -159,7 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1548851104489</updated>
       <workItem from="1548861000789" duration="1930000" />
-      <workItem from="1548862962798" duration="918000" />
+      <workItem from="1548862962798" duration="1141000" />
     </task>
     <servers />
   </component>
@@ -184,7 +174,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2848000" />
+    <option name="totallyTimeSpent" value="3071000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -358,8 +348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="384">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
         </state>
       </provider>
     </entry>
