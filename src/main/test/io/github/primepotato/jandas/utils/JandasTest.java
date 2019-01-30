@@ -45,9 +45,6 @@ public class JandasTest {
 
     eq.process("m = a-b");
 
-    mid.name = "NewMid";
-    dataFrame.addColumn(mid);
-    dataFrame.print(22);
   }
 
   @Test

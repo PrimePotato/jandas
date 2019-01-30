@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2014-2017 Xavier Witdouck
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,32 +24,43 @@ import java.util.Objects;
  *
  * <p>This is open source software released under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a></p>
  *
- * @author  Xavier Witdouck
+ * @author Xavier Witdouck
  */
 public interface Tuple extends Comparable<Tuple>, Serializable {
 
     /**
      * Returns a newly created tuple from elements of the array
-     * @param items    the input array to sample from
-     * @return          the newly created tuple
+     *
+     * @param items the input array to sample from
+     * @return the newly created tuple
      */
     static Tuple of(Object... items) {
         switch (items.length) {
-            case 0:     return TupleN.empty();
-            case 1:     return new Tuple1(items[0]);
-            case 2:     return new Tuple2(items[0], items[1]);
-            case 3:     return new Tuple3(items[0], items[1], items[2]);
-            case 4:     return new Tuple4(items[0], items[1], items[2], items[3]);
-            case 5:     return new Tuple5(items[0], items[1], items[2], items[3], items[4]);
-            case 6:     return new Tuple6(items[0], items[1], items[2], items[3], items[4], items[5]);
-            case 7:     return new Tuple7(items[0], items[1], items[2], items[3], items[4], items[5], items[6]);
-            default:    return new TupleN(items);
+            case 0:
+                return TupleN.empty();
+            case 1:
+                return new Tuple1(items[0]);
+            case 2:
+                return new Tuple2(items[0], items[1]);
+            case 3:
+                return new Tuple3(items[0], items[1], items[2]);
+            case 4:
+                return new Tuple4(items[0], items[1], items[2], items[3]);
+            case 5:
+                return new Tuple5(items[0], items[1], items[2], items[3], items[4]);
+            case 6:
+                return new Tuple6(items[0], items[1], items[2], items[3], items[4], items[5]);
+            case 7:
+                return new Tuple7(items[0], items[1], items[2], items[3], items[4], items[5], items[6]);
+            default:
+                return new TupleN(items);
         }
     }
 
     /**
      * Returns an empty tuple with size == 0
-     * @return  an empty tuple of size == 0
+     *
+     * @return an empty tuple of size == 0
      */
     static Tuple empty() {
         return TupleN.empty();
@@ -57,22 +68,25 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
     /**
      * Returns the number of values in this tuple
-     * @return  the number of values in this tuple
+     *
+     * @return the number of values in this tuple
      */
     int size();
 
     /**
      * Returns the item for the index specified
-     * @param index     the index of element
-     * @return          the element value
+     *
+     * @param index the index of element
+     * @return the element value
      */
     <T> T item(int index);
 
     /**
      * Returns a filter of this tuple based on the offset and rowCount
-     * @param offset    the offset value for start
-     * @param length    the number of items to include
-     * @return          the Tuple selection
+     *
+     * @param offset the offset value for start
+     * @param length the number of items to include
+     * @return the Tuple selection
      */
     Tuple filter(int offset, int length);
 
@@ -82,14 +96,14 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
     default int compareTo(Tuple other) {
         try {
             final int length = Math.max(size(), other.size());
-            for (int i=0; i<length; ++i) {
+            for (int i = 0; i < length; ++i) {
                 final Object v1 = i < this.size() ? item(i) : null;
                 final Object v2 = i < other.size() ? other.item(i) : null;
                 if (v1 != v2) {
-                    if      (v1 == null) return -1;
+                    if (v1 == null) return -1;
                     else if (v2 == null) return 1;
                     else if (v1.getClass() == v2.getClass() && v1 instanceof Comparable) {
-                        final int result = ((Comparable)v1).compareTo(v2);
+                        final int result = ((Comparable) v1).compareTo(v2);
                         if (result != 0) {
                             return result;
                         }
@@ -119,7 +133,8 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
-         * @param hashCode  the hash code for this entity
+         *
+         * @param hashCode the hash code for this entity
          */
         TupleBase(int hashCode) {
             this.hashCode = hashCode;
@@ -139,7 +154,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 throw new IllegalArgumentException("Offset and rowCount exceeds bounds of Tuple: " + offset + " rowCount: " + length);
             } else {
                 final Object[] itens = new Object[length];
-                for (int i=0; i<length; ++i) {
+                for (int i = 0; i < length; ++i) {
                     itens[i] = item(offset + i);
                 }
                 return Tuple.of(itens);
@@ -150,10 +165,10 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         public String toString() {
             final StringBuilder text = new StringBuilder();
             text.append("(");
-            for (int i=0; i<size(); ++i) {
+            for (int i = 0; i < size(); ++i) {
                 final Object item = item(i);
                 text.append(item);
-                if (i < size()-1) {
+                if (i < size() - 1) {
                     text.append(",");
                 }
             }
@@ -169,9 +184,9 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @Override
         public final boolean equals(Object other) {
             final int size = this.size();
-            if (other instanceof Tuple && ((Tuple)other).size() == size) {
-                final Tuple tuple = (Tuple)other;
-                for (int i=0; i<size; ++i) {
+            if (other instanceof Tuple && ((Tuple) other).size() == size) {
+                final Tuple tuple = (Tuple) other;
+                for (int i = 0; i < size; ++i) {
                     final Object v1 = item(i);
                     final Object v2 = tuple.item(i);
                     if (!Objects.equals(v1, v2)) {
@@ -194,7 +209,8 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
-         * @param item0     the single value for this Tuple
+         *
+         * @param item0 the single value for this Tuple
          */
         Tuple1(Object item0) {
             super(item0 != null ? item0.hashCode() : 1);
@@ -210,8 +226,10 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0:     return (T) item0;
-                default:    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 1");
+                case 0:
+                    return (T) item0;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 1");
             }
         }
     }
@@ -227,13 +245,14 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param item0 the first item
          * @param item1 the second item
          */
-         Tuple2(Object item0, Object item1) {
-             super(Objects.hash(item0, item1));
-             this.item0 = item0;
-             this.item1 = item1;
+        Tuple2(Object item0, Object item1) {
+            super(Objects.hash(item0, item1));
+            this.item0 = item0;
+            this.item1 = item1;
         }
 
         @Override
@@ -245,9 +264,12 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0: return (T) item0;
-                case 1: return (T) item1;
-                default: throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 2");
+                case 0:
+                    return (T) item0;
+                case 1:
+                    return (T) item1;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 2");
             }
         }
     }
@@ -264,6 +286,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param item0 the first item
          * @param item1 the second item
          * @param item2 the third item
@@ -284,10 +307,14 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0: return (T) item0;
-                case 1: return (T) item1;
-                case 2: return (T) item2;
-                default: throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 3");
+                case 0:
+                    return (T) item0;
+                case 1:
+                    return (T) item1;
+                case 2:
+                    return (T) item2;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 3");
             }
         }
     }
@@ -305,6 +332,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param item0 the first item
          * @param item1 the second item
          * @param item2 the third item
@@ -327,11 +355,16 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0: return (T) item0;
-                case 1: return (T) item1;
-                case 2: return (T) item2;
-                case 3: return (T) item3;
-                default: throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 4");
+                case 0:
+                    return (T) item0;
+                case 1:
+                    return (T) item1;
+                case 2:
+                    return (T) item2;
+                case 3:
+                    return (T) item3;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 4");
             }
         }
     }
@@ -350,6 +383,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param item0 the first item
          * @param item1 the second item
          * @param item2 the third item
@@ -374,16 +408,21 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0: return (T) item0;
-                case 1: return (T) item1;
-                case 2: return (T) item2;
-                case 3: return (T) item3;
-                case 4: return (T) item4;
-                default: throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 4");
+                case 0:
+                    return (T) item0;
+                case 1:
+                    return (T) item1;
+                case 2:
+                    return (T) item2;
+                case 3:
+                    return (T) item3;
+                case 4:
+                    return (T) item4;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 4");
             }
         }
     }
-
 
 
     /**
@@ -400,6 +439,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param item0 the first item
          * @param item1 the second item
          * @param item2 the third item
@@ -426,13 +466,20 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0: return (T) item0;
-                case 1: return (T) item1;
-                case 2: return (T) item2;
-                case 3: return (T) item3;
-                case 4: return (T) item4;
-                case 5: return (T) item5;
-                default: throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 6");
+                case 0:
+                    return (T) item0;
+                case 1:
+                    return (T) item1;
+                case 2:
+                    return (T) item2;
+                case 3:
+                    return (T) item3;
+                case 4:
+                    return (T) item4;
+                case 5:
+                    return (T) item5;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 6");
             }
         }
     }
@@ -453,6 +500,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param item0 the first item
          * @param item1 the second item
          * @param item2 the third item
@@ -481,14 +529,22 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
             switch (index) {
-                case 0: return (T) item0;
-                case 1: return (T) item1;
-                case 2: return (T) item2;
-                case 3: return (T) item3;
-                case 4: return (T) item4;
-                case 5: return (T) item5;
-                case 6: return (T) item6;
-                default: throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 6");
+                case 0:
+                    return (T) item0;
+                case 1:
+                    return (T) item1;
+                case 2:
+                    return (T) item2;
+                case 3:
+                    return (T) item3;
+                case 4:
+                    return (T) item4;
+                case 5:
+                    return (T) item5;
+                case 6:
+                    return (T) item6;
+                default:
+                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 6");
             }
         }
     }
@@ -507,6 +563,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Constructor
+         *
          * @param items the items for this tuple
          */
         TupleN(Object... items) {
@@ -516,7 +573,8 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
         /**
          * Returns a reference to the empty Tuple
-         * @return  the empty Tuple
+         *
+         * @return the empty Tuple
          */
         static Tuple empty() {
             return empty;
@@ -530,9 +588,10 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
         @Override
         @SuppressWarnings("unchecked")
         public final <T> T item(int index) {
-            return (T)items[index];
+            return (T) items[index];
         }
     }
 
 
 }
+

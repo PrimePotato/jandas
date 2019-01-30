@@ -3,7 +3,80 @@
   <component name="ChangeListManager">
     <list default="true" id="6b0b8336-d0bd-4fc8-84d1-38d0234b137c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/utils/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/utils/Tuple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/utils/JandasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/utils/JandasTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/AbstractColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/AbstractColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/Column.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/Column.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/DateColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/DateColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/DoubleColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/DoubleColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/EnumColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/EnumColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/IntColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/IntColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/IntegerColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/IntegerColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/StringColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/StringColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/TimeColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/TimeColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/DataFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/DataFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/DataFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/DataFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/Record.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/ColIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/ColIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/DateIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/DateIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/DoubleIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/DoubleIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IndexUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IndexUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IntArrayListIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IntArrayListIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IntIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IntIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IntegerIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/IntegerIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/MetaIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/MetaIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/ObjectIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/ObjectIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/StringIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/StringIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/ColumnCellException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/ColumnCellException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/CsvReader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/CsvReader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/CsvReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/CsvReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/CsvReaderLowMem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/CsvReaderLowMem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/AbstractParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/AbstractParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DateParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DateParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DateTimeParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DateTimeParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DoubleParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DoubleParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/EnumParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/EnumParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/IntParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/IntParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/LongParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/LongParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/StringParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/StringParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/TimeParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/TimeParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DataFramePrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DataFramePrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleFunc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleFunc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleMatrixList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleMatrixList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Jandas.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Jandas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserColumnData$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserColumnData$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserColumnData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserColumnData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserDataContainer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserDataContainer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserDataContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/ParserDataContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$Tuple7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleN.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple$TupleN.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Tuple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/column/ColumnTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/column/ColumnTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/dataframe/DataFrameTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/index/DateIndexTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/index/DateIndexTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/index/DoubleIndexTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/index/DoubleIndexTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/index/IntIndexTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/index/IntIndexTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/io/CsvReaderLowMemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/io/CsvReaderLowMemTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/io/CsvReaderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/io/CsvReaderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/utils/DoubleMatrixListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/utils/DoubleMatrixListTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/utils/JandasTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/utils/JandasTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/utils/ParserColumnDataTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/io/github/primepotato/jandas/utils/ParserColumnDataTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,12 +86,132 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+            <state relative-caret-position="240">
+              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/io/CsvReaderLowMemTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/utils/JandasTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/utils/Tuple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="596" lean-forward="true" selection-start-line="596" selection-end-line="596" />
+              <folding>
+                <element signature="docComment;class#Tuple#0" />
+                <element signature="docComment;method#of#0;class#Tuple#0" />
+                <element signature="method#of#0;class#Tuple#0" />
+                <element signature="e#1290#1979#0" />
+                <element signature="docComment;method#empty#0;class#Tuple#0" />
+                <element signature="docComment;method#size#0;class#Tuple#0" />
+                <element signature="docComment;method#item#0;class#Tuple#0" />
+                <element signature="docComment;method#filter#0;class#Tuple#0" />
+                <element signature="e#2755#2764#0" />
+                <element signature="method#compareTo#0;class#Tuple#0" />
+                <element signature="e#2853#3918#0" />
+                <element signature="e#2959#3886#1" />
+                <element signature="e#3134#3872#1" />
+                <element signature="e#3328#3538#1" />
+                <element signature="e#3446#3516#1" />
+                <element signature="e#3544#3854#1" />
+                <element signature="e#3762#3832#1" />
+                <element signature="e#3940#4077#0" />
+                <element signature="docComment;class#TupleBase#0;class#Tuple#0" />
+                <element signature="class#TupleBase#0;class#Tuple#0" />
+                <element signature="docComment;method#TupleBase#0;class#TupleBase#0;class#Tuple#0" />
+                <element signature="method#filter#0;class#TupleBase#0;class#Tuple#0" />
+                <element signature="e#4537#4631#1" />
+                <element signature="e#4653#4749#1" />
+                <element signature="e#4772#4825#1" />
+                <element signature="e#4868#4912#1" />
+                <element signature="e#4948#5098#1" />
+                <element signature="e#5104#5332#1" />
+                <element signature="e#5210#5278#1" />
+                <element signature="method#toString#0;class#TupleBase#0;class#Tuple#0" />
+                <element signature="e#5528#5715#1" />
+                <element signature="e#5644#5701#1" />
+                <element signature="method#equals#0;class#TupleBase#0;class#Tuple#0" />
+                <element signature="e#6074#6442#1" />
+                <element signature="e#6169#6399#1" />
+                <element signature="e#6320#6381#1" />
+                <element signature="docComment;class#Tuple1#0;class#Tuple#0" />
+                <element signature="class#Tuple1#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple1#0;class#Tuple1#0;class#Tuple#0" />
+                <element signature="method#Tuple1#0;class#Tuple1#0;class#Tuple#0" />
+                <element signature="e#6951#6960#0" />
+                <element signature="method#item#0;class#Tuple1#0;class#Tuple#0" />
+                <element signature="e#7072#7258#0" />
+                <element signature="docComment;class#Tuple2#0;class#Tuple#0" />
+                <element signature="class#Tuple2#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple2#0;class#Tuple2#0;class#Tuple#0" />
+                <element signature="method#Tuple2#0;class#Tuple2#0;class#Tuple#0" />
+                <element signature="e#7831#7840#0" />
+                <element signature="method#item#0;class#Tuple2#0;class#Tuple#0" />
+                <element signature="e#7952#8173#0" />
+                <element signature="docComment;class#Tuple3#0;class#Tuple#0" />
+                <element signature="class#Tuple3#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple3#0;class#Tuple3#0;class#Tuple#0" />
+                <element signature="method#Tuple3#0;class#Tuple3#0;class#Tuple#0" />
+                <element signature="e#8864#8873#0" />
+                <element signature="method#item#0;class#Tuple3#0;class#Tuple#0" />
+                <element signature="e#8985#9248#0" />
+                <element signature="docComment;class#Tuple4#0;class#Tuple#0" />
+                <element signature="class#Tuple4#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple4#0;class#Tuple4#0;class#Tuple#0" />
+                <element signature="method#Tuple4#0;class#Tuple4#0;class#Tuple#0" />
+                <element signature="e#10062#10071#0" />
+                <element signature="method#item#0;class#Tuple4#0;class#Tuple#0" />
+                <element signature="e#10183#10488#0" />
+                <element signature="docComment;class#Tuple5#0;class#Tuple#0" />
+                <element signature="class#Tuple5#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple5#0;class#Tuple5#0;class#Tuple#0" />
+                <element signature="method#Tuple5#0;class#Tuple5#0;class#Tuple#0" />
+                <element signature="e#11424#11433#0" />
+                <element signature="method#item#0;class#Tuple5#0;class#Tuple#0" />
+                <element signature="e#11545#11892#0" />
+                <element signature="docComment;class#Tuple6#0;class#Tuple#0" />
+                <element signature="class#Tuple6#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple6#0;class#Tuple6#0;class#Tuple#0" />
+                <element signature="method#Tuple6#0;class#Tuple6#0;class#Tuple#0" />
+                <element signature="e#12951#12960#0" />
+                <element signature="method#item#0;class#Tuple6#0;class#Tuple#0" />
+                <element signature="e#13072#13461#0" />
+                <element signature="docComment;class#Tuple7#0;class#Tuple#0" />
+                <element signature="class#Tuple7#0;class#Tuple#0" />
+                <element signature="docComment;method#Tuple7#0;class#Tuple7#0;class#Tuple#0" />
+                <element signature="method#Tuple7#0;class#Tuple7#0;class#Tuple#0" />
+                <element signature="e#14641#14650#0" />
+                <element signature="method#item#0;class#Tuple7#0;class#Tuple#0" />
+                <element signature="e#14762#15193#0" />
+                <element signature="docComment;class#TupleN#0;class#Tuple#0" />
+                <element signature="class#TupleN#0;class#Tuple#0" />
+                <element signature="docComment;method#TupleN#0;class#TupleN#0;class#Tuple#0" />
+                <element signature="method#TupleN#0;class#TupleN#0;class#Tuple#0" />
+                <element signature="docComment;method#empty#0;class#TupleN#0;class#Tuple#0" />
+                <element signature="e#15971#15980#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,6 +235,8 @@
       <list>
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/utils/JandasTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/utils/Tuple.java" />
       </list>
     </option>
   </component>
@@ -64,14 +259,54 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -82,7 +317,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548862488368" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548863221474" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -99,6 +334,38 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="JUnit.All in jandas">
+    <configuration name="All in jandas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jandas" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JandasTest.columnPlus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jandas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.primepotato.jandas.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.primepotato.jandas.utils" />
+      <option name="MAIN_CLASS_NAME" value="io.github.primepotato.jandas.utils.JandasTest" />
+      <option name="METHOD_NAME" value="columnPlus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in jandas" />
+        <item itemvalue="JUnit.JandasTest.columnPlus" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -109,53 +376,73 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548851104489</updated>
-      <workItem from="1548861000789" duration="1472000" />
+      <workItem from="1548861000789" duration="1930000" />
+      <workItem from="1548862962798" duration="256000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_jandas - 2019.01.30 at 15h 43m 17s.xml">
+      <configuration name="All in jandas" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JandasTest_columnPlus - 2019.01.30 at 15h 43m 30s.xml">
+      <configuration name="JandasTest.columnPlus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JandasTest_columnPlus - 2019.01.30 at 15h 43m 57s.xml">
+      <configuration name="JandasTest.columnPlus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_jandas - 2019.01.30 at 15h 44m 22s.xml">
+      <configuration name="All in jandas" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1472000" />
+    <option name="totallyTimeSpent" value="2186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.32908705" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32908705" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32908705" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32908705" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32908705" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/settings.xml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/settings.xml" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -164,10 +451,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/io/CsvReaderLowMemTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="224">
+          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/io/github/primepotato/jandas/utils/JandasTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/utils/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="596" lean-forward="true" selection-start-line="596" selection-end-line="596" />
+          <folding>
+            <element signature="docComment;class#Tuple#0" />
+            <element signature="docComment;method#of#0;class#Tuple#0" />
+            <element signature="method#of#0;class#Tuple#0" />
+            <element signature="e#1290#1979#0" />
+            <element signature="docComment;method#empty#0;class#Tuple#0" />
+            <element signature="docComment;method#size#0;class#Tuple#0" />
+            <element signature="docComment;method#item#0;class#Tuple#0" />
+            <element signature="docComment;method#filter#0;class#Tuple#0" />
+            <element signature="e#2755#2764#0" />
+            <element signature="method#compareTo#0;class#Tuple#0" />
+            <element signature="e#2853#3918#0" />
+            <element signature="e#2959#3886#1" />
+            <element signature="e#3134#3872#1" />
+            <element signature="e#3328#3538#1" />
+            <element signature="e#3446#3516#1" />
+            <element signature="e#3544#3854#1" />
+            <element signature="e#3762#3832#1" />
+            <element signature="e#3940#4077#0" />
+            <element signature="docComment;class#TupleBase#0;class#Tuple#0" />
+            <element signature="class#TupleBase#0;class#Tuple#0" />
+            <element signature="docComment;method#TupleBase#0;class#TupleBase#0;class#Tuple#0" />
+            <element signature="method#filter#0;class#TupleBase#0;class#Tuple#0" />
+            <element signature="e#4537#4631#1" />
+            <element signature="e#4653#4749#1" />
+            <element signature="e#4772#4825#1" />
+            <element signature="e#4868#4912#1" />
+            <element signature="e#4948#5098#1" />
+            <element signature="e#5104#5332#1" />
+            <element signature="e#5210#5278#1" />
+            <element signature="method#toString#0;class#TupleBase#0;class#Tuple#0" />
+            <element signature="e#5528#5715#1" />
+            <element signature="e#5644#5701#1" />
+            <element signature="method#equals#0;class#TupleBase#0;class#Tuple#0" />
+            <element signature="e#6074#6442#1" />
+            <element signature="e#6169#6399#1" />
+            <element signature="e#6320#6381#1" />
+            <element signature="docComment;class#Tuple1#0;class#Tuple#0" />
+            <element signature="class#Tuple1#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple1#0;class#Tuple1#0;class#Tuple#0" />
+            <element signature="method#Tuple1#0;class#Tuple1#0;class#Tuple#0" />
+            <element signature="e#6951#6960#0" />
+            <element signature="method#item#0;class#Tuple1#0;class#Tuple#0" />
+            <element signature="e#7072#7258#0" />
+            <element signature="docComment;class#Tuple2#0;class#Tuple#0" />
+            <element signature="class#Tuple2#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple2#0;class#Tuple2#0;class#Tuple#0" />
+            <element signature="method#Tuple2#0;class#Tuple2#0;class#Tuple#0" />
+            <element signature="e#7831#7840#0" />
+            <element signature="method#item#0;class#Tuple2#0;class#Tuple#0" />
+            <element signature="e#7952#8173#0" />
+            <element signature="docComment;class#Tuple3#0;class#Tuple#0" />
+            <element signature="class#Tuple3#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple3#0;class#Tuple3#0;class#Tuple#0" />
+            <element signature="method#Tuple3#0;class#Tuple3#0;class#Tuple#0" />
+            <element signature="e#8864#8873#0" />
+            <element signature="method#item#0;class#Tuple3#0;class#Tuple#0" />
+            <element signature="e#8985#9248#0" />
+            <element signature="docComment;class#Tuple4#0;class#Tuple#0" />
+            <element signature="class#Tuple4#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple4#0;class#Tuple4#0;class#Tuple#0" />
+            <element signature="method#Tuple4#0;class#Tuple4#0;class#Tuple#0" />
+            <element signature="e#10062#10071#0" />
+            <element signature="method#item#0;class#Tuple4#0;class#Tuple#0" />
+            <element signature="e#10183#10488#0" />
+            <element signature="docComment;class#Tuple5#0;class#Tuple#0" />
+            <element signature="class#Tuple5#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple5#0;class#Tuple5#0;class#Tuple#0" />
+            <element signature="method#Tuple5#0;class#Tuple5#0;class#Tuple#0" />
+            <element signature="e#11424#11433#0" />
+            <element signature="method#item#0;class#Tuple5#0;class#Tuple#0" />
+            <element signature="e#11545#11892#0" />
+            <element signature="docComment;class#Tuple6#0;class#Tuple#0" />
+            <element signature="class#Tuple6#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple6#0;class#Tuple6#0;class#Tuple#0" />
+            <element signature="method#Tuple6#0;class#Tuple6#0;class#Tuple#0" />
+            <element signature="e#12951#12960#0" />
+            <element signature="method#item#0;class#Tuple6#0;class#Tuple#0" />
+            <element signature="e#13072#13461#0" />
+            <element signature="docComment;class#Tuple7#0;class#Tuple#0" />
+            <element signature="class#Tuple7#0;class#Tuple#0" />
+            <element signature="docComment;method#Tuple7#0;class#Tuple7#0;class#Tuple#0" />
+            <element signature="method#Tuple7#0;class#Tuple7#0;class#Tuple#0" />
+            <element signature="e#14641#14650#0" />
+            <element signature="method#item#0;class#Tuple7#0;class#Tuple#0" />
+            <element signature="e#14762#15193#0" />
+            <element signature="docComment;class#TupleN#0;class#Tuple#0" />
+            <element signature="class#TupleN#0;class#Tuple#0" />
+            <element signature="docComment;method#TupleN#0;class#TupleN#0;class#Tuple#0" />
+            <element signature="method#TupleN#0;class#TupleN#0;class#Tuple#0" />
+            <element signature="docComment;method#empty#0;class#TupleN#0;class#Tuple#0" />
+            <element signature="e#15971#15980#0" />
+          </folding>
         </state>
       </provider>
     </entry>
