@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Specification-Title: FOREX-API
-Specification-Version: 5.0.0-BETA
-Implementation-Title: FOREX-API
-Implementation-Version: 5.0.0-BETA
-Implementation-Vendor-Id: LCH Forex Clear

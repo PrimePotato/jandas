@@ -1,0 +1,19 @@
+<settings>
+    <profiles>
+        <profile>
+            <id>jandas</id>
+            <properties>
+                <gpg.homedir>/m/</gpg.homedir>
+                <gpg.keyname>A25A001C</gpg.keyname>
+                <gpg.passphrase>London01</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
+    <servers>
+        <server>
+            <id>oss.sonatype.org</id>
+            <username>PrimePotato</username>
+            <password>C0ntent123</password>
+        </server>
+    </servers>
+</settings>
