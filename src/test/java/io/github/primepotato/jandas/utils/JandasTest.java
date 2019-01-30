@@ -18,7 +18,7 @@ public class JandasTest {
   public void setUp() {
 
     dataFrame =
-        Jandas.readCsv("Z:\\data\\FxReports\\20181115\\20181115_2359_EOD_22017_FXMD0001.csv");
+        Jandas.readCsv("src/test/resources/EG1.csv");
 
   }
 
@@ -27,7 +27,7 @@ public class JandasTest {
 
     DataFrame df;
 
-    df = Jandas.readCsv("Z:\\data\\FxReports\\20181115\\20181115_2359_EOD_22017_FXMD0007.csv");
+    df = Jandas.readCsv("src/test/resources/EG1.csv");
     assert (df.wellFormed());
     df.print(20);
 
@@ -57,17 +57,17 @@ public class JandasTest {
   @Test
   public void groupBy() {
 
-    DataFrame df =
-        Jandas.readCsv("Z:\\data\\FxReports\\20181115\\20181115_2359_EOD_22017_FXMD0007.csv");
-    Map<String, Int2DoubleOpenHashMap> grp =
-        df.groupBy(Arrays.asList("Scenario"), Arrays.asList("SpotRateShift_Core"));
-    System.out.print(grp);
+//    DataFrame df =
+//        Jandas.readCsv("src/test/resources/EG1.csv");
+//    Map<String, Int2DoubleOpenHashMap> grp =
+//        df.groupBy(Arrays.asList("Scenario"), Arrays.asList("SpotRateShift_Core"));
+//    System.out.print(grp);
   }
 
   @Test
   public void quickJoin(){
     DataFrame df =
-        Jandas.readCsv("Z:\\data\\FxReports\\20181115\\20181115_2359_EOD_22017_FXMD0007.csv");
+        Jandas.readCsv("src/test/resources/EG1.csv");
     DataFrame dfJoin = dataFrame.quickJoin(Arrays.asList("CurrencyPair"), df);
     dfJoin.print(20);
   }

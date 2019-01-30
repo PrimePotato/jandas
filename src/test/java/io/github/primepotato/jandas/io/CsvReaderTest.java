@@ -5,6 +5,8 @@ import io.github.primepotato.jandas.dataframe.DataFrame;
 import org.junit.Test;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class CsvReaderTest {
 
@@ -12,7 +14,7 @@ public class CsvReaderTest {
   public void parse(){
 
     CsvReader cr = new CsvReader();
-    File f = new File("Z:/data/FxReports/20181115/20181115_2359_EOD_22017_FXMD0001.csv");
+    File f = new File("src/test/resources/EG1.csv");
 
     cr.parser.parse(f);
     DataFrame df = cr.dataFrame;
