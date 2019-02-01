@@ -42,7 +42,7 @@ public class DataFrameTest {
 
     df1 = new DataFrame("1", cols);
 
-    String[] str2 = {"a", "b", "c","a", "b", "c","a", "b", "c"};
+    String[] str2 = {"a", "b", "c","a", "b", "c","a", "b", "c","a", "b", "c"};
     sc2 = new StringColumn("str", true,str2);
 
     int[] data3 = {55, 25, 35, 455, 2, 3, 4, 2, 4, 23, 423, 234};

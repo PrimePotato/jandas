@@ -36,7 +36,7 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     public DoubleColumn(String name, Boolean indexed, DoubleArrayList values) {
-        this(name, indexed, values.elements());
+        this(name, indexed, values.toArray(new double[0]));
     }
 
     public DoubleColumn(String name, Boolean indexed, DMatrixRBlock mat) {
@@ -46,6 +46,10 @@ public class DoubleColumn extends SimpleBase implements Column {
     public void rebuildIndex(double[] vals) {
 
         index = buildIndex(vals);
+    }
+
+    private double[] DoubleArrayListToArray(DoubleArrayList dal){
+        return dal.toArray(new double[0]);
     }
 
     public DoubleIndex buildIndex(double[] vals) {
@@ -107,8 +111,8 @@ public class DoubleColumn extends SimpleBase implements Column {
     @Override
     public void appendAll(AbstractCollection vals) {
         DoubleArrayList d = (DoubleArrayList) vals;
-        double [] out = new double[d.size()];
-        d.getElements(0,out,0,d.size());
+        double [] out = new double[d.size()-1];
+        d.getElements(0,out,0, d.size()-1);
         data = new DMatrixRMaj(out);
     }
 
@@ -140,7 +144,7 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     public Column append(double dbl) {
-        double[] d = new double[data.numRows];
+        double[] d = new double[data.numRows-1];
         double[] old = data.getData();
         System.arraycopy(old, 0, d, 0, old.length);
         d[data.numRows] = dbl;

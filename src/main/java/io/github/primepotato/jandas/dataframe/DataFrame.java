@@ -108,8 +108,11 @@ public class DataFrame implements Iterable<Record> {
   }
 
   public void print(int maxRows) {
-
-    System.out.println(toPrintString(maxRows));
+    if (wellFormed()) {
+      System.out.println(toPrintString(maxRows));
+    } else {
+      System.out.println("Cannot print non well formed data frame");
+    }
   }
 
   Column getColumn(String name) {
