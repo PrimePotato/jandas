@@ -9,17 +9,14 @@ import org.ejml.data.DMatrixRBlock;
 import org.ejml.data.DMatrixRMaj;
 import org.ejml.data.Matrix;
 import org.ejml.data.MatrixType;
-import org.ejml.ops.ConvertDMatrixStruct;
 import org.ejml.simple.SimpleBase;
 
 import java.util.AbstractCollection;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DoubleColumn extends SimpleBase implements Column {
 
-    //  private DoubleArrayList data;
     private DMatrixRMaj data;
 
     public ColIndex index;

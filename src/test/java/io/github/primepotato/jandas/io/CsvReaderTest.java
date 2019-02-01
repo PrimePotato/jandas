@@ -17,8 +17,8 @@ public class CsvReaderTest {
     cr.parser.parse(f);
     DataFrame df = cr.dataFrame;
 
-    DoubleColumn ask = (DoubleColumn)df.column("Ask");
-    DoubleColumn bid = (DoubleColumn)df.column("Bid");
+    DoubleColumn ask = df.column("Ask");
+    DoubleColumn bid = df.column("Bid");
     DoubleColumn mid = (DoubleColumn)ask.plus(bid).scale(0.5);
     mid.name = "midDouble";
     df.addColumn(mid);
