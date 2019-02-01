@@ -36,14 +36,17 @@ public class JandasTest {
   @Test
   public void columnPlus() {
 
-    DoubleColumn ask = (DoubleColumn) dataFrame.column("Ask");
-    DoubleColumn bid = (DoubleColumn) dataFrame.column("Bid");
-    DoubleColumn mid = new DoubleColumn("", true, new double[0]);
+    DoubleColumn ask = dataFrame.column("Ask");
+//    DoubleColumn bid = dataFrame.column("Bid");
+    DoubleColumn mid = (DoubleColumn)ask.scale(5);
+    mid.name = "Bob";
 
-    Equation eq = new Equation();
-    eq.alias(ask.getMatrix(), "a", bid.getMatrix(), "b", mid.getMatrix(), "m");
-
-    eq.process("m = a-b");
+    dataFrame.addColumn(mid);
+    dataFrame.print(20);
+//    Equation eq = new Equation();
+//    eq.alias(ask.getMatrix(), "a", bid.getMatrix(), "b", mid.getMatrix(), "m");
+//
+//    eq.process("m = a-b");
 
   }
 

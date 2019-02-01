@@ -79,14 +79,14 @@ public class DataFrame implements Iterable<Record> {
     return (T) column(c).getObject(r);
   }
 
-  public Column column(int idx) {
+  public <T extends Column> T column(int idx) {
 
-    return columns.get(idx);
+    return (T) columns.get(idx);
   }
 
-  public Column column(String colName) {
+  public <T extends Column> T column(String colName) {
 
-    return columns.get(headers.indexOf(colName));
+    return (T) columns.get(headers.indexOf(colName));
   }
 
   public Column column(int idx, Class<? extends Column> cls) {
