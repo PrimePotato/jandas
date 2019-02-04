@@ -24,8 +24,6 @@ public class DoubleColumn extends SimpleBase implements Column {
     public Class dataType;
     public Boolean indexed;
 
-    private static double GROWTH_BASE = 1.5;
-
     public DoubleColumn(String name, Boolean indexed, double[] values) {
 
         this.indexed = indexed;
@@ -46,10 +44,6 @@ public class DoubleColumn extends SimpleBase implements Column {
     public void rebuildIndex(double[] vals) {
 
         index = buildIndex(vals);
-    }
-
-    private double[] DoubleArrayListToArray(DoubleArrayList dal){
-        return dal.toArray(new double[0]);
     }
 
     public DoubleIndex buildIndex(double[] vals) {

@@ -54,10 +54,4 @@ public abstract class AbstractColumn implements Column {
     return t;
   }
 
-  public void implyType(){
-
-
-
-  }
-
 }
