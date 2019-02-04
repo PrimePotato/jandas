@@ -1,7 +1,5 @@
 package io.github.primepotato.jandas.index;
 
-import com.google.common.collect.Lists;
-import io.github.primepotato.jandas.utils.Tuple;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
