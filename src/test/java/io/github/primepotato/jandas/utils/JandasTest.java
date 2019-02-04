@@ -2,13 +2,12 @@ package io.github.primepotato.jandas.utils;
 
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
+import io.github.primepotato.jandas.io.DataFrameCsvWriter;
 import org.ejml.equation.Equation;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class JandasTest {
 
@@ -70,8 +69,14 @@ public class JandasTest {
     public void quickJoin() {
         DataFrame df =
                 Jandas.readCsv("src/test/resources/EG1.csv");
-        DataFrame dfJoin = dataFrame.quickJoin(Arrays.asList("CurrencyPair"), df);
+        DataFrame dfJoin = dataFrame.join(Arrays.asList("CurrencyPair"), df);
         dfJoin.print(20);
     }
 
+    @Test
+    public void toCsv() {
+        DataFrame df =
+                Jandas.readCsv("src/test/resources/EG1.csv");
+        DataFrameCsvWriter.toCsv(df, "src/test/resources/toCsvTest.csv");
+    }
 }

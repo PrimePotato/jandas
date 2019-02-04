@@ -46,6 +46,14 @@ public class Record implements Iterator<Record> {
     return rowNumber < dataFrame.rowCount() - 1;
   }
 
+  public String[] rowString(){
+    String [] rs = new String[dataFrame.columnCount()];
+    for (int i =0; i<dataFrame.columnCount(); ++i){
+      rs[i] = this.getString(i);
+    }
+    return rs;
+  }
+
   /**
    * Returns a list containing the names of each column in the row
    */

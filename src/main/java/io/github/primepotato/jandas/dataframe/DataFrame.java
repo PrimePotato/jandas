@@ -150,7 +150,6 @@ public class DataFrame implements Iterable<Record> {
 
   DataFrame resolveJoin(int[][] joinArray, DataFrame dfLeft, DataFrame dfRight) {
 
-    int[] idx = joinArray[0];
     int[] left = joinArray[1];
     int[] right = joinArray[2];
 
@@ -165,7 +164,7 @@ public class DataFrame implements Iterable<Record> {
     return new DataFrame("Joined" + name, joinCols);
   }
 
-  public DataFrame quickJoin(List<String> joinHeaders, DataFrame other) {
+  public DataFrame join(List<String> joinHeaders, DataFrame other) {
 
     List<Column> thisCols = getColumns(joinHeaders, Column.class);
     MetaIndex thisMi = buildMetaIndex(thisCols);

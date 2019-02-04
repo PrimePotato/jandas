@@ -18,6 +18,7 @@ public class DataFrameTest {
   IntegerColumn ic1, ic2, ic3, ic4;
   DoubleColumn dbl1, dbl2, dbl3, dbl4;
   StringColumn sc1, sc2;
+  List<Column> cols, cols2;
 
   @Before
   public void setUp() {
@@ -77,12 +78,12 @@ public class DataFrameTest {
   }
 
   @Test
-  public void quickJoin() {
+  public void join() {
 
     List<String> jhs = new ArrayList<String>() {{
       add("str");
     }};
-    DataFrame df = df1.quickJoin(jhs, df2);
+    DataFrame df = df1.join(jhs, df2);
     df.print(20);
   }
 
