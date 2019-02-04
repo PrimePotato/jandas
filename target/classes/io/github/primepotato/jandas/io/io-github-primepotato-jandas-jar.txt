@@ -1,0 +1,9 @@
+Build Number: d3cb92f
+Project Version: 0.1
+Build Date: 2019-02-04T16:13:31
+
+ColumnCellException.class: 2191
+CsvReader$1.class: 1040
+CsvReader.class: 11803
+CsvReaderLowMem.class: 4660
+DataFrameCsvWriter.class: 2293

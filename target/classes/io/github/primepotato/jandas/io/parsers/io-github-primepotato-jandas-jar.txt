@@ -1,0 +1,13 @@
+Build Number: d3cb92f
+Project Version: 0.1
+Build Date: 2019-02-04T16:13:31
+
+AbstractParser.class: 5166
+DateParser.class: 5333
+DateTimeParser.class: 5305
+DoubleParser.class: 1865
+EnumParser.class: 4059
+IntParser.class: 2174
+LongParser.class: 2168
+StringParser.class: 1462
+TimeParser.class: 5164

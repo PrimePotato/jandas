@@ -1,0 +1,13 @@
+Build Number: d3cb92f
+Project Version: 0.1
+Build Date: 2019-02-04T16:13:31
+
+ColIndex.class: 1188
+DateIndex.class: 1947
+DoubleIndex.class: 1986
+IndexUtils.class: 3122
+IntArrayListIndex.class: 2079
+IntegerIndex.class: 667
+IntIndex.class: 2214
+MetaIndex.class: 4843
+StringIndex.class: 1904

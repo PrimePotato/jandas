@@ -1,0 +1,12 @@
+Build Number: d3cb92f
+Project Version: 0.1
+Build Date: 2019-02-04T16:13:31
+
+AbstractColumn.class: 2965
+Column.class: 1121
+DateColumn.class: 6610
+DoubleColumn.class: 8326
+EnumColumn.class: 6891
+IntegerColumn.class: 4761
+StringColumn.class: 5476
+TimeColumn.class: 6331
