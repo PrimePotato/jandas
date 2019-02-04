@@ -75,8 +75,8 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
 
     /**
      * Returns the item for the index specified
-     *
      * @param index the index of element
+     * @param <T>
      * @return the element value
      */
     <T> T item(int index);
