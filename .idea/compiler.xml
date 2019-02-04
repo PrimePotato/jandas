@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="jandas" options="-Xlint:all" />
+      <module name="jandas" options="-Xlint" />
     </option>
   </component>
 </project>

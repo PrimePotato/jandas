@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.133" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.178" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2018.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,16 +61,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="column" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.074"/>
-  <testcase name="join" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.122"/>
-  <testcase name="columnCount" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.082"/>
-  <testcase name="print" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.123"/>
-  <testcase name="groupBy" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.113"/>
-  <testcase name="buildMetaIndex" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.094"/>
-  <testcase name="getColumn" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.09"/>
-  <testcase name="resolveJoin" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.059"/>
-  <testcase name="getString" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.057"/>
-  <testcase name="rowCount" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.048"/>
-  <testcase name="name" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.042"/>
-  <testcase name="getColumns" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.041"/>
+  <testcase name="column" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.15"/>
+  <testcase name="columnCount" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.106"/>
+  <testcase name="join" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.164"/>
+  <testcase name="name" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.169"/>
+  <testcase name="rowCount" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.085"/>
+  <testcase name="print" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.148"/>
+  <testcase name="groupBy" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.147"/>
+  <testcase name="buildMetaIndex" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.001"/>
+  <testcase name="getColumn" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.001"/>
+  <testcase name="getString" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0"/>
+  <testcase name="resolveJoin" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.001"/>
+  <testcase name="getColumns" classname="io.github.primepotato.jandas.dataframe.DataFrameTest" time="0.001"/>
 </testsuite>

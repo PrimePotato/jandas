@@ -23,7 +23,7 @@
           <target>1.8</target>
           <failOnWarning>false</failOnWarning>
           <compilerArgs>
-            <arg>-Xlint:all</arg>
+            <arg>-Xlint</arg>
           </compilerArgs>
         </configuration>
       </plugin>

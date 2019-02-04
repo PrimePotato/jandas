@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.011" tests="21" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.047" tests="21" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2018.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,25 +61,25 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="wrapMatrix" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="append" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="subColumn" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="unique" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="append1" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.001"/>
-  <testcase name="uniqueSet" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="buildIndex" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="firstValue" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.001"/>
-  <testcase name="getRows" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="name" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="size" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="index" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.001"/>
+  <testcase name="append1" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="uniqueSet" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.004"/>
+  <testcase name="unique" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.029"/>
+  <testcase name="index" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="newDataContainer" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="rebuildIndex" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="getDouble" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
-  <testcase name="getString" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.001"/>
+  <testcase name="subColumn" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="getString" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="rawData" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="appendString" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="createMatrix" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="appendAll" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="append" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.001"/>
+  <testcase name="wrapMatrix" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
   <testcase name="getObject" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="size" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="name" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0.007"/>
+  <testcase name="getRows" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="firstValue" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
+  <testcase name="buildIndex" classname="io.github.primepotato.jandas.column.DoubleColumnTest" time="0"/>
 </testsuite>
