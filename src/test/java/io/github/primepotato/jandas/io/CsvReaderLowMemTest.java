@@ -13,7 +13,7 @@ public class CsvReaderLowMemTest {
   public void parse(){
 
     CsvReaderLowMem cr = new CsvReaderLowMem ();
-    File f = new File("src/test/resources/EG1.csv");
+    File f = new File("src/test/resources/SpotEg.csv");
 
     cr.parser.parse(f);
     DataFrame df = cr.dataFrame;

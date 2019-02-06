@@ -10,10 +10,6 @@ import java.util.Set;
 
 public interface Column {
 
-  //void appendMissing();
-
-  //TODO: Make iterable
-
   default void rebuildIndex() {}
 
   int size();

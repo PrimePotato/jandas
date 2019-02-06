@@ -6,6 +6,7 @@ import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.IndexUtils;
 import io.github.primepotato.jandas.index.MetaIndex;
+import io.github.primepotato.jandas.io.DataFrameCsvWriter;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
@@ -179,6 +180,10 @@ public class DataFrame implements Iterable<Record> {
     Column col = column(colName);
     col.index();
     return Optional.of(new Record(this));
+  }
+
+  public void toCsv(String fPath){
+    DataFrameCsvWriter.toCsv(this, fPath);
   }
 
   @Override

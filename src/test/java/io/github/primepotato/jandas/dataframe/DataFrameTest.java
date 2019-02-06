@@ -140,4 +140,8 @@ public class DataFrameTest {
 
   }
 
+  @Test
+  public void toCsv() {
+    df1.toCsv("src/test/resources/toCsvTest.csv");
+  }
 }
