@@ -8,4 +8,4 @@ release:
   script: |
     mvn versions:set "-DnewVersion=${tag}"
     git commit -am "${tag}"
-    mvn clean deploy -Pelastic-crud --settings ../settings.xml
+    mvn clean deploy -Pjandas --settings ../settings.xml
