@@ -12,16 +12,10 @@ public class CsvReaderTest {
   public void parse(){
 
     CsvReader cr = new CsvReader();
-    File f = new File("src/test/resources/SpotEg.csv");
+    File f = new File("src/test/resources/freshman_kgs.csv");
 
     cr.parser.parse(f);
     DataFrame df = cr.dataFrame;
-
-    DoubleColumn ask = df.column("Ask");
-    DoubleColumn bid = df.column("Bid");
-    DoubleColumn mid = (DoubleColumn)ask.plus(bid).scale(0.5);
-    mid.name = "midDouble";
-    df.addColumn(mid);
 
     df.print(20);
 

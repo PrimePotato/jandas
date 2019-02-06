@@ -19,22 +19,22 @@ public class JandasDemo {
     @Before
     public void setUp() {
 
-        dataFrame = Jandas.readCsv("src/test/resources/SpotEg.csv");
+        dataFrame = Jandas.readCsv("src/test/resources/freshman_kgs.csv");
 
     }
 
     @Test
     public void columnOperations() {
 
-        DoubleColumn ask = (DoubleColumn) dataFrame.column("Ask");
+        DoubleColumn ask = dataFrame.column("BMI (Sep)");
         System.out.println(ask.scale(2));
     }
 
     @Test
     public void columnEquations() {
 
-        DoubleColumn ask = dataFrame.column("Ask");
-        DoubleColumn bid = dataFrame.column("Bid");
+        DoubleColumn ask = dataFrame.column("BMI (Sep)");
+        DoubleColumn bid = dataFrame.column("BMI (Apr)");
         DoubleColumn mid = new DoubleColumn("Mid", false, new double[0]);
 
         Equation eq = new Equation();
@@ -49,16 +49,16 @@ public class JandasDemo {
     @Test
     public void groupBy() {
 
-        Map<String, Int2DoubleOpenHashMap> grp = dataFrame.groupBy(Arrays.asList("Scenario"), Arrays.asList("SpotRateShift_Core"));
+        Map<String, Int2DoubleOpenHashMap> grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
         System.out.print(grp);
     }
 
     @Test
     public void quickJoin() {
-        DataFrame df =
-                Jandas.readCsv("src/test/resources/SpotEg.csv");
-        DataFrame dfJoin = dataFrame.join(Arrays.asList("CurrencyPair"), df);
-        dfJoin.print(20);
+//        DataFrame df =
+//                Jandas.readCsv("src/test/resources/SpotEg.csv");
+//        DataFrame dfJoin = dataFrame.join(Arrays.asList("CurrencyPair"), df);
+//        dfJoin.print(20);
     }
 
 }

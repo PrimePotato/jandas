@@ -16,21 +16,17 @@ public class JandasTest {
     @Before
     public void setUp() {
 
-        dataFrame = Jandas.readCsv("src/test/resources/SpotEg.csv");
+        dataFrame = Jandas.readCsv("src/test/resources/biostats.csv");
 
     }
 
     @Test
     public void readCsv() {
 
-        DataFrame df;
-
-        df = Jandas.readCsv("src/test/resources/SpotEg.csv");
-        assert (df.wellFormed());
-        df.print(20);
+        assert (dataFrame.wellFormed());
+        dataFrame.print(20);
 
     }
-
 
 
 }
