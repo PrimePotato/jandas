@@ -10,7 +10,7 @@
 
     <groupId>io.github.primepotato</groupId>
     <artifactId>jandas</artifactId>
-    <version>0.1</version>
+    <version>0.001</version>
 
     <build>
         <plugins>
