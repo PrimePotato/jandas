@@ -1,5 +1,7 @@
-package io.github.primepotato.jandas.index;
+package io.github.primepotato.jandas.index.meta;
 
+import io.github.primepotato.jandas.index.ColIndex;
+import io.github.primepotato.jandas.index.IntArrayListIndex;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;

@@ -2,6 +2,8 @@ package io.github.primepotato.jandas.demos;
 
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.dataframe.DataFrameGroupBy;
+import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import io.github.primepotato.jandas.utils.Jandas;
 import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
 import org.ejml.equation.Equation;
@@ -49,7 +51,8 @@ public class JandasDemo {
     @Test
     public void groupBy() {
 
-        Map<String, Int2DoubleOpenHashMap> grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
+        DataFrameGroupBy grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
+        grp.aggregate(DoubleAggregateFunc.SUM);
         System.out.print(grp);
     }
 

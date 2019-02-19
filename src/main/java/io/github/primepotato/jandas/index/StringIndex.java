@@ -1,24 +1,18 @@
 package io.github.primepotato.jandas.index;
 
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import io.github.primepotato.jandas.index.generation.IndexGenerator;
+import io.github.primepotato.jandas.index.generation.IntIndex;
 
-public class StringIndex extends ColIndex{
-
-  public static Object2IntOpenHashMap<String> stringIndex = new Object2IntOpenHashMap<>();
+public class StringIndex  extends ColIndex implements IndexGenerator {
 
   public StringIndex(String[] data) {
 
     int[] intMap = new int[data.length];
     for (int i = 0; i < data.length; i++) {
-      intMap[i] = nextIndex(data[i]);
+      intMap[i] = IndexGenerator.nextIndex(data[i]);
     }
     internalIntIndex = new IntIndex(intMap);
 
-  }
-
-  static int nextIndex(String val) {
-
-    return stringIndex.computeIntIfAbsent(val, x -> stringIndex.size());
   }
 
 }

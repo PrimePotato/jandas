@@ -1,10 +1,9 @@
 package io.github.primepotato.jandas.index;
 
+import io.github.primepotato.jandas.index.utils.IndexUtils;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class IndexUtilsTest {
 

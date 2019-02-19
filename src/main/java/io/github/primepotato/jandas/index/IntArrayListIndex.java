@@ -1,26 +1,19 @@
 package io.github.primepotato.jandas.index;
 
+import io.github.primepotato.jandas.index.generation.IndexGenerator;
+import io.github.primepotato.jandas.index.generation.IntIndex;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 
-public class IntArrayListIndex extends ColIndex {
+public class IntArrayListIndex extends ColIndex implements IndexGenerator {
 
-  IntArrayList[] values;
+  //TODO: optimize, used a lot in grouping/join
 
-  static Object2IntOpenHashMap<IntArrayList> IntArrayListIndex = new Object2IntOpenHashMap<>();
+  public IntArrayListIndex(IntArrayList[] data) {
 
-  static int nextIndex(IntArrayList val) {
-
-    return IntArrayListIndex.computeIntIfAbsent(val, x -> IntArrayListIndex.size());
-  }
-
-  IntArrayListIndex(IntArrayList[] data) {
-
-    values = data;
     int[] intMap = new int[data.length];
     for (int i = 0; i < data.length; i++) {
-      intMap[i] = nextIndex(data[i]);
+      intMap[i] = IndexGenerator.nextIndex(data[i], IntArrayList.class);
     }
     internalIntIndex = new IntIndex(intMap);
 

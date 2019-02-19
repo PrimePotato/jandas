@@ -1,5 +1,6 @@
-package io.github.primepotato.jandas.index;
+package io.github.primepotato.jandas.index.utils;
 
+import io.github.primepotato.jandas.index.meta.MetaIndex;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 

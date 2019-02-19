@@ -4,12 +4,10 @@ package io.github.primepotato.jandas.dataframe;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.index.ColIndex;
-import io.github.primepotato.jandas.index.IndexUtils;
-import io.github.primepotato.jandas.index.MetaIndex;
+import io.github.primepotato.jandas.index.utils.IndexUtils;
+import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.io.DataFrameCsvWriter;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
-import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
-import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
 
 import java.io.ByteArrayOutputStream;
 import java.util.*;
@@ -131,19 +129,19 @@ public class DataFrame implements Iterable<Record> {
     return names.stream().map(x -> getColumn(x, tClass)).collect(Collectors.toList());
   }
 
-  public Map<String, Int2DoubleOpenHashMap> groupBy(List<String> grpCols, List<String> aggCols) {
+  public DataFrameGroupBy groupBy(List<String> grpCols, List<String> aggCols) {
 
     List<Column> gCols = getColumns(grpCols, Column.class);
     List<DoubleColumn> aCols = getColumns(aggCols, DoubleColumn.class);
-    MetaIndex mi = buildMetaIndex(gCols);
-    Map<String, Int2DoubleOpenHashMap> results = new HashMap<>();
-    for (DoubleColumn dc : aCols) {
-      results.put(dc.name, mi.aggregateDouble(dc.rawData(), DoubleAggregateFunc.SUM));
-    }
-    return results;
+//    MetaIndex mi = buildMetaIndex(gCols);
+//    Map<String, Int2DoubleOpenHashMap> results = new HashMap<>();
+//    for (DoubleColumn dc : aCols) {
+//      results.put(dc.name, mi.aggregateDouble(dc.rawData(), DoubleAggregateFunc.SUM::apply));
+//    }
+    return new DataFrameGroupBy(gCols, aCols);
   }
 
-  MetaIndex buildMetaIndex(List<Column> grpCol) {
+  static MetaIndex buildMetaIndex(List<Column> grpCol) {
 
     List<ColIndex> colIdxs = grpCol.stream().map(x -> x.index()).collect(Collectors.toList());
     return new MetaIndex(colIdxs);

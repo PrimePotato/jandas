@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.index;
+package io.github.primepotato.jandas.index.generation;
 
 import it.unimi.dsi.fastutil.ints.Int2IntArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
@@ -6,18 +6,15 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 public class IntIndex {
 
-  Int2ObjectArrayMap<IntArrayList> positions;
-//  Int2ObjectArrayMap<IntArrayList> groups;
-  Int2IntArrayMap indexOf;
+  public Int2ObjectArrayMap<IntArrayList> positions;
+  public Int2IntArrayMap indexOf;
+  public int[] values, rowMap;
 
-  int[] values, rowMap;
-
-  IntIndex(int[] data) {
+  public IntIndex(int[] data) {
 
     values = data;
     indexOf = new Int2IntArrayMap();
     positions = new Int2ObjectArrayMap<>();
-//    groups = new Int2ObjectArrayMap<>();
     rowMap = new int[data.length];
     indexOf.defaultReturnValue(-1);
 
@@ -31,20 +28,15 @@ public class IntIndex {
       if (!indexOf.containsKey(d)) {
         idx = nextIndex(d);
         pos = positions.get(idx);
-//        grp = groups.get(idx);
         if (pos == null) {
           pos = new IntArrayList();
-          grp = new IntArrayList();
           positions.put(idx, pos);
-//          groups.put(idx, grp);
         }
         indexOf.put(d, idx);
       } else {
         idx = indexOf.get(d);
         pos = positions.get(idx);
-//        grp = groups.get(idx);
       }
-//      grp.add(d);
       pos.add(i);
       rowMap[i] = idx;
     }
@@ -76,14 +68,8 @@ public class IntIndex {
     return positions;
   }
 
-//  public Int2ObjectArrayMap<IntArrayList> groups() {
-//
-//    return groups;
-//  }
-
   public void clear(){
     positions.clear();
-//    groups.clear();
     indexOf.clear();
 
     values = new int[0];

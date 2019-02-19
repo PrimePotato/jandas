@@ -1,5 +1,6 @@
 package io.github.primepotato.jandas.index;
 
+import io.github.primepotato.jandas.index.generation.IntIndex;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
 public class DoubleIndex extends ColIndex {
