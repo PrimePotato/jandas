@@ -21,7 +21,6 @@ public class IntIndex {
     int d;
     int idx;
     IntArrayList pos;
-    IntArrayList grp;
 
     for (int i = 0; i < data.length; i++) {
       d = data[i];

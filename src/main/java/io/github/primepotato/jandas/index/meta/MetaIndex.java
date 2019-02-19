@@ -2,11 +2,14 @@ package io.github.primepotato.jandas.index.meta;
 
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.IntArrayListIndex;
+import io.github.primepotato.jandas.index.generation.IndexGenerator;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
+import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import java.lang.reflect.Array;
 import java.util.List;
@@ -14,63 +17,74 @@ import java.util.function.Function;
 
 public class MetaIndex {
 
-  public int rowCount;
-  public int colCount;
-  public IntArrayListIndex index;
+    public int rowCount;
+    public int colCount;
+    public IntArrayListIndex index;
+    public List<ColIndex> colIndices;
 
-  public MetaIndex(List<ColIndex> cols) {
+    public MetaIndex(List<ColIndex> cols) {
+        this.colIndices = cols;
+        rowCount = cols.get(0).size();
+        colCount = cols.size();
+        IntArrayList[] idx = new IntArrayList[rowCount];
 
-    rowCount = cols.get(0).size();
-    colCount = cols.size();
-    IntArrayList[] idx = new IntArrayList[rowCount];
-
-    for (int i = 0; i < rowCount; i++) {
-      IntArrayList rowIdx = new IntArrayList(2);
-      for (ColIndex c : cols) {
-        rowIdx.add(c.rowMap()[i]);
-      }
-      idx[i] = rowIdx;
-    }
-
-    index = new IntArrayListIndex(idx);
-  }
-
-  public <T> Int2ObjectOpenHashMap<T> aggregate(T[] values, Function<T[], T> aggFunc, Class<T>
-      cls) {
-
-    Int2ObjectOpenHashMap<T> result = new Int2ObjectOpenHashMap<>();
-    for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
-      IntArrayList rows = p.getValue();
-      T[] objAry = (T[]) Array.newInstance(cls, rows.size());
-      for (int i = 0; i < rows.size(); i++) {
-        objAry[i] = values[rows.getInt(i)];
-      }
-      result.put(p.getIntKey(), aggFunc.apply(objAry));
-    }
-    return result;
-  }
-
-  public Int2DoubleOpenHashMap aggregateDouble(double[] values, DoubleAggregateFunc daf)  {
-    Int2DoubleOpenHashMap result = new Int2DoubleOpenHashMap();
-    for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
-      IntArrayList rows = p.getValue();
-      double[] objAry = new double[rows.size()];
-      try {
-        for (int i = 0; i < rows.size(); i++) {
-          objAry[i] = values[rows.getInt(i)];
+        for (int i = 0; i < rowCount; i++) {
+            IntArrayList rowIdx = new IntArrayList(2);
+            for (ColIndex c : cols) {
+                rowIdx.add(c.rowMap()[i]);
+            }
+            idx[i] = rowIdx;
         }
-      } catch (Exception e){
-        System.out.println(1);
-      }
 
-      result.put(p.getIntKey(), daf.apply(objAry));
+        index = new IntArrayListIndex(idx);
     }
-    return result;
-  }
 
-  public boolean unique() {
+    public ObjectArrayList indexValue(int idx) {
+        ObjectArrayList result = new ObjectArrayList();
+        IntArrayList ial = IndexGenerator.indexValue(idx, IntArrayList.class);
+        for (int i = 0; i < ial.size(); ++i) {
+            ColIndex ci = this.colIndices.get(i);
+            result.add(ci.indexValue(ial.getInt(i)));
+        }
+        return result;
+    }
 
-    return index.positions().size() == rowCount;
-  }
+    public <T> Int2ObjectOpenHashMap<T> aggregate(T[] values, Function<T[], T> aggFunc, Class<T>
+            cls) {
+
+        Int2ObjectOpenHashMap<T> result = new Int2ObjectOpenHashMap<>();
+        for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
+            IntArrayList rows = p.getValue();
+            T[] objAry = (T[]) Array.newInstance(cls, rows.size());
+            for (int i = 0; i < rows.size(); i++) {
+                objAry[i] = values[rows.getInt(i)];
+            }
+            result.put(p.getIntKey(), aggFunc.apply(objAry));
+        }
+        return result;
+    }
+
+    public Object2DoubleOpenHashMap aggregateDouble(double[] values, DoubleAggregateFunc daf) {
+        Object2DoubleOpenHashMap result = new Object2DoubleOpenHashMap();
+        for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
+            IntArrayList rows = p.getValue();
+            double[] objAry = new double[rows.size()];
+            try {
+                for (int i = 0; i < rows.size(); i++) {
+                    objAry[i] = values[rows.getInt(i)];
+                }
+            } catch (Exception e) {
+                System.out.println(1);
+            }
+
+            result.put(indexValue(p.getIntKey()), daf.apply(objAry));
+        }
+        return result;
+    }
+
+    public boolean unique() {
+
+        return index.positions().size() == rowCount;
+    }
 
 }

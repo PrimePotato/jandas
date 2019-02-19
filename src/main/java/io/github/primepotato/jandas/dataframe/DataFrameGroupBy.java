@@ -5,6 +5,7 @@ import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,8 +31,8 @@ public class DataFrameGroupBy implements Iterable<DataFrame> {
         return null;
     }
 
-    public Map<String, Int2DoubleOpenHashMap> aggregate(DoubleAggregateFunc daf) {
-        Map<String, Int2DoubleOpenHashMap> results = new HashMap<>();
+    public Map<String, Object2DoubleOpenHashMap> aggregate(DoubleAggregateFunc daf) {
+        Map<String, Object2DoubleOpenHashMap> results = new HashMap<>();
         for (DoubleColumn dc : aCols) {
             results.put(dc.name, metaIndex.aggregateDouble(dc.rawData(), daf));
         }

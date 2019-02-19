@@ -4,6 +4,8 @@ import io.github.primepotato.jandas.index.generation.IndexGenerator;
 import io.github.primepotato.jandas.index.generation.IntIndex;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 
+import java.time.LocalDate;
+
 public class DoubleIndex extends ColIndex {
 
 
@@ -17,4 +19,8 @@ public class DoubleIndex extends ColIndex {
 
   }
 
+  @Override
+  public Class elementClass() {
+    return Double.class;
+  }
 }

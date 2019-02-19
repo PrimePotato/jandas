@@ -9,10 +9,15 @@ public class StringIndex  extends ColIndex {
 
     int[] intMap = new int[data.length];
     for (int i = 0; i < data.length; i++) {
-      intMap[i] = IndexGenerator.nextIndex(data[i]);
+      intMap[i] = IndexGenerator.nextIndex(data[i], String.class);
     }
     internalIntIndex = new IntIndex(intMap);
 
+  }
+
+  @Override
+  public Class elementClass() {
+    return String.class;
   }
 
 }

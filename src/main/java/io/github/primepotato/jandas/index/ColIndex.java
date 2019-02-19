@@ -1,5 +1,6 @@
 package io.github.primepotato.jandas.index;
 
+import io.github.primepotato.jandas.index.generation.IndexGenerator;
 import io.github.primepotato.jandas.index.generation.IntIndex;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -28,6 +29,11 @@ public abstract class ColIndex {
     return internalIntIndex.positions();
   }
 
+  public abstract Class elementClass();
+
+  public <T> T indexValue(int i){
+    return IndexGenerator.indexValue(i, elementClass());
+  }
 
 }
 

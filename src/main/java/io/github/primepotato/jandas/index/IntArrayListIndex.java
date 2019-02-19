@@ -19,4 +19,10 @@ public class IntArrayListIndex extends ColIndex {
 
   }
 
+
+  @Override
+  public Class elementClass() {
+    return IntArrayList.class;
+  }
+
 }

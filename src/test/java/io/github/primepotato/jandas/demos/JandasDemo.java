@@ -52,8 +52,7 @@ public class JandasDemo {
     public void groupBy() {
 
         DataFrameGroupBy grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
-        grp.aggregate(DoubleAggregateFunc.SUM);
-        System.out.print(grp);
+        System.out.print(grp.aggregate(DoubleAggregateFunc.SUM));
     }
 
     @Test
