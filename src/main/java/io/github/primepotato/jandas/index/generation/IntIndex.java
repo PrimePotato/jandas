@@ -26,7 +26,7 @@ public class IntIndex {
     for (int i = 0; i < data.length; i++) {
       d = data[i];
       if (!indexOf.containsKey(d)) {
-        idx = nextIndex(d);
+        idx = IndexGenerator.nextIndex(d);
         pos = positions.get(idx);
         if (pos == null) {
           pos = new IntArrayList();
@@ -41,11 +41,6 @@ public class IntIndex {
       rowMap[i] = idx;
     }
 
-  }
-
-  static int nextIndex(int val) {
-
-    return val;
   }
 
   public int get(int val) {

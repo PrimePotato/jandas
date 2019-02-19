@@ -5,7 +5,7 @@ import io.github.primepotato.jandas.index.generation.IntIndex;
 
 import java.time.LocalDate;
 
-public class DateIndex extends ColIndex implements IndexGenerator {
+public class DateIndex extends ColIndex {
 
   public DateIndex(LocalDate[] data) {
 

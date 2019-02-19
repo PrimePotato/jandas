@@ -10,7 +10,6 @@ public interface IndexGenerator {
 
     Object2IntOpenHashMap<String> stringIndex = new Object2IntOpenHashMap<>();
     Object2IntOpenHashMap<LocalDate> dateIndex = new Object2IntOpenHashMap<>();
-
     Object2IntOpenHashMap<Double> doubleIndex = new Object2IntOpenHashMap<>();
 
     Map<String, Object2IntOpenHashMap> indexClassMap = new HashMap<>();

@@ -5,7 +5,7 @@ import io.github.primepotato.jandas.index.generation.IntIndex;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 
-public class IntArrayListIndex extends ColIndex implements IndexGenerator {
+public class IntArrayListIndex extends ColIndex {
 
   //TODO: optimize, used a lot in grouping/join
 

@@ -3,7 +3,7 @@ package io.github.primepotato.jandas.index;
 import io.github.primepotato.jandas.index.generation.IndexGenerator;
 import io.github.primepotato.jandas.index.generation.IntIndex;
 
-public class GenericIndex<T> extends ColIndex implements IndexGenerator {
+public class GenericIndex<T> extends ColIndex {
 
     GenericIndex(T[] data, Class cls) {
 
