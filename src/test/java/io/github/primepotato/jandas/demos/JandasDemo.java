@@ -14,28 +14,29 @@ import java.util.Arrays;
 
 public class JandasDemo {
 
-    private DataFrame dataFrame;
+    private DataFrame df_freshmen;
 
 
     @Before
     public void setUp() {
 
-        dataFrame = Jandas.readCsv("src/test/resources/freshman_kgs.csv");
+        df_freshmen = Jandas.readCsv("src/test/resources/freshman_kgs.csv");
+
 
     }
 
     @Test
     public void columnOperations() {
 
-        DoubleColumn ask = dataFrame.column("BMI (Sep)");
+        DoubleColumn ask = df_freshmen.column("BMI (Sep)");
         System.out.println(ask.scale(2));
     }
 
     @Test
     public void columnEquations() {
 
-        DoubleColumn a = dataFrame.column("BMI (Sep)");
-        DoubleColumn b = dataFrame.column("BMI (Apr)");
+        DoubleColumn a = df_freshmen.column("BMI (Sep)");
+        DoubleColumn b = df_freshmen.column("BMI (Apr)");
         DoubleColumn c = new DoubleColumn("Mid", false, new double[0]);
 
         Equation eq = new Equation();
@@ -43,22 +44,22 @@ public class JandasDemo {
         eq.process("c = (a+b)/2");
 
 
-        dataFrame.addColumn(c);
-        dataFrame.print();
+        df_freshmen.addColumn(c);
+        df_freshmen.print();
 
     }
 
 
     @Test
     public void equations() {
-        dataFrame.createColumn("avg", "(BMISep+BMIApr)/2.0");
-        dataFrame.print();
+        df_freshmen.createColumn("avg", "(BMISep+BMIApr)/2.0");
+        df_freshmen.print();
     }
 
     @Test
     public void groupBy() {
 
-        DataFrameGroupBy grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
+        DataFrameGroupBy grp = df_freshmen.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
         DataFrame df = grp.aggregate(DoubleAggregateFunc.MEAN);
         df.print();
     }
@@ -68,8 +69,13 @@ public class JandasDemo {
         DataFrame dfLdn = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
         DataFrame dfAll = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
 
-        DataFrame dfJoin = dfLdn.quickJoin(Arrays.asList("Constituency"), dfAll, JoinType.LEFT);
+        DataFrame dfJoin = dfAll.quickJoin(Arrays.asList("Constituency"), dfLdn, JoinType.LEFT);
         dfJoin.print();
+
+    }
+
+    @Test
+    public void createColumn() {
 
     }
 

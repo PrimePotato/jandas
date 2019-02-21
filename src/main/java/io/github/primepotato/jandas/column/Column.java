@@ -38,4 +38,6 @@ public interface Column {
 
   AbstractCollection newDataContainer(int size);
 
+  boolean equals(Column other);
+
 }

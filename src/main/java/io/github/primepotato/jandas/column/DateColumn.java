@@ -42,6 +42,15 @@ public class DateColumn extends AbstractColumn {
         return data.get(row);
     }
 
+    @Override
+    public boolean equals(Column other) {
+        try{
+            return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public LocalDate[] getRows(int[] rows) {
 
         LocalDate[] res = new LocalDate[rows.length];

@@ -6,6 +6,7 @@ import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import java.lang.reflect.Array;
+import java.rmi.server.ExportException;
 import java.util.AbstractCollection;
 import java.util.Arrays;
 
@@ -97,6 +98,15 @@ public class EnumColumn<E extends Enum> extends AbstractColumn {
   public ObjectArrayList newDataContainer(int size) {
 
     return new ObjectArrayList(size);
+  }
+
+  @Override
+  public boolean equals(Column other) {
+    try{
+      return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
+    } catch (Exception e) {
+      return false;
+    }
   }
 
   public int size() {

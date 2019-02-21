@@ -14,6 +14,7 @@ import org.ejml.simple.SimpleBase;
 import java.text.Normalizer;
 import java.time.LocalDate;
 import java.util.AbstractCollection;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -133,6 +134,15 @@ public class DoubleColumn extends SimpleBase implements Column {
             idx++;
         }
         return t;
+    }
+
+    @Override
+    public boolean equals(Column other) {
+        try{
+            return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public double[] getRows(int[] rows) {

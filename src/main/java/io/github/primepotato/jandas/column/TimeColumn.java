@@ -41,6 +41,15 @@ public class TimeColumn extends AbstractColumn {
     return data.get(row);
   }
 
+  @Override
+  public boolean equals(Column other) {
+    try{
+      return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
   public LocalTime[] getRows(int[] rows) {
 
     LocalTime[] res = new LocalTime[rows.length];

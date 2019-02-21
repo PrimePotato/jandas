@@ -59,6 +59,15 @@ public class IntegerColumn extends AbstractColumn {
         return res;
     }
 
+    @Override
+    public boolean equals(Column other) {
+        try{
+            return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public int size() {
 
         return data.size();

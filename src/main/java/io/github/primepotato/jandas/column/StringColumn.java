@@ -107,6 +107,15 @@ public class StringColumn extends AbstractColumn {
   }
 
   @Override
+  public boolean equals(Column other) {
+    try{
+      return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
+    } catch (Exception e) {
+      return false;
+    }
+  }
+
+  @Override
   public ObjectArrayList newDataContainer(int size) {
 
     return new ObjectArrayList<String>(size);
