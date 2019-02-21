@@ -5,6 +5,7 @@ import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.column.IntegerColumn;
 import io.github.primepotato.jandas.column.StringColumn;
+import io.github.primepotato.jandas.index.meta.JoinType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,7 +80,7 @@ public class DataFrameTest {
     List<String> jhs = new ArrayList<String>() {{
       add("str");
     }};
-    DataFrame df = df1.join(jhs, df2);
+    DataFrame df = df1.join(jhs, df2, JoinType.INNER);
     df.print(20);
   }
 

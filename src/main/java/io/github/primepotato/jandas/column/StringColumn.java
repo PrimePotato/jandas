@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class StringColumn extends AbstractColumn {
 
-  public static final int DEFAULT_MISSING_VALUE_INDICATOR = Integer.MIN_VALUE;
+  public static final String DEFAULT_MISSING_VALUE_INDICATOR = null;
   private ObjectArrayList<String> data;
 
   public StringColumn(String name, Boolean indexed, String[] values) {
@@ -51,7 +51,11 @@ public class StringColumn extends AbstractColumn {
 
     String[] res = new String[rows.length];
     for (int i = 0; i < rows.length; i++) {
-      res[i] = getObject(rows[i]);
+      if (rows[i] == Integer.MIN_VALUE) {
+        res[i] = DEFAULT_MISSING_VALUE_INDICATOR;
+      } else {
+        res[i] = getObject(rows[i]);
+      }
     }
     return res;
   }

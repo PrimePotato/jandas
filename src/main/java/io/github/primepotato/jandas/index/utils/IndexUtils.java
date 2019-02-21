@@ -1,12 +1,15 @@
 package io.github.primepotato.jandas.index.utils;
 
+import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
+import io.github.primepotato.jandas.utils.Tuple;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class IndexUtils {
 
-    public static int[][] quickJoin(MetaIndex miLeft, MetaIndex miRight) {
+    public static int[][] quickJoin(MetaIndex miLeft, MetaIndex miRight, JoinType jt) {
 
 
         if (!miLeft.unique()) {
@@ -19,25 +22,34 @@ public class IndexUtils {
 
         int[][] joinedRowMap = new int[3][miRight.rowCount];
         int[] rw = miRight.index.rowMap();
+
         Int2ObjectArrayMap<IntArrayList> pos = miLeft.index.positions();
+
         for (int i = 0; i < miRight.rowCount; i++) {
-            joinedRowMap[0][i] = rw[i];
-            joinedRowMap[1][i] = pos.get(rw[i]).getInt(0);
-            joinedRowMap[2][i] = i;
+            if (pos.containsKey(rw[i])) {
+                joinedRowMap[0][i] = rw[i];
+                joinedRowMap[1][i] = pos.get(rw[i]).getInt(0);
+                joinedRowMap[2][i] = i;
+            }
+            if (jt==JoinType.LEFT){
+                joinedRowMap[0][i] = rw[i];
+                joinedRowMap[1][i] = Integer.MIN_VALUE;
+                joinedRowMap[2][i] = i;
+            }
         }
 
         return joinedRowMap;
     }
 
-    public static int[][] join(MetaIndex miLeft, MetaIndex miRight) {
+    public static Pair<Boolean, int[][]> join(MetaIndex miLeft, MetaIndex miRight, JoinType jt) {
         if (miLeft.colCount != miRight.colCount) {
             throw new RuntimeException("Indicies different dimension");
         }
         if (miLeft.unique()) {
-            return quickJoin(miLeft, miRight);
+            return Pair.of(true, quickJoin(miLeft, miRight, jt));
         }
         if (miRight.unique()) {
-            return quickJoin(miRight, miLeft);
+            return Pair.of(false, quickJoin(miRight, miLeft, jt));
         }
 
         Int2ObjectArrayMap<IntArrayList> posLeft = miLeft.index.positions();
@@ -52,7 +64,7 @@ public class IndexUtils {
 
         }
 
-        return joinedRowMap;
+        return Pair.of(true, joinedRowMap);
     }
 
     public static int[][] cartesianProduct(IntArrayList a, IntArrayList b) {

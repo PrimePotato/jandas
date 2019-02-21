@@ -4,10 +4,12 @@ package io.github.primepotato.jandas.dataframe;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.index.ColIndex;
+import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.io.DataFrameCsvWriter;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
+import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
 
 import java.io.ByteArrayOutputStream;
@@ -161,10 +163,17 @@ public class DataFrame implements Iterable<Record> {
     return new MetaIndex(colIdxs);
   }
 
-  DataFrame resolveJoin(int[][] joinArray, DataFrame dfLeft, DataFrame dfRight) {
+  DataFrame resolveJoin(Pair<Boolean, int[][]> joinData, DataFrame dfLeft, DataFrame dfRight) {
 
-    int[] left = joinArray[1];
-    int[] right = joinArray[2];
+    int[][] joinArray = joinData.getRight();
+    int[] left, right;
+    if (joinData.getLeft()) {
+      left = joinArray[1];
+      right = joinArray[2];
+    } else {
+      right = joinArray[1];
+      left = joinArray[2];
+    }
 
     List<Column> joinCols = new ArrayList<>();
     for (Column c : dfLeft.columns) {
@@ -177,13 +186,20 @@ public class DataFrame implements Iterable<Record> {
     return new DataFrame("Joined" + name, joinCols);
   }
 
-  public DataFrame join(List<String> joinHeaders, DataFrame other) {
 
-    List<Column> thisCols = getColumns(joinHeaders, Column.class);
-    MetaIndex thisMi = buildMetaIndex(thisCols);
-    List<Column> otherCols = other.getColumns(joinHeaders, Column.class);
-    MetaIndex otherMi = buildMetaIndex(otherCols);
-    int[][] qjAry = IndexUtils.quickJoin(thisMi, otherMi);
+  public DataFrame quickJoin(List<String> joinHeaders, DataFrame other, JoinType jt) {
+
+    MetaIndex thisMi = buildMetaIndex(getColumns(joinHeaders, Column.class));
+    MetaIndex otherMi = buildMetaIndex(other.getColumns(joinHeaders, Column.class));
+    int[][]  qjAry = IndexUtils.quickJoin(thisMi, otherMi, jt);
+    return resolveJoin(Pair.of(true, qjAry), this, other);
+  }
+
+  public DataFrame join(List<String> joinHeaders, DataFrame other, JoinType jt) {
+
+    MetaIndex thisMi = buildMetaIndex(getColumns(joinHeaders, Column.class));
+    MetaIndex otherMi = buildMetaIndex(other.getColumns(joinHeaders, Column.class));
+    Pair<Boolean, int[][]> qjAry = IndexUtils.join(thisMi, otherMi, jt);
     return resolveJoin(qjAry, this, other);
   }
 

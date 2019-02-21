@@ -12,6 +12,7 @@ import org.ejml.data.MatrixType;
 import org.ejml.simple.SimpleBase;
 
 import java.text.Normalizer;
+import java.time.LocalDate;
 import java.util.AbstractCollection;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 public class DoubleColumn extends SimpleBase implements Column {
 
     private DMatrixRMaj data;
-
+    public static final double DEFAULT_MISSING_VALUE_INDICATOR = Double.NaN;
     public ColIndex index;
     public String name;
     public Class dataType;
@@ -138,7 +139,11 @@ public class DoubleColumn extends SimpleBase implements Column {
 
         double[] res = new double[rows.length];
         for (int i = 0; i < rows.length; i++) {
-            res[i] = getObject(rows[i]);
+            if (rows[i] == Integer.MIN_VALUE) {
+                res[i] = DEFAULT_MISSING_VALUE_INDICATOR;
+            } else {
+                res[i] = getObject(rows[i]);
+            }
         }
         return res;
     }

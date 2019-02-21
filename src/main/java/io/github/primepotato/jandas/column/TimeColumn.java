@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class TimeColumn extends AbstractColumn {
 
-  public static final int DEFAULT_MISSING_VALUE_INDICATOR = Integer.MIN_VALUE;
+  public static final LocalTime DEFAULT_MISSING_VALUE_INDICATOR = null;
   private ObjectArrayList<LocalTime> data;
 
   public TimeColumn(String name, Boolean indexed, LocalTime[] values) {
@@ -45,7 +45,11 @@ public class TimeColumn extends AbstractColumn {
 
     LocalTime[] res = new LocalTime[rows.length];
     for (int i = 0; i < rows.length; i++) {
-      res[i] = getObject(rows[i]);
+      if (rows[i] == Integer.MIN_VALUE) {
+        res[i] = DEFAULT_MISSING_VALUE_INDICATOR;
+      } else {
+        res[i] = getObject(rows[i]);
+      }
     }
     return res;
   }

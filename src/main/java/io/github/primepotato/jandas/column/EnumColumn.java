@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class EnumColumn<E extends Enum> extends AbstractColumn {
 
-  public static final int DEFAULT_MISSING_VALUE_INDICATOR = Integer.MIN_VALUE;
+  public final E DEFAULT_MISSING_VALUE_INDICATOR = null;
   private ObjectArrayList<E> data;
   private Class<E> persistentClass;
 
@@ -29,7 +29,7 @@ public class EnumColumn<E extends Enum> extends AbstractColumn {
   private int valueToInt(E value) {
 
     if (value == null) {
-      return DEFAULT_MISSING_VALUE_INDICATOR;
+      return Integer.MIN_VALUE;
     }
     return value.ordinal();
   }
@@ -57,7 +57,11 @@ public class EnumColumn<E extends Enum> extends AbstractColumn {
 
     E[] res = (E[]) Array.newInstance(persistentClass, rows.length);
     for (int i = 0; i < rows.length; i++) {
-      res[i] = getObject(rows[i]);
+      if (rows[i] == Integer.MIN_VALUE) {
+        res[i] = DEFAULT_MISSING_VALUE_INDICATOR;
+      } else {
+        res[i] = getObject(rows[i]);
+      }
     }
     return res;
   }

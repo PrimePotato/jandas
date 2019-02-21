@@ -3,6 +3,7 @@ package io.github.primepotato.jandas.demos;
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.DataFrameGroupBy;
+import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import io.github.primepotato.jandas.Jandas;
 import org.ejml.equation.Equation;
@@ -43,7 +44,7 @@ public class JandasDemo {
 
 
         dataFrame.addColumn(c);
-        dataFrame.print(20);
+        dataFrame.print();
 
     }
 
@@ -51,7 +52,7 @@ public class JandasDemo {
     @Test
     public void equations() {
         dataFrame.createColumn("avg", "(BMISep+BMIApr)/2.0");
-        dataFrame.print(20);
+        dataFrame.print();
     }
 
     @Test
@@ -59,16 +60,34 @@ public class JandasDemo {
 
         DataFrameGroupBy grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
         DataFrame df = grp.aggregate(DoubleAggregateFunc.MEAN);
-        df.print(20);
+        df.print();
     }
 
     @Test
     public void quickJoin() {
+        DataFrame dfLdn = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
+        DataFrame dfAll = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
 
+        DataFrame dfJoin = dfLdn.quickJoin(Arrays.asList("Constituency"), dfAll, JoinType.LEFT);
+        dfJoin.print();
 
-//        DataFrame df = Jandas.readCsv("src/test/resources/SpotEg.csv");
-//        DataFrame dfJoin = dataFrame.join(Arrays.asList("CurrencyPair"), df);
-//        dfJoin.print(20);
+    }
+
+    @Test
+    public void join() {
+        DataFrame dfLdn = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
+        DataFrame dfAll = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
+        DataFrame dfJoin;
+
+        dfJoin = dfLdn.join(Arrays.asList("Constituency"), dfAll, JoinType.INNER);
+        dfJoin.print();
+
+        dfJoin = dfLdn.join(Arrays.asList("Constituency"), dfAll, JoinType.LEFT);
+        dfJoin.print();
+
+        dfJoin = dfLdn.join(Arrays.asList("Constituency"), dfAll, JoinType.RIGHT);
+        dfJoin.print();
+
     }
 
 }
