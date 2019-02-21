@@ -1,9 +1,10 @@
-package io.github.primepotato.jandas.index;
+package io.github.primepotato.jandas.index.utils;
 
-import io.github.primepotato.jandas.index.utils.IndexUtils;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class IndexUtilsTest {
 
@@ -26,7 +27,15 @@ public class IndexUtilsTest {
 
     @Test
     public void cartesianProduct() {
-        Object[] idxJoin = IndexUtils.cartesianProduct(a, b);
+        int[][] idxJoin = IndexUtils.cartesianProduct(a, b);
     }
 
+
+    @Test
+    public void quickJoin() {
+    }
+
+    @Test
+    public void join() {
+    }
 }

@@ -4,14 +4,12 @@ import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.DataFrameGroupBy;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
-import io.github.primepotato.jandas.utils.Jandas;
-import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
+import io.github.primepotato.jandas.Jandas;
 import org.ejml.equation.Equation;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class JandasDemo {
 
@@ -66,6 +64,8 @@ public class JandasDemo {
 
     @Test
     public void quickJoin() {
+
+
 //        DataFrame df = Jandas.readCsv("src/test/resources/SpotEg.csv");
 //        DataFrame dfJoin = dataFrame.join(Arrays.asList("CurrencyPair"), df);
 //        dfJoin.print(20);

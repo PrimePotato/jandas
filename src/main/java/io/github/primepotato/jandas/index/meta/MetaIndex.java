@@ -64,7 +64,11 @@ public class MetaIndex {
         return result;
     }
 
-    public Object2DoubleOpenHashMap aggregateDouble(double[] values, DoubleAggregateFunc daf) {
+//    public Object2DoubleOpenHashMap aggregateDouble(double[] values, DoubleAggregateFunc daf) {
+//        return aggregateDouble(values, daf::apply);
+//    }
+
+    public Object2DoubleOpenHashMap aggregateDouble(double[] values, Function<double[], Double> daf) {
         Object2DoubleOpenHashMap result = new Object2DoubleOpenHashMap();
         for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
             IntArrayList rows = p.getValue();

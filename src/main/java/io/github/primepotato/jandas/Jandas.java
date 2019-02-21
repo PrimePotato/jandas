@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.utils;
+package io.github.primepotato.jandas;
 
 
 import io.github.primepotato.jandas.dataframe.DataFrame;
