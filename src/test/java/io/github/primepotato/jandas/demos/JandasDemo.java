@@ -14,29 +14,31 @@ import java.util.Arrays;
 
 public class JandasDemo {
 
-    private DataFrame df_freshmen;
+    private DataFrame dfFreshmen;
+    private DataFrame dfLdnElection;
+    private DataFrame dfVoteShare;
 
 
     @Before
     public void setUp() {
 
-        df_freshmen = Jandas.readCsv("src/test/resources/freshman_kgs.csv");
-
-
+        dfFreshmen = Jandas.readCsv("src/test/resources/freshman_kgs.csv");
+        dfLdnElection = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
+        dfVoteShare = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
     }
 
     @Test
     public void columnOperations() {
 
-        DoubleColumn ask = df_freshmen.column("BMI (Sep)");
+        DoubleColumn ask = dfFreshmen.column("BMI (Sep)");
         System.out.println(ask.scale(2));
     }
 
     @Test
     public void columnEquations() {
 
-        DoubleColumn a = df_freshmen.column("BMI (Sep)");
-        DoubleColumn b = df_freshmen.column("BMI (Apr)");
+        DoubleColumn a = dfFreshmen.column("BMI (Sep)");
+        DoubleColumn b = dfFreshmen.column("BMI (Apr)");
         DoubleColumn c = new DoubleColumn("Mid", false, new double[0]);
 
         Equation eq = new Equation();
@@ -44,54 +46,51 @@ public class JandasDemo {
         eq.process("c = (a+b)/2");
 
 
-        df_freshmen.addColumn(c);
-        df_freshmen.print();
+        dfFreshmen.addColumn(c);
+        dfFreshmen.print();
 
     }
 
 
     @Test
     public void equations() {
-        df_freshmen.createColumn("avg", "(BMISep+BMIApr)/2.0");
-        df_freshmen.print();
+        dfFreshmen.createColumn("avg", "(BMISep+BMIApr)/2.0");
+        dfFreshmen.print();
     }
 
     @Test
     public void groupBy() {
 
-        DataFrameGroupBy grp = df_freshmen.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
+        DataFrameGroupBy grp = dfFreshmen.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
         DataFrame df = grp.aggregate(DoubleAggregateFunc.MEAN);
         df.print();
     }
 
     @Test
     public void quickJoin() {
-        DataFrame dfLdn = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
-        DataFrame dfAll = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
 
-        DataFrame dfJoin = dfAll.quickJoin(Arrays.asList("Constituency"), dfLdn, JoinType.LEFT);
+        DataFrame dfJoin = dfVoteShare.quickJoin(Arrays.asList("Constituency"), dfLdnElection, JoinType.LEFT);
         dfJoin.print();
 
     }
 
     @Test
     public void createColumn() {
-
+        dfVoteShare.createColumn("Signal", "exp(Con)+log(Lab)");
+        dfVoteShare.print();
     }
 
     @Test
     public void join() {
-        DataFrame dfLdn = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
-        DataFrame dfAll = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
         DataFrame dfJoin;
 
-        dfJoin = dfLdn.join(Arrays.asList("Constituency"), dfAll, JoinType.INNER);
+        dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.INNER);
         dfJoin.print();
 
-        dfJoin = dfLdn.join(Arrays.asList("Constituency"), dfAll, JoinType.LEFT);
+        dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.LEFT);
         dfJoin.print();
 
-        dfJoin = dfLdn.join(Arrays.asList("Constituency"), dfAll, JoinType.RIGHT);
+        dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.RIGHT);
         dfJoin.print();
 
     }
