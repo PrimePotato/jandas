@@ -11,6 +11,7 @@ import org.ejml.data.Matrix;
 import org.ejml.data.MatrixType;
 import org.ejml.simple.SimpleBase;
 
+import java.text.Normalizer;
 import java.util.AbstractCollection;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -95,6 +96,11 @@ public class DoubleColumn extends SimpleBase implements Column {
     public String name() {
 
         return name;
+    }
+
+    @Override
+    public String cleanName() {
+        return name.replaceAll("[^A-Za-z0-9]", "");
     }
 
     public ColIndex index() {

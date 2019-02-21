@@ -18,6 +18,16 @@ public enum DoubleAggregateFunc implements DoubleFunc {
 
       return Arrays.stream(vals).min().getAsDouble();
     }
-  },
+  }, COUNT {
+    public double apply(double[] vals) {
+
+      return vals.length;
+    }
+  }, MEAN {
+    public double apply(double[] vals) {
+
+      return SUM.apply(vals)/COUNT.apply(vals);
+    }
+  }
 
 }

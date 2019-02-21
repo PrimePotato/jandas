@@ -35,31 +35,38 @@ public class JandasDemo {
     @Test
     public void columnEquations() {
 
-        DoubleColumn ask = dataFrame.column("BMI (Sep)");
-        DoubleColumn bid = dataFrame.column("BMI (Apr)");
-        DoubleColumn mid = new DoubleColumn("Mid", false, new double[0]);
+        DoubleColumn a = dataFrame.column("BMI (Sep)");
+        DoubleColumn b = dataFrame.column("BMI (Apr)");
+        DoubleColumn c = new DoubleColumn("Mid", false, new double[0]);
 
         Equation eq = new Equation();
-        eq.alias(ask.getMatrix(), "a", bid.getMatrix(), "b", mid.getMatrix(), "m");
-        eq.process("m = (a+b)/2");
+        eq.alias(a.getMatrix(), "a", b.getMatrix(), "b", c.getMatrix(), "c");
+        eq.process("c = (a+b)/2");
 
-        dataFrame.addColumn(mid);
+
+        dataFrame.addColumn(c);
         dataFrame.print(20);
 
+    }
+
+
+    @Test
+    public void equations() {
+        dataFrame.createColumn("avg", "(BMISep+BMIApr)/2.0");
+        dataFrame.print(20);
     }
 
     @Test
     public void groupBy() {
 
         DataFrameGroupBy grp = dataFrame.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
-        DataFrame df = grp.aggregate(DoubleAggregateFunc.SUM);
+        DataFrame df = grp.aggregate(DoubleAggregateFunc.MEAN);
         df.print(20);
     }
 
     @Test
     public void quickJoin() {
-//        DataFrame df =
-//                Jandas.readCsv("src/test/resources/SpotEg.csv");
+//        DataFrame df = Jandas.readCsv("src/test/resources/SpotEg.csv");
 //        DataFrame dfJoin = dataFrame.join(Arrays.asList("CurrencyPair"), df);
 //        dfJoin.print(20);
     }

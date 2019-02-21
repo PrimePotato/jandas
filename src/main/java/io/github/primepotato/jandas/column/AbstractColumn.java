@@ -2,6 +2,7 @@ package io.github.primepotato.jandas.column;
 
 import io.github.primepotato.jandas.index.ColIndex;
 
+import java.text.Normalizer;
 import java.util.Set;
 import java.util.stream.Collectors;
 //import org.apache.commons.lang.ClassUtils;
@@ -32,6 +33,11 @@ public abstract class AbstractColumn implements Column {
   public String name() {
 
     return name;
+  }
+
+  public String cleanName() {
+
+    return Normalizer.normalize(name, Normalizer.Form.NFD);
   }
 
   public ColIndex index() {

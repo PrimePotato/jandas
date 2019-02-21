@@ -28,6 +28,8 @@ public interface Column {
 
   String name();
 
+  String cleanName();
+
   ColIndex index();
 
   <T> T firstValue();

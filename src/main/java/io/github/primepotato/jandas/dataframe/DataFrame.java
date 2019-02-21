@@ -8,6 +8,7 @@ import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.io.DataFrameCsvWriter;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
+import org.ejml.equation.Equation;
 
 import java.io.ByteArrayOutputStream;
 import java.util.*;
@@ -62,6 +63,14 @@ public class DataFrame implements Iterable<Record> {
     headers.add(col.name());
   }
 
+  public void createColumn(String name, String equation) {
+    Equation eq = this.equation();
+    DoubleColumn dc = new DoubleColumn(name, false, new double[0]);
+    eq.alias(dc.getMatrix(), dc.cleanName());
+    eq.process(name + " = " +equation);
+    this.addColumn(dc);
+  }
+
   public DataFrame select(String name, String... colNames) {
 
     List<String> cols = Arrays.stream(colNames).collect(Collectors.toList());
@@ -106,6 +115,10 @@ public class DataFrame implements Iterable<Record> {
     return new String(baos.toByteArray());
   }
 
+  public void print(){
+    this.print(20);
+  }
+
   public void print(int maxRows) {
     if (wellFormed()) {
       System.out.println(toPrintString(maxRows));
@@ -118,6 +131,12 @@ public class DataFrame implements Iterable<Record> {
 
     return column(headers.indexOf(name));
   }
+
+  List<DoubleColumn> getDoubleColumns() {
+
+    return columns.stream().filter(x -> x instanceof DoubleColumn).map(x->(DoubleColumn)x).collect(Collectors.toList());
+  }
+
 
   <T extends Column> T getColumn(String name, Class<T> tClass) {
 
@@ -133,11 +152,6 @@ public class DataFrame implements Iterable<Record> {
 
     List<Column> gCols = getColumns(grpCols, Column.class);
     List<DoubleColumn> aCols = getColumns(aggCols, DoubleColumn.class);
-//    MetaIndex mi = buildMetaIndex(gCols);
-//    Map<String, Int2DoubleOpenHashMap> results = new HashMap<>();
-//    for (DoubleColumn dc : aCols) {
-//      results.put(dc.name, mi.aggregateDouble(dc.rawData(), DoubleAggregateFunc.SUM::apply));
-//    }
     return new DataFrameGroupBy(gCols, aCols);
   }
 
@@ -179,6 +193,16 @@ public class DataFrame implements Iterable<Record> {
     col.index();
     return Optional.of(new Record(this));
   }
+
+  public Equation equation(){
+    Equation eq = new Equation();
+    for (DoubleColumn dc: getDoubleColumns()){
+      String cn = dc.cleanName();
+      eq.alias(dc.getMatrix(),cn);
+    }
+    return eq;
+  }
+
 
   public void toCsv(String fPath){
     DataFrameCsvWriter.toCsv(this, fPath);

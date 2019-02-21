@@ -35,7 +35,7 @@ public class DataFrameGroupBy {
         return resolveToFrame(results);
     }
 
-    public DataFrame resolveToFrame(Map<String, Object2DoubleOpenHashMap> aggResult) {
+    private DataFrame resolveToFrame(Map<String, Object2DoubleOpenHashMap> aggResult) {
 
         List<Column> cols = new ArrayList();
         String[] labels= new String[0];
