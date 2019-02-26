@@ -15,7 +15,7 @@ Bringing the Data Frame concept to Java. It aims to provide features that will b
  * Joining and merging
   
 
-### Where to get it
+### Installation
 The source code is hosted on GitHub at: https://github.com/PrimePotato/jandas.
 
 It is also available via Maven Central and so the pom.xml should include:
@@ -27,9 +27,11 @@ It is also available via Maven Central and so the pom.xml should include:
     </dependency>
 
 
-### Getting Started
+### Usage
 
 ##### Manual Construction
+
+Here is a simple example of a data frame being manually constructed:  
 
     String[] str1 = {"a", "b", "c"};
     StringColumn sc1 = new StringColumn("str", true, str1);
@@ -50,15 +52,29 @@ It is also available via Maven Central and so the pom.xml should include:
     cols.add(dbl1);
 
     df1 = new DataFrame("1", cols);
+    
        
-##### Read CSV and Print
+##### Read CSV and To Csv
 
-    dataFrame = Jandas.readCsv("src/test/resources/EG1.csv");
-    dataFrame.print(20);
+It is possible to load data from CSV and also save data frame in 
 
-### Detailed Examples
+    dataFrame = Jandas.readCsv("src/test/resources/biostats.csv");
 
-More detailed demonstrations of the code can be found in _/src/test/java/io/github/primepotato/jandas/demos_.
+Write to csv:
+
+    dataFrame.toCsv("example.csv");
+
+
+##### Column Operations
+
+
+### Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Full guidance can be found in [Contribution guidelines for this project](CONTRIBUTING.md). 
+
+
+
+
+
    
   
  
