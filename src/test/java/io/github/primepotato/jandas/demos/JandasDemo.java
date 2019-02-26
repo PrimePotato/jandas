@@ -30,8 +30,8 @@ public class JandasDemo {
     @Test
     public void columnOperations() {
 
-        DoubleColumn ask = dfFreshmen.column("BMI (Sep)");
-        System.out.println(ask.scale(2));
+        DoubleColumn dc = dfFreshmen.column("BMI (Sep)");
+        System.out.println(dc.scale(2));
     }
 
     @Test
@@ -44,7 +44,6 @@ public class JandasDemo {
         Equation eq = new Equation();
         eq.alias(a.getMatrix(), "a", b.getMatrix(), "b", c.getMatrix(), "c");
         eq.process("c = (a+b)/2");
-
 
         dfFreshmen.addColumn(c);
         dfFreshmen.print();
@@ -81,6 +80,11 @@ public class JandasDemo {
     }
 
     @Test
+    public void print() {
+        dfFreshmen.print();
+    }
+
+    @Test
     public void join() {
         DataFrame dfJoin;
 
@@ -92,7 +96,6 @@ public class JandasDemo {
 
         dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.RIGHT);
         dfJoin.print();
-
     }
 
 }
