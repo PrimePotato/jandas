@@ -3,24 +3,34 @@ package io.github.primepotato.jandas.dataframe;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
+import io.github.primepotato.jandas.containers.dynamic.DynamicResultSetContainer;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.io.DataFrameCsvWriter;
+import io.github.primepotato.jandas.io.SqlReader;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
 
 import java.io.ByteArrayOutputStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static io.github.primepotato.jandas.io.SqlReader.resultSetToContainers;
 
 public class DataFrame implements Iterable<Record> {
 
     public List<Column> columns;
     public List<String> headers;
     public String name;
+
+    public DataFrame(ResultSet resultSet) throws SQLException {
+        this("", resultSetToContainers(resultSet).stream().map(DynamicResultSetContainer::toColumn).collect(Collectors.toList()));
+    }
 
     public DataFrame(String name, List<Column> cols) {
 
