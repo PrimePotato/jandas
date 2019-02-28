@@ -4,7 +4,7 @@
 
     <groupId>io.github.primepotato</groupId>
     <artifactId>jandas</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -155,6 +155,10 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.25.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.28</version>
+        </dependency>
     </dependencies>
 </project>

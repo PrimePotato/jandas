@@ -1,12 +1,13 @@
 io/github/primepotato/jandas/dataframe/DataFrameTest.class
 io/github/primepotato/jandas/index/DateIndexTest.class
 io/github/primepotato/jandas/utils/ParserColumnDataTest.class
-io/github/primepotato/jandas/index/IndexUtilsTest$1.class
+io/github/primepotato/jandas/index/generation/IndexGeneratorTest.class
 io/github/primepotato/jandas/dataframe/DataFrameTest$4.class
 io/github/primepotato/jandas/utils/JandasTest.class
-io/github/primepotato/jandas/index/IndexUtilsTest.class
+io/github/primepotato/jandas/index/utils/IndexUtilsTest.class
+io/github/primepotato/jandas/index/utils/IndexUtilsTest$1.class
+io/github/primepotato/jandas/io/sql/SqlReaderTest.class
 io/github/primepotato/jandas/dataframe/DataFrameTest$2.class
-io/github/primepotato/jandas/index/IndexUtilsTest$2.class
 io/github/primepotato/jandas/column/StringColumnTest.class
 io/github/primepotato/jandas/column/EnumColumnTest.class
 io/github/primepotato/jandas/column/IntegerColumnTest.class
@@ -16,6 +17,7 @@ io/github/primepotato/jandas/io/CsvReaderLowMemTest.class
 io/github/primepotato/jandas/index/IntIndexTest.class
 io/github/primepotato/jandas/demos/JandasDemo.class
 io/github/primepotato/jandas/column/TimeColumnTest.class
+io/github/primepotato/jandas/index/utils/IndexUtilsTest$2.class
 io/github/primepotato/jandas/utils/DoubleMatrixListTest.class
 io/github/primepotato/jandas/dataframe/DataFrameTest$3.class
 io/github/primepotato/jandas/column/DateColumnTest.class

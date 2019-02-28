@@ -4,8 +4,9 @@
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/column/DateColumnTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/io/CsvReaderLowMemTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/utils/DoubleMatrixListTest.java
-/home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/index/IndexUtilsTest.java
+/home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/index/utils/IndexUtilsTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/utils/ParserColumnDataTest.java
+/home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/io/sql/SqlReaderTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/utils/JandasTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/index/DateIndexTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/io/CsvReaderTest.java
@@ -16,3 +17,4 @@
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/column/EnumColumnTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/column/IntegerColumnTest.java
 /home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/demos/JandasDemo.java
+/home/bob/Documents/Java/jandas/src/test/java/io/github/primepotato/jandas/index/generation/IndexGeneratorTest.java
