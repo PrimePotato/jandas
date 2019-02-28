@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.containers.fixed;
+package io.github.primepotato.jandas.io.sql.containers.fixed;
 
 import io.github.primepotato.jandas.column.StringColumn;
 

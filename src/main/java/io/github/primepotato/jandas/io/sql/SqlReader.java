@@ -1,14 +1,14 @@
 package io.github.primepotato.jandas.io.sql;
 
-import io.github.primepotato.jandas.containers.ResultSetContainer;
-import io.github.primepotato.jandas.containers.dynamic.DoubleDynamicResultSetContainer;
-import io.github.primepotato.jandas.containers.dynamic.DynamicResultSetContainer;
-import io.github.primepotato.jandas.containers.dynamic.IntegerDynamicResultSetContainer;
-import io.github.primepotato.jandas.containers.dynamic.StringDynamicResultSetContainer;
-import io.github.primepotato.jandas.containers.fixed.DoubleFixedResultSetContainer;
-import io.github.primepotato.jandas.containers.fixed.FixedResultSetContainer;
-import io.github.primepotato.jandas.containers.fixed.IntFixedResultSetContainer;
-import io.github.primepotato.jandas.containers.fixed.StringFixedResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.dynamic.DoubleDynamicResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.dynamic.DynamicResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.dynamic.IntegerDynamicResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.dynamic.StringDynamicResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.fixed.DoubleFixedResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.fixed.FixedResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.fixed.IntFixedResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.fixed.StringFixedResultSetContainer;
 
 import java.sql.*;
 import java.util.ArrayList;

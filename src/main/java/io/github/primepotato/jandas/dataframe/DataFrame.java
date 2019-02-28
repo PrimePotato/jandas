@@ -3,8 +3,7 @@ package io.github.primepotato.jandas.dataframe;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
-import io.github.primepotato.jandas.containers.ResultSetContainer;
-import io.github.primepotato.jandas.containers.dynamic.DynamicResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.utils.IndexUtils;

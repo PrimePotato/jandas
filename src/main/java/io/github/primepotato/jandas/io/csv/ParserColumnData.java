@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.utils;
+package io.github.primepotato.jandas.io.csv;
 
 import io.github.primepotato.jandas.column.*;
 import io.github.primepotato.jandas.io.parsers.*;
@@ -16,9 +16,9 @@ public class ParserColumnData {
 
   String name;
   List<AbstractParser> parserCascade;
-  AbstractParser parser;
+  public AbstractParser parser;
   int parserPos;
-  AbstractCollection data;
+  public AbstractCollection data;
 
   public ParserColumnData(String name) {
 
@@ -112,7 +112,7 @@ public class ParserColumnData {
     }};
   }
 
-  private <T extends AbstractCollection> T createNewContainer(Class cls) {
+  public static <T extends AbstractCollection> T createNewContainer(Class cls) {
 
     if (cls.getSimpleName().equals("Integer")) {
       return (T) new IntArrayList();

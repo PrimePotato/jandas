@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.containers;
+package io.github.primepotato.jandas.io.sql.containers;
 
 import io.github.primepotato.jandas.column.Column;
 

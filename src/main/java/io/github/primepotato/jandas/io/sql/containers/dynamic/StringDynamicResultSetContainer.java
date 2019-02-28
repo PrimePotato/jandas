@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.containers.dynamic;
+package io.github.primepotato.jandas.io.sql.containers.dynamic;
 
 import io.github.primepotato.jandas.column.StringColumn;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;

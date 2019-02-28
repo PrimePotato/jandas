@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.io.sql;
 
-import io.github.primepotato.jandas.containers.ResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.io.sql.connections.SQLiteJDBCDriverConnection;
 import org.junit.Before;
@@ -8,11 +8,8 @@ import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class SqlReaderTest {
 

@@ -1,6 +1,7 @@
 package io.github.primepotato.jandas.utils;
 
 
+import io.github.primepotato.jandas.io.csv.ParserColumnData;
 import io.github.primepotato.jandas.io.parsers.DoubleParser;
 import io.github.primepotato.jandas.io.parsers.IntParser;
 import org.junit.Test;

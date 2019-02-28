@@ -1,7 +1,6 @@
-package io.github.primepotato.jandas.containers.dynamic;
+package io.github.primepotato.jandas.io.sql.containers.dynamic;
 
-import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.containers.ResultSetContainer;
+import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
