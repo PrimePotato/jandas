@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.io;
+package io.github.primepotato.jandas.io.csv;
 
 
 import com.univocity.parsers.common.ParsingContext;

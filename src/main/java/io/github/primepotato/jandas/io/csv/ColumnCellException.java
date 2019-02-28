@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package io.github.primepotato.jandas.io;
+package io.github.primepotato.jandas.io.csv;
 
 import java.io.PrintStream;
 

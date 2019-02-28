@@ -8,8 +8,7 @@ import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
-import io.github.primepotato.jandas.io.DataFrameCsvWriter;
-import io.github.primepotato.jandas.io.SqlReader;
+import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
@@ -20,7 +19,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static io.github.primepotato.jandas.io.SqlReader.resultSetToContainers;
+import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainers;
 
 public class DataFrame implements Iterable<Record> {
 
@@ -29,7 +28,7 @@ public class DataFrame implements Iterable<Record> {
     public String name;
 
     public DataFrame(ResultSet resultSet) throws SQLException {
-        this("", resultSetToContainers(resultSet).stream().map(DynamicResultSetContainer::toColumn).collect(Collectors.toList()));
+//        this("", resultSetToContainers(resultSet).stream().map(DynamicResultSetContainer::toColumn).collect(Collectors.toList()));
     }
 
     public DataFrame(String name, List<Column> cols) {

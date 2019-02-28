@@ -30,4 +30,9 @@ public class DoubleDynamicResultSetContainer implements DynamicResultSetContaine
     public DoubleColumn toColumn() {
         return new DoubleColumn("", false, data);
     }
+
+    @Override
+    public void insert(ResultSet rs, int row, int col) throws SQLException {
+        this.insert(rs, col);
+    }
 }

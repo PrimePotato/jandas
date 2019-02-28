@@ -5,11 +5,11 @@ import io.github.primepotato.jandas.column.IntegerColumn;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class IntResultSetContainer implements ResultSetContainer {
+public class IntFixedResultSetContainer implements FixedResultSetContainer {
 
     int[] data;
 
-    public IntResultSetContainer(int size) {
+    public IntFixedResultSetContainer(int size) {
         this.data = createContainer(size);
     }
 

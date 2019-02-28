@@ -30,4 +30,9 @@ public class IntegerDynamicResultSetContainer implements DynamicResultSetContain
     public IntegerColumn toColumn() {
         return new IntegerColumn("", false, data);
     }
+
+    @Override
+    public void insert(ResultSet rs, int row, int col) throws SQLException {
+        this.insert(rs, col);
+    }
 }

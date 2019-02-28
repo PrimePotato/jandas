@@ -2,7 +2,7 @@ package io.github.primepotato.jandas;
 
 
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.io.CsvReader;
+import io.github.primepotato.jandas.io.csv.CsvReader;
 
 import java.io.File;
 

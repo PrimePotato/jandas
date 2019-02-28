@@ -1,7 +1,6 @@
 package io.github.primepotato.jandas.containers.dynamic;
 
 import io.github.primepotato.jandas.column.StringColumn;
-import io.github.primepotato.jandas.containers.fixed.ResultSetContainer;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import java.sql.ResultSet;
@@ -29,5 +28,10 @@ public class StringDynamicResultSetContainer implements DynamicResultSetContaine
     @Override
     public StringColumn toColumn() {
         return new StringColumn("", false, data);
+    }
+
+    @Override
+    public void insert(ResultSet rs, int row, int col) throws SQLException {
+        this.insert(rs, col);
     }
 }

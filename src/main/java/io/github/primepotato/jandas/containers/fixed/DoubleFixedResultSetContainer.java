@@ -1,16 +1,15 @@
 package io.github.primepotato.jandas.containers.fixed;
 
 import io.github.primepotato.jandas.column.DoubleColumn;
-import io.github.primepotato.jandas.containers.fixed.ResultSetContainer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DoubleResultSetContainer implements ResultSetContainer {
+public class DoubleFixedResultSetContainer implements FixedResultSetContainer {
 
     double[] data;
 
-    public DoubleResultSetContainer(int size) {
+    public DoubleFixedResultSetContainer(int size) {
         this.data = createContainer(size);
     }
 

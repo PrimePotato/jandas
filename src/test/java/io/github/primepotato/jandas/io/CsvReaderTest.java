@@ -1,7 +1,7 @@
 package io.github.primepotato.jandas.io;
 
-import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.io.csv.CsvReader;
 import org.junit.Test;
 
 import java.io.File;
