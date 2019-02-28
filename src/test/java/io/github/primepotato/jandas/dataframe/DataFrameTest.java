@@ -1,6 +1,7 @@
 package io.github.primepotato.jandas.dataframe;
 
 
+import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
 import io.github.primepotato.jandas.column.IntegerColumn;
@@ -144,5 +145,7 @@ public class DataFrameTest {
   @Test
   public void toCsv() {
     df1.toCsv("src/test/resources/toCsvTest.csv");
+    DataFrame dfs = Jandas.readCsv("src/test/resources/toCsvTest.csv");
+    assert (df1.equals(dfs));
   }
 }

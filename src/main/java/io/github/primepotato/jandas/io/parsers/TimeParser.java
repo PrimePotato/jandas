@@ -59,7 +59,6 @@ public class TimeParser extends AbstractParser<LocalTime> {
 
     public TimeParser() {
         this((Iterable<String>) null, null, null);
-        ;
     }
 
     public TimeParser(String missingValueStrings, DateTimeFormatter formatter, Locale locale) {

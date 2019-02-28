@@ -50,7 +50,6 @@ public class JandasDemo {
 
     }
 
-
     @Test
     public void equations() {
         dfFreshmen.createColumn("avg", "(BMISep+BMIApr)/2.0");

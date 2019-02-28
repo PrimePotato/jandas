@@ -48,7 +48,6 @@ public class DataFrameGroupBy {
             double[] dVals = e.getValue().values().toArray(new double[0]);
             if (count == 0) {
                 labels = (String[]) e.getValue().keySet().stream().map(x -> x.toString()).toArray(String[]::new);
-                ;
             }
             cols.add(new DoubleColumn(e.getKey(), false, dVals));
             count++;

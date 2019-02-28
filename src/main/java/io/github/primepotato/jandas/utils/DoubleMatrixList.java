@@ -8,7 +8,7 @@ public class DoubleMatrixList extends DMatrixRMaj {
 
   private static double GROWTH_BASE = 2;
 
-  public DoubleMatrixList(double vals[]) {
+  public DoubleMatrixList(double[] vals) {
     double[] a = Arrays.copyOf(vals, dataSize(vals.length));
     double[] b = new double[1];
     DMatrixRMaj mat = new DMatrixRMaj(a);

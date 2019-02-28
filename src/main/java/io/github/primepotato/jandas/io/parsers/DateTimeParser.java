@@ -55,7 +55,6 @@ public class DateTimeParser extends AbstractParser<LocalDateTime> {
 
     public DateTimeParser() {
         this((Iterable<String>) null, null, null);
-        ;
     }
 
     public DateTimeParser(String missingValueStrings, DateTimeFormatter formatter, Locale locale) {

@@ -29,7 +29,6 @@ public class DateParser extends AbstractParser<LocalDate> {
   public DateParser() {
 
     this((Iterable<String>) null, null, null);
-    ;
   }
 
   public DateParser(String missingValueStrings, DateTimeFormatter formatter, Locale locale) {

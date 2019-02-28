@@ -1,5 +1,4 @@
 package io.github.primepotato.jandas.io.sql;
-//package net.sqlitetutorial;
 
 import io.github.primepotato.jandas.containers.ResultSetContainer;
 import io.github.primepotato.jandas.containers.dynamic.DoubleDynamicResultSetContainer;
@@ -21,18 +20,7 @@ import java.util.function.Function;
 
 public class SqlReader {
 
-    private Connection connection;
-
-    public SqlReader(Connection connection) {
-        this.connection = connection;
-    }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
     private static Map<Integer, Function<Integer, FixedResultSetContainer>> fixedContainers = new HashMap<>();
-
     private static Map<Integer, Function<Integer, DynamicResultSetContainer>> dynamicContainers = new HashMap<>();
 
     static {
@@ -47,6 +35,11 @@ public class SqlReader {
 
     }
 
+    private Connection connection;
+
+    public SqlReader(Connection connection) {
+        this.connection = connection;
+    }
 
     public static List<ResultSetContainer> resultSetToContainers(ResultSet resultSet) throws SQLException {
         return SqlReader.resultSetToContainers(resultSet, 0);
@@ -84,6 +77,10 @@ public class SqlReader {
         }
 
         return resultSetContainers;
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 
 

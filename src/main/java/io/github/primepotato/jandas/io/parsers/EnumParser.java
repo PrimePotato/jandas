@@ -47,6 +47,6 @@ public class EnumParser<T extends Enum> extends AbstractParser<T> {
   @Override
   public Class<T> elementClass() {
       return enumClass;
-  };
+  }
 }
 
