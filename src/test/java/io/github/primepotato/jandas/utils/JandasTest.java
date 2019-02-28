@@ -12,7 +12,7 @@ public class JandasTest {
     @Before
     public void setUp() {
 
-        dataFrame = Jandas.readCsv("src/test/resources/biostats.csv");
+        dataFrame = Jandas.readCsv("src/test/resources/csv/biostats.csv");
 
     }
 

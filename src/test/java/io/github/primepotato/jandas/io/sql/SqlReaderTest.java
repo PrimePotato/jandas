@@ -1,6 +1,7 @@
 package io.github.primepotato.jandas.io.sql;
 
 import io.github.primepotato.jandas.containers.ResultSetContainer;
+import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.io.sql.connections.SQLiteJDBCDriverConnection;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +40,9 @@ public class SqlReaderTest {
     }
 
     @Test
-    public void resultSetToDataFrame() {
+    public void resultSetToDataFame() throws Exception {
+        DataFrame df = new DataFrame(resultSet);
+        df.print();
     }
+
 }

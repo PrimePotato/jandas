@@ -12,7 +12,7 @@ public class CsvReaderTest {
   public void parse(){
 
     CsvReader cr = new CsvReader();
-    File f = new File("src/test/resources/freshman_kgs.csv");
+    File f = new File("src/test/resources/csv/freshman_kgs.csv");
 
     cr.parser.parse(f);
     DataFrame df = cr.dataFrame;

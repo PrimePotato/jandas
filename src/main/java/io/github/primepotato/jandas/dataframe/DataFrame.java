@@ -3,6 +3,7 @@ package io.github.primepotato.jandas.dataframe;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.DoubleColumn;
+import io.github.primepotato.jandas.containers.ResultSetContainer;
 import io.github.primepotato.jandas.containers.dynamic.DynamicResultSetContainer;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
@@ -28,11 +29,10 @@ public class DataFrame implements Iterable<Record> {
     public String name;
 
     public DataFrame(ResultSet resultSet) throws SQLException {
-//        this("", resultSetToContainers(resultSet).stream().map(DynamicResultSetContainer::toColumn).collect(Collectors.toList()));
+        this("", resultSetToContainers(resultSet).stream().map(ResultSetContainer::toColumn).collect(Collectors.toList()));
     }
 
     public DataFrame(String name, List<Column> cols) {
-
         this.name = name;
         columns = cols;
         headers = cols.stream().map(Column::name).collect(Collectors.toList());

@@ -22,9 +22,9 @@ public class JandasDemo {
     @Before
     public void setUp() {
 
-        dfFreshmen = Jandas.readCsv("src/test/resources/freshman_kgs.csv");
-        dfLdnElection = Jandas.readCsv("src/test/resources/general-elections-votes-party-2015.csv");
-        dfVoteShare = Jandas.readCsv("src/test/resources/party_constituency_vote_shares.csv");
+        dfFreshmen = Jandas.readCsv("src/test/resources/csv/freshman_kgs.csv");
+        dfLdnElection = Jandas.readCsv("src/test/resources/csv/general-elections-votes-party-2015.csv");
+        dfVoteShare = Jandas.readCsv("src/test/resources/csv/party_constituency_vote_shares.csv");
     }
 
     @Test
