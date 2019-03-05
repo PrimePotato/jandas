@@ -6,10 +6,8 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,15 +43,28 @@ public class DataFrameVisuals {
 
         data.put("countries", countries);
 
-        Template template = config.getTemplate("test.ftl");
+        Template template = config.getTemplate("lineChart.ftl");
 
-        Writer out = new OutputStreamWriter(System.out);
-        template.process(data, out);
-        out.flush();
+        File file = new File("output.html");
+
+        Writer fileWriter = new FileWriter(file);
+        try {
+            template.process(data, fileWriter);
+        } finally {
+            fileWriter.close();
+        }
+
+        try {
+            Desktop.getDesktop().browse(file.toURI());
+        } catch (IOException e) {
+
+        }
 
     }
 
     public static void main(String[] args) throws IOException, TemplateException {
+
+        System.out.println(System.getProperty("java.io.tmpdir"));
         DataFrameVisuals dfv = new DataFrameVisuals();
         dfv.linePlot();
     }

@@ -20,7 +20,7 @@ public class JandasTest {
     public void readCsv() {
 
         assert (dataFrame.wellFormed());
-        dataFrame.print(20);
+        dataFrame.print();
 
     }
 

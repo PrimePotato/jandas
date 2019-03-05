@@ -9,18 +9,18 @@ import java.time.LocalDate;
 public class DoubleIndex extends ColIndex {
 
 
-  public DoubleIndex(double[] data) {
+    public DoubleIndex(double[] data) {
 
-    int[] intMap = new int[data.length];
-    for (int i = 0; i < data.length; i++) {
-      intMap[i] = IndexGenerator.nextIndex(data[i]);
+        int[] intMap = new int[data.length];
+        for (int i = 0; i < data.length; i++) {
+            intMap[i] = IndexGenerator.nextIndex(data[i]);
+        }
+        internalIntIndex = new IntIndex(intMap);
+
     }
-    internalIntIndex = new IntIndex(intMap);
 
-  }
-
-  @Override
-  public Class elementClass() {
-    return Double.class;
-  }
+    @Override
+    public Class elementClass() {
+        return Double.class;
+    }
 }

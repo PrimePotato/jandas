@@ -82,7 +82,7 @@ public class DataFrameTest {
       add("str");
     }};
     DataFrame df = df1.join(jhs, df2, JoinType.INNER);
-    df.print(20);
+    df.print();
   }
 
   @Test
@@ -133,8 +133,7 @@ public class DataFrameTest {
 
   @Test
   public void print() {
-    df1.print(20);
-    df2.print(20);
+    df1.print();
   }
 
   @Test

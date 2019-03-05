@@ -15,7 +15,6 @@
 package io.github.primepotato.jandas.utils;
 
 
-
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import org.apache.commons.lang3.StringUtils;
 
@@ -33,6 +32,7 @@ public class DataFramePrinter {
 
     private final int maxRows;
     private final OutputStream stream;
+    private PrintType printType;
 
     /**
      * Constructor
@@ -41,6 +41,12 @@ public class DataFramePrinter {
      * @param stream  the print stream to write to
      */
     public DataFramePrinter(int maxRows, OutputStream stream) {
+        this(maxRows, PrintType.BOTH, stream);
+    }
+
+
+    public DataFramePrinter(int maxRows, PrintType pt, OutputStream stream) {
+        this.printType = pt;
         this.maxRows = maxRows;
         this.stream = stream;
     }
@@ -54,17 +60,18 @@ public class DataFramePrinter {
      */
     private static int[] getWidths(String[] headers, String[][] data) {
         final int[] widths = new int[headers.length];
-        for (int j = 0; j < headers.length; j++) {
-            final String header = headers[j];
-            widths[j] = Math.max(widths[j], header != null ? header.length() : 0);
-        }
+        maxWidth(widths, headers);
         for (String[] rowValues : data) {
-            for (int j = 0; j < rowValues.length; j++) {
-                final String value = rowValues[j];
-                widths[j] = Math.max(widths[j], value != null ? value.length() : 0);
-            }
+            maxWidth(widths, rowValues);
         }
         return widths;
+    }
+
+    private static void maxWidth(int[] widths, String[] rowValues) {
+        for (int j = 0; j < rowValues.length; j++) {
+            final String value = rowValues[j];
+            widths[j] = Math.max(widths[j], value != null ? value.length() : 0);
+        }
     }
 
     /**
@@ -172,43 +179,60 @@ public class DataFramePrinter {
         return header;
     }
 
-    /**
-     * Returns the 2-D array of jandas tokens from the frame specified
-     *
-     * @param frame the DataFrame from which to create 2D array of formatted tokens
-     * @return the array of jandas tokens
-     */
-    private String[][] getDataTokens(DataFrame frame) {
-        if (frame.rowCount() == 0) return new String[0][0];
-        final int rowCount = Math.min(maxRows, frame.rowCount());
-        final boolean truncated = frame.rowCount() > maxRows;
-        final int colCount = frame.columnCount();
-        final String[][] data = new String[rowCount][colCount];
-        if (truncated) {
-            int i;
-            for (i = 0; i < rowCount / 2; i++) {
-                for (int j = 0; j < colCount; j++) {
-                    data[i][j] = frame.getString(i, j);
-                }
-            }
+
+    private static void addHeadTokens(String[][] data, int rowCount, int colCount, int start, DataFrame df){
+        for (int i = start; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
-                data[i][j] = "...";
-            }
-            for (i++; i < rowCount; i++) {
-                for (int j = 0; j < colCount; j++) {
-                    data[i][j] = frame.getString(frame.rowCount() - maxRows + i, j);
-                }
-            }
-        } else {
-            for (int i = 0; i < rowCount; i++) {
-                for (int j = 0; j < colCount; j++) {
-                    String value = frame.getString(i, j);
-                    data[i][j] = value == null ? "" : value;
-                }
+                String value = df.getString(i, j);
+                data[i][j] = value == null ? "" : value;
             }
         }
+    }
+
+    private static void addTailTokens(String[][] data, int rowCount, int colCount, int start, int maxRows, DataFrame df){
+        for (int i=start; i < rowCount; i++) {
+            for (int j = 0; j < colCount; j++) {
+                String value = df.getString(df.rowCount() - maxRows + i, j);
+                data[i][j] = value == null ? "" : value;
+            }
+        }
+    }
+
+    private static void addSeparator(String[][] data, int i, int colCount, DataFrame df){
+        for (int j = 0; j < colCount; j++) {
+            data[i][j] = "...";
+        }
+    }
+
+    private String[][] getDataTokens(DataFrame frame) {
+        if (frame.rowCount() == 0) return new String[0][0];
+        final int colCount = frame.columnCount();
+        final int rowCount= Math.min(maxRows, frame.rowCount());
+        final String[][] data = new String[rowCount][colCount];
+        switch (printType) {
+            case BOTH:
+                if (frame.rowCount() > maxRows) {
+                    int centre = rowCount/2;
+                    addHeadTokens(data, centre, colCount, 0, frame);
+                    addSeparator(data, centre, colCount, frame);
+                    addTailTokens(data, rowCount, colCount, centre+1, maxRows, frame);
+
+                } else {
+                    addHeadTokens(data, rowCount, colCount, 0, frame);
+                }
+                break;
+            case HEAD:
+                addHeadTokens(data, rowCount, colCount, 0, frame);
+                break;
+            case TAIL:
+                int start = frame.rowCount() - maxRows;
+                addTailTokens(data, rowCount, colCount, start , maxRows, frame);
+                break;
+        }
+
         return data;
     }
+
 
 }
 

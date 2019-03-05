@@ -28,10 +28,23 @@ public class JandasDemo {
     }
 
     @Test
+    public void print() {
+
+        dfFreshmen.print();
+        dfLdnElection.print();
+        dfVoteShare.print();
+    }
+
+    @Test
     public void columnOperations() {
 
-        DoubleColumn dc = dfFreshmen.column("BMI (Sep)");
-        System.out.println(dc.scale(2));
+        DoubleColumn a = dfFreshmen.column("BMI (Sep)");
+        DoubleColumn b = dfFreshmen.column("BMI (Apr)");
+
+        DoubleColumn x = (DoubleColumn) a.plus(b);
+        dfFreshmen.addColumn(x);
+
+        dfFreshmen.print();
     }
 
     @Test
@@ -79,11 +92,6 @@ public class JandasDemo {
     }
 
     @Test
-    public void print() {
-        dfFreshmen.print();
-    }
-
-    @Test
     public void join() {
         DataFrame dfJoin;
 
@@ -95,6 +103,16 @@ public class JandasDemo {
 
         dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.RIGHT);
         dfJoin.print();
+    }
+
+    @Test
+    public void head(){
+        dfLdnElection.head();
+    }
+
+    @Test
+    public void tail(){
+        dfLdnElection.tail();
     }
 
 }

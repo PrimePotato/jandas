@@ -10,6 +10,7 @@ import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
 import io.github.primepotato.jandas.utils.DataFramePrinter;
+import io.github.primepotato.jandas.utils.PrintType;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
 
@@ -126,21 +127,37 @@ public class DataFrame implements Iterable<Record> {
         return columns;
     }
 
-    private String toPrintString(int maxRows) {
+    private String toPrintString(int maxRows, PrintType pt) {
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        DataFramePrinter dfp = new DataFramePrinter(maxRows, baos);
+        DataFramePrinter dfp = new DataFramePrinter(maxRows, pt, baos);
         dfp.print(this);
         return new String(baos.toByteArray());
     }
 
-    public void print() {
-        this.print(20);
+    public void head(){
+        this.head(20);
     }
 
-    public void print(int maxRows) {
+    public void head(int maxRows) {
+        this.print(maxRows, PrintType.HEAD);
+    }
+
+    public void tail(int maxRows) {
+        this.print(maxRows, PrintType.TAIL);
+    }
+
+    public void tail(){
+        this.tail(20);
+    }
+
+    public void print() {
+        this.print(20, PrintType.BOTH);
+    }
+
+    public void print(int maxRows, PrintType pt) {
         if (wellFormed()) {
-            System.out.println(toPrintString(maxRows));
+            System.out.println(toPrintString(maxRows, pt));
         } else {
             System.out.println("Cannot print non well formed data frame");
         }

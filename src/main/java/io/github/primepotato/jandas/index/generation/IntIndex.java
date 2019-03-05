@@ -6,68 +6,68 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 public class IntIndex {
 
-  public Int2ObjectArrayMap<IntArrayList> positions;
-  public Int2IntArrayMap indexOf;
-  public int[] values, rowMap;
+    public Int2ObjectArrayMap<IntArrayList> positions;
+    public Int2IntArrayMap indexOf;
+    public int[] values, rowMap;
 
-  public IntIndex(int[] data) {
+    public IntIndex(int[] data) {
 
-    values = data;
-    indexOf = new Int2IntArrayMap();
-    positions = new Int2ObjectArrayMap<>();
-    rowMap = new int[data.length];
-    indexOf.defaultReturnValue(-1);
+        values = data;
+        indexOf = new Int2IntArrayMap();
+        positions = new Int2ObjectArrayMap<>();
+        rowMap = new int[data.length];
+        indexOf.defaultReturnValue(-1);
 
-    int d;
-    int idx;
-    IntArrayList pos;
+        int d;
+        int idx;
+        IntArrayList pos;
 
-    for (int i = 0; i < data.length; i++) {
-      d = data[i];
-      if (!indexOf.containsKey(d)) {
-        idx = IndexGenerator.nextIndex(d);
-        pos = positions.get(idx);
-        if (pos == null) {
-          pos = new IntArrayList();
-          positions.put(idx, pos);
+        for (int i = 0; i < data.length; i++) {
+            d = data[i];
+            if (!indexOf.containsKey(d)) {
+                idx = IndexGenerator.nextIndex(d);
+                pos = positions.get(idx);
+                if (pos == null) {
+                    pos = new IntArrayList();
+                    positions.put(idx, pos);
+                }
+                indexOf.put(d, idx);
+            } else {
+                idx = indexOf.get(d);
+                pos = positions.get(idx);
+            }
+            pos.add(i);
+            rowMap[i] = idx;
         }
-        indexOf.put(d, idx);
-      } else {
-        idx = indexOf.get(d);
-        pos = positions.get(idx);
-      }
-      pos.add(i);
-      rowMap[i] = idx;
+
     }
 
-  }
+    public int get(int val) {
 
-  public int get(int val) {
+        return indexOf.get(val);
+    }
 
-    return indexOf.get(val);
-  }
+    public int[] rowMap() {
 
-  public int[] rowMap() {
+        return rowMap;
+    }
 
-    return rowMap;
-  }
+    public int size() {
 
-  public int size() {
+        return values.length;
+    }
 
-    return values.length;
-  }
+    public Int2ObjectArrayMap<IntArrayList> positions() {
 
-  public Int2ObjectArrayMap<IntArrayList> positions() {
+        return positions;
+    }
 
-    return positions;
-  }
+    public void clear() {
+        positions.clear();
+        indexOf.clear();
 
-  public void clear(){
-    positions.clear();
-    indexOf.clear();
-
-    values = new int[0];
-    rowMap = new int[0];
-  }
+        values = new int[0];
+        rowMap = new int[0];
+    }
 
 }
