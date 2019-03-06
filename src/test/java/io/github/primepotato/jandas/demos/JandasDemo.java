@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.demos;
 
-import io.github.primepotato.jandas.column.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.DataFrameGroupBy;
 import io.github.primepotato.jandas.index.meta.JoinType;

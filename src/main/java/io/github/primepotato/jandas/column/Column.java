@@ -1,7 +1,5 @@
 package io.github.primepotato.jandas.column;
 
-
-
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 
@@ -39,5 +37,7 @@ public interface Column {
   AbstractCollection newDataContainer(int size);
 
   boolean equals(Column other);
+
+  Column createEmpty();
 
 }

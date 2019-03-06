@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.io.sql.containers.dynamic;
 
-import io.github.primepotato.jandas.column.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 
 import java.sql.ResultSet;

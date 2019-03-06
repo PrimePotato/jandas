@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.io.sql.containers.dynamic;
 
-import io.github.primepotato.jandas.column.IntegerColumn;
+import io.github.primepotato.jandas.column.impl.IntegerColumn;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 

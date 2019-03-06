@@ -3,9 +3,9 @@ package io.github.primepotato.jandas.dataframe;
 
 import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.column.DoubleColumn;
-import io.github.primepotato.jandas.column.IntegerColumn;
-import io.github.primepotato.jandas.column.StringColumn;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.IntegerColumn;
+import io.github.primepotato.jandas.column.impl.StringColumn;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import org.junit.Before;
 import org.junit.Test;

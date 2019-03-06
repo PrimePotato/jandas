@@ -2,14 +2,14 @@ package io.github.primepotato.jandas.dataframe;
 
 
 import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.column.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.*;
 import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
-import io.github.primepotato.jandas.utils.DataFramePrinter;
+import io.github.primepotato.jandas.io.DataFramePrinter;
 import io.github.primepotato.jandas.utils.PrintType;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
@@ -257,6 +257,25 @@ public class DataFrame implements Iterable<Record> {
             eq.alias(dc.getMatrix(), cn);
         }
         return eq;
+    }
+
+    public void addRecord(Record rec){
+        //TODO: move to be more generic.
+
+        int i=0;
+        for (Column col : columns){
+            if (col instanceof DoubleColumn) {
+                ((DoubleColumn) col).append(rec.getDouble(i));
+            } else if (col instanceof IntegerColumn) {
+                ((IntegerColumn) col).append(rec.getInt(i));
+            } else if (col instanceof DateColumn) {
+                ((DateColumn) col).append(rec.getDate(i));
+            } else if (col instanceof StringColumn) {
+                ((StringColumn) col).append(rec.getString(i));
+            }
+            ++i;
+        }
+
     }
 
 

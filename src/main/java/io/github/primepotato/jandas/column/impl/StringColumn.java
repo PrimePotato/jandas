@@ -1,5 +1,7 @@
-package io.github.primepotato.jandas.column;
+package io.github.primepotato.jandas.column.impl;
 
+import io.github.primepotato.jandas.column.AbstractColumn;
+import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.index.StringIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -115,7 +117,12 @@ public class StringColumn extends AbstractColumn {
     }
   }
 
-  @Override
+    @Override
+    public Column createEmpty() {
+        return new StringColumn(name, false, new String[0]);
+    }
+
+    @Override
   public ObjectArrayList newDataContainer(int size) {
 
     return new ObjectArrayList<String>(size);

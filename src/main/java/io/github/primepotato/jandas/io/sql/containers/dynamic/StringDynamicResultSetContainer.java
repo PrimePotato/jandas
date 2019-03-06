@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.io.sql.containers.dynamic;
 
-import io.github.primepotato.jandas.column.StringColumn;
+import io.github.primepotato.jandas.column.impl.StringColumn;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import java.sql.ResultSet;

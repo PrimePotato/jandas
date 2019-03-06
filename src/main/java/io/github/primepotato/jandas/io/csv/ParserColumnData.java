@@ -1,6 +1,7 @@
 package io.github.primepotato.jandas.io.csv;
 
 import io.github.primepotato.jandas.column.*;
+import io.github.primepotato.jandas.column.impl.*;
 import io.github.primepotato.jandas.io.parsers.*;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;

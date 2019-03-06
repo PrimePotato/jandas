@@ -1,6 +1,7 @@
-package io.github.primepotato.jandas.column;
+package io.github.primepotato.jandas.column.impl;
 
 
+import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.DoubleIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
@@ -11,7 +12,6 @@ import org.ejml.data.Matrix;
 import org.ejml.data.MatrixType;
 import org.ejml.simple.SimpleBase;
 
-import java.text.Normalizer;
 import java.time.LocalDate;
 import java.util.AbstractCollection;
 import java.util.Arrays;
@@ -143,6 +143,11 @@ public class DoubleColumn extends SimpleBase implements Column {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public Column createEmpty() {
+        return new DoubleColumn(name, false, new double[0]);
     }
 
     public double[] getRows(int[] rows) {

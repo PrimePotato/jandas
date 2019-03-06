@@ -12,10 +12,11 @@
  * limitations under the License.
  */
 
-package io.github.primepotato.jandas.utils;
+package io.github.primepotato.jandas.io;
 
 
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.utils.PrintType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;

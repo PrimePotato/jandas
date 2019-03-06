@@ -1,8 +1,8 @@
 package io.github.primepotato.jandas.dataframe;
 
 import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.column.DoubleColumn;
-import io.github.primepotato.jandas.column.StringColumn;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.StringColumn;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.Function;

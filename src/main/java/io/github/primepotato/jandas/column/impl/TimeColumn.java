@@ -1,5 +1,7 @@
-package io.github.primepotato.jandas.column;
+package io.github.primepotato.jandas.column.impl;
 
+import io.github.primepotato.jandas.column.AbstractColumn;
+import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.index.IntegerIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -48,6 +50,11 @@ public class TimeColumn extends AbstractColumn {
     } catch (Exception e) {
       return false;
     }
+  }
+
+  @Override
+  public Column createEmpty() {
+    return new TimeColumn(name, false, new LocalTime[0]);
   }
 
   public LocalTime[] getRows(int[] rows) {

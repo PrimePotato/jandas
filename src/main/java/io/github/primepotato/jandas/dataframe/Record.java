@@ -2,13 +2,17 @@ package io.github.primepotato.jandas.dataframe;
 
 
 import io.github.primepotato.jandas.column.*;
+import io.github.primepotato.jandas.column.impl.DateColumn;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.IntegerColumn;
+import io.github.primepotato.jandas.column.impl.StringColumn;
 
 import java.time.LocalDate;
 import java.util.*;
 
 public class Record implements Iterator<Record> {
 
-  private final DataFrame dataFrame;
+  public final DataFrame dataFrame;
   private final String[] columnNames;
   private final Map<String, DateColumn> dateColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);

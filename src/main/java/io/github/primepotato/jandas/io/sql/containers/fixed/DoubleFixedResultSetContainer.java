@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.io.sql.containers.fixed;
 
-import io.github.primepotato.jandas.column.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
