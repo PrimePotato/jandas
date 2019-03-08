@@ -263,7 +263,6 @@ public class DataFrame implements Iterable<Record> {
     }
 
     public void addRecord(Record rec) {
-        //TODO: move to be more generic.
 
         int i = 0;
         for (Column col : columns) {
@@ -272,11 +271,11 @@ public class DataFrame implements Iterable<Record> {
             } else if (col instanceof IntegerColumn) {
                 ((IntegerColumn) col).append(rec.getInt(i));
             } else if (col instanceof ObjectColumn) {
-//                if (((ObjectColumn) col).dataType == LocalDate.class) {
-//                    ((ObjectColumn) col).append(rec.getDate(i));
-//                } (((ObjectColumn) col).dataType == LocalDate.class) {
-//                    ((ObjectColumn) col).append(rec.getString(i));
-//                }
+                if (((ObjectColumn) col).dataType == LocalDate.class) {
+                    ((ObjectColumn) col).append(rec.getObject(i));
+                } else if (((ObjectColumn) col).dataType == String.class) {
+                    ((ObjectColumn) col).append(rec.getString(i));
+                }
             }
             ++i;
         }
@@ -308,26 +307,5 @@ public class DataFrame implements Iterable<Record> {
             }
         };
     }
-
-//    @Override
-//    public Iterator<Record> iterator() {
-//
-//        return new Iterator<Record>() {
-//
-//            final private Record row = new Record(DataFrame.this);
-//
-//            @Override
-//            public Record next() {
-//
-//                return row.next();
-//            }
-//
-//            @Override
-//            public boolean hasNext() {
-//
-//                return row.hasNext();
-//            }
-//        };
-//    }
 
 }
