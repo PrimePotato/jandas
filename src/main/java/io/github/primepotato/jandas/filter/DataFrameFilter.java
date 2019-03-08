@@ -7,16 +7,23 @@ import io.github.primepotato.jandas.utils.DataFrameUtils;
 
 import java.util.function.Predicate;
 
-public abstract class AbstractDataFrameFilter {
+public class DataFrameFilter {
 
-    abstract Predicate<Record> getPredicate();
+    private Predicate<Record> predicate;
+
+    DataFrameFilter(Predicate<Record> predicate){
+        this.predicate = predicate;
+    }
+
+    Predicate<Record> getPredicate(){
+        return predicate;
+    }
 
     DataFrame apply(DataFrame df){
 
         DataFrame frame = DataFrameUtils.createEmptyDataFrameFromAnother(df);
-        Predicate<Record> ped = getPredicate();
         for (Record rec: df){
-            if (ped.test(rec)) {
+            if (predicate.test(rec)) {
                 frame.addRecord(rec);
             }
         }

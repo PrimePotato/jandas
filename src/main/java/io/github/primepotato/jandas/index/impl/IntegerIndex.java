@@ -1,7 +1,8 @@
-package io.github.primepotato.jandas.index;
+package io.github.primepotato.jandas.index.impl;
 
+import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.generation.IntIndex;
-import it.unimi.dsi.fastutil.ints.IntArrayList;
+
 
 public class IntegerIndex extends ColIndex {
 

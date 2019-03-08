@@ -1,35 +1,40 @@
 package io.github.primepotato.jandas.dataframe;
 
 
-import io.github.primepotato.jandas.column.*;
-import io.github.primepotato.jandas.column.impl.DateColumn;
+import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
-import io.github.primepotato.jandas.column.impl.StringColumn;
+import io.github.primepotato.jandas.column.impl.ObjectColumn;
+import io.github.primepotato.jandas.index.impl.ObjectIndex;
 
 import java.time.LocalDate;
 import java.util.*;
+
+
 
 public class Record implements Iterator<Record> {
 
   public final DataFrame dataFrame;
   private final String[] columnNames;
-  private final Map<String, DateColumn> dateColumnMap =
+  private final Map<String, ObjectColumn<LocalDate>> dateColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
   private final Map<String, DoubleColumn> doubleColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
   private final Map<String, IntegerColumn> intColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private final Map<String, StringColumn> stringColumnMap =
+  private final Map<String, ObjectColumn<String>> stringColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
   private final Map<String, Column> columnMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
   private int rowNumber;
 
-  public Record(DataFrame df) {
+  public Record(DataFrame df){
+    this(df,0);
+  }
+
+  public Record(DataFrame df, int rowNumber) {
 
     this.dataFrame = df;
     columnNames = df.columns.stream().map(c -> c.name()).toArray(String[]::new);
-    rowNumber = 0;
     for (Column column : df.columns) {
       if (column instanceof DoubleColumn) {
         doubleColumnMap.put(column.name(), (DoubleColumn) column);
@@ -37,8 +42,8 @@ public class Record implements Iterator<Record> {
       if (column instanceof IntegerColumn) {
         intColumnMap.put(column.name(), (IntegerColumn) column);
       }
-      if (column instanceof StringColumn) {
-        stringColumnMap.put(column.name(), (StringColumn) column);
+      if (column instanceof ObjectColumn) {
+        stringColumnMap.put(column.name(), (ObjectColumn) column);
       }
       columnMap.put(column.name(), column);
     }
@@ -105,16 +110,6 @@ public class Record implements Iterator<Record> {
   public String getString(int columnIndex) {
 
     return getString(columnNames[columnIndex]);
-  }
-
-  public LocalDate getDate(String columnName) {
-
-    return dateColumnMap.get(columnName).getDate(rowNumber);
-  }
-
-  public LocalDate getDate(int columnIndex) {
-
-    return dateColumnMap.get(columnNames[columnIndex]).getDate(rowNumber);
   }
 
   public void at(int rowNumber) {

@@ -1,8 +1,10 @@
 package io.github.primepotato.jandas.dataframe;
 
 
+import io.github.primepotato.jandas.column.AbstractColumn;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.*;
+import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
@@ -17,6 +19,7 @@ import org.ejml.equation.Equation;
 import java.io.ByteArrayOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -38,9 +41,9 @@ public class DataFrame implements Iterable<Record> {
         headers = cols.stream().map(Column::name).collect(Collectors.toList());
     }
 
-    public boolean equals(DataFrame other){
-        for (int i=0; i<columns.size(); ++i){
-            if (!columns.get(i).equals(columns.get(i))){
+    public boolean equals(DataFrame other) {
+        for (int i = 0; i < columns.size(); ++i) {
+            if (!columns.get(i).equals(columns.get(i))) {
                 return false;
             }
         }
@@ -135,7 +138,7 @@ public class DataFrame implements Iterable<Record> {
         return new String(baos.toByteArray());
     }
 
-    public void head(){
+    public void head() {
         this.head(20);
     }
 
@@ -147,7 +150,7 @@ public class DataFrame implements Iterable<Record> {
         this.print(maxRows, PrintType.TAIL);
     }
 
-    public void tail(){
+    public void tail() {
         this.tail(20);
     }
 
@@ -191,7 +194,7 @@ public class DataFrame implements Iterable<Record> {
         return new DataFrameGroupBy(gCols, aCols);
     }
 
-    static MetaIndex buildMetaIndex(List<Column> grpCol) {
+    public static MetaIndex buildMetaIndex(List<Column> grpCol) {
 
         List<ColIndex> colIdxs = grpCol.stream().map(x -> x.index()).collect(Collectors.toList());
         return new MetaIndex(colIdxs);
@@ -259,19 +262,21 @@ public class DataFrame implements Iterable<Record> {
         return eq;
     }
 
-    public void addRecord(Record rec){
+    public void addRecord(Record rec) {
         //TODO: move to be more generic.
 
-        int i=0;
-        for (Column col : columns){
+        int i = 0;
+        for (Column col : columns) {
             if (col instanceof DoubleColumn) {
                 ((DoubleColumn) col).append(rec.getDouble(i));
             } else if (col instanceof IntegerColumn) {
                 ((IntegerColumn) col).append(rec.getInt(i));
-            } else if (col instanceof DateColumn) {
-                ((DateColumn) col).append(rec.getDate(i));
-            } else if (col instanceof StringColumn) {
-                ((StringColumn) col).append(rec.getString(i));
+            } else if (col instanceof ObjectColumn) {
+//                if (((ObjectColumn) col).dataType == LocalDate.class) {
+//                    ((ObjectColumn) col).append(rec.getDate(i));
+//                } (((ObjectColumn) col).dataType == LocalDate.class) {
+//                    ((ObjectColumn) col).append(rec.getString(i));
+//                }
             }
             ++i;
         }
@@ -303,5 +308,26 @@ public class DataFrame implements Iterable<Record> {
             }
         };
     }
+
+//    @Override
+//    public Iterator<Record> iterator() {
+//
+//        return new Iterator<Record>() {
+//
+//            final private Record row = new Record(DataFrame.this);
+//
+//            @Override
+//            public Record next() {
+//
+//                return row.next();
+//            }
+//
+//            @Override
+//            public boolean hasNext() {
+//
+//                return row.hasNext();
+//            }
+//        };
+//    }
 
 }

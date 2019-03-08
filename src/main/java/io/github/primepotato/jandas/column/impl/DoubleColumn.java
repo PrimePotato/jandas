@@ -3,7 +3,7 @@ package io.github.primepotato.jandas.column.impl;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.index.ColIndex;
-import io.github.primepotato.jandas.index.DoubleIndex;
+import io.github.primepotato.jandas.index.impl.DoubleIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import org.ejml.data.DMatrixRBlock;
@@ -12,13 +12,13 @@ import org.ejml.data.Matrix;
 import org.ejml.data.MatrixType;
 import org.ejml.simple.SimpleBase;
 
-import java.time.LocalDate;
 import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DoubleColumn extends SimpleBase implements Column {
+    //TODO: Tidy up this class, all over the place
 
     private DMatrixRMaj data;
     public static final double DEFAULT_MISSING_VALUE_INDICATOR = Double.NaN;
@@ -163,8 +163,8 @@ public class DoubleColumn extends SimpleBase implements Column {
         return res;
     }
 
-    public Column append(double dbl) {
-        double[] d = new double[data.numRows-1];
+    public DoubleColumn append(double dbl) {
+        double[] d = new double[data.numRows+1];
         double[] old = data.getData();
         System.arraycopy(old, 0, d, 0, old.length);
         d[data.numRows] = dbl;
@@ -172,7 +172,7 @@ public class DoubleColumn extends SimpleBase implements Column {
         return this;
     }
 
-    public Column append(double[] dbl) {
+    public DoubleColumn append(double[] dbl) {
         double[] d = new double[data.numRows + dbl.length - 1];
         double[] old = data.getData();
         System.arraycopy(old, 0, d, 0, old.length);

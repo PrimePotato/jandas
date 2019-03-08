@@ -1,8 +1,10 @@
-package io.github.primepotato.jandas.dataframe;
+package io.github.primepotato.jandas.grouping;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
-import io.github.primepotato.jandas.column.impl.StringColumn;
+//import io.github.primepotato.jandas.column.impl.StringColumn;
+import io.github.primepotato.jandas.column.impl.ObjectColumn;
+import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.Function;
@@ -15,10 +17,13 @@ import java.util.Map;
 
 public class DataFrameGroupBy {
 
-
     List<Column> gCols;
     List<DoubleColumn> aCols;
     MetaIndex metaIndex;
+
+    public DataFrameGroupBy(IndexFunction indexFunction) {
+
+    }
 
     public DataFrameGroupBy(List<Column> groupColumns, List<DoubleColumn> aggColumns) {
         this.gCols = groupColumns;
@@ -52,7 +57,7 @@ public class DataFrameGroupBy {
             cols.add(new DoubleColumn(e.getKey(), false, dVals));
             count++;
         }
-        cols.add(0, new StringColumn("groups", false, labels));
+        cols.add(0, new ObjectColumn<>("groups", false, labels, String.class));
         return new DataFrame("grouped", cols);
     }
 

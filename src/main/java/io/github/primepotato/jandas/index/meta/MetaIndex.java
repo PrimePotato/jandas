@@ -1,10 +1,8 @@
 package io.github.primepotato.jandas.index.meta;
 
 import io.github.primepotato.jandas.index.ColIndex;
-import io.github.primepotato.jandas.index.IntArrayListIndex;
 import io.github.primepotato.jandas.index.generation.IndexGenerator;
-import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
-import it.unimi.dsi.fastutil.ints.Int2DoubleOpenHashMap;
+import io.github.primepotato.jandas.index.impl.ObjectIndex;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -15,11 +13,13 @@ import java.lang.reflect.Array;
 import java.util.List;
 import java.util.function.Function;
 
+//import io.github.primepotato.jandas.index.impl.IntArrayListIndex;
+
 public class MetaIndex {
 
     public int rowCount;
     public int colCount;
-    public IntArrayListIndex index;
+    public ObjectIndex<IntArrayList> index;
     public List<ColIndex> colIndices;
 
     public MetaIndex(List<ColIndex> cols) {
@@ -36,7 +36,7 @@ public class MetaIndex {
             idx[i] = rowIdx;
         }
 
-        index = new IntArrayListIndex(idx);
+        index = new ObjectIndex<>(idx, IntArrayList.class);
     }
 
     public ObjectArrayList indexValue(int idx) {

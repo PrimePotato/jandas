@@ -3,7 +3,7 @@
 //
 //import io.github.primepotato.jandas.column.AbstractColumn;
 //import io.github.primepotato.jandas.column.Column;
-//import io.github.primepotato.jandas.index.IntegerIndex;
+//import io.github.primepotato.jandas.index.impl.IntegerIndex;
 //import io.github.primepotato.jandas.io.parsers.AbstractParser;
 //import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 //
@@ -13,7 +13,7 @@
 //
 //public class EnumColumn<E extends Enum> extends AbstractColumn {
 //
-//  public final E DEFAULT_MISSING_VALUE_INDICATOR = null;
+//  public final E MISSING_VALUE = null;
 //  private ObjectArrayList<E> data;
 //  private Class<E> persistentClass;
 //
@@ -60,7 +60,7 @@
 //    E[] res = (E[]) Array.newInstance(persistentClass, rows.length);
 //    for (int i = 0; i < rows.length; i++) {
 //      if (rows[i] == Integer.MIN_VALUE) {
-//        res[i] = DEFAULT_MISSING_VALUE_INDICATOR;
+//        res[i] = MISSING_VALUE;
 //      } else {
 //        res[i] = getObject(rows[i]);
 //      }

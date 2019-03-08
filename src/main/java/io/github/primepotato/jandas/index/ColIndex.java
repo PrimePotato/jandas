@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 public abstract class ColIndex {
 
-  IntIndex internalIntIndex;
+  public IntIndex internalIntIndex;
 
   public int[] rowMap() {
 

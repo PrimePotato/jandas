@@ -1,7 +1,9 @@
 package io.github.primepotato.jandas.io.csv;
 
-import io.github.primepotato.jandas.column.*;
-import io.github.primepotato.jandas.column.impl.*;
+import io.github.primepotato.jandas.column.Column;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.IntegerColumn;
+import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.io.parsers.*;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -41,11 +43,11 @@ public class ParserColumnData {
             case "Double":
                 return new DoubleColumn(name, false, (DoubleArrayList) data);
             case "LocalTime":
-                return new TimeColumn(name, false, (ObjectArrayList<LocalTime>) data);
+                return new ObjectColumn<>(name, false, (ObjectArrayList<LocalTime>) data, LocalTime.class);
             case "LocalDate":
-                return new DateColumn(name, false, (ObjectArrayList<LocalDate>) data);
+                return new ObjectColumn<>(name, false, (ObjectArrayList<LocalDate>) data, LocalDate.class);
             default:
-                return new StringColumn(name, false, (ObjectArrayList<String>) data);
+                return new ObjectColumn<>(name, false, (ObjectArrayList<String>) data, String.class);
         }
     }
 

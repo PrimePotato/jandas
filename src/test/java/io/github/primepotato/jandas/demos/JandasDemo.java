@@ -2,7 +2,7 @@ package io.github.primepotato.jandas.demos;
 
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.dataframe.DataFrameGroupBy;
+import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import io.github.primepotato.jandas.Jandas;

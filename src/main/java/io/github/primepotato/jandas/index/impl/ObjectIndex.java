@@ -1,13 +1,14 @@
-package io.github.primepotato.jandas.index;
+package io.github.primepotato.jandas.index.impl;
 
+import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.generation.IndexGenerator;
 import io.github.primepotato.jandas.index.generation.IntIndex;
 
-public class GenericIndex<T> extends ColIndex {
+public class ObjectIndex<T> extends ColIndex {
 
     Class cls;
 
-    GenericIndex(T[] data, Class cls) {
+    public ObjectIndex(T[] data, Class cls) {
         this.cls = cls;
         int[] intMap = new int[data.length];
         for (int i = 0; i < data.length; i++) {
@@ -16,7 +17,6 @@ public class GenericIndex<T> extends ColIndex {
         internalIntIndex = new IntIndex(intMap);
 
     }
-
 
     @Override
     public Class elementClass() {

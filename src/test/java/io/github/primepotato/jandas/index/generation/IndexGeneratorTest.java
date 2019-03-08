@@ -1,10 +1,8 @@
 package io.github.primepotato.jandas.index.generation;
 
-import io.github.primepotato.jandas.index.DoubleIndex;
+import io.github.primepotato.jandas.index.impl.DoubleIndex;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class IndexGeneratorTest {
 

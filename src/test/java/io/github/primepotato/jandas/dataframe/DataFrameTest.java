@@ -5,7 +5,7 @@ import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
-import io.github.primepotato.jandas.column.impl.StringColumn;
+import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class DataFrameTest {
   public void setUp() {
 
     String[] str1 = {"a", "b", "c"};
-    StringColumn sc1 = new StringColumn("str", true, str1);
+    ObjectColumn<String> sc1 = new ObjectColumn<>("str", true, str1, String.class);
 
     int[] data1 = {1, 2, 3};
     IntegerColumn ic1 = new IntegerColumn("int1", true, data1);
@@ -42,7 +42,7 @@ public class DataFrameTest {
     df1 = new DataFrame("1", cols);
 
     String[] str2 = {"a", "b", "c","a", "b", "c","a", "b", "c","a", "b", "c"};
-    StringColumn sc2 = new StringColumn("str", true, str2);
+    ObjectColumn<String> sc2 = new ObjectColumn<>("str", true, str2, String.class);
 
     int[] data3 = {55, 25, 35, 455, 2, 3, 4, 2, 4, 23, 423, 234};
     IntegerColumn ic3 = new IntegerColumn("int3", true, data3);
