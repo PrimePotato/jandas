@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-
+@SuppressWarnings("unchecked")
 public class SqlReader {
 
     private static Map<Integer, Function<Integer, FixedResultSetContainer>> fixedContainers = new HashMap<>();

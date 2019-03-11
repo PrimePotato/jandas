@@ -9,23 +9,25 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import java.lang.reflect.Array;
 import java.util.AbstractCollection;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 
+@SuppressWarnings("unchecked")
 public class ObjectColumn<T> extends AbstractColumn {
 
     public static final Object MISSING_VALUE = null;
     private ObjectArrayList<T> data;
 
-    public ObjectColumn(String name, Boolean indexed, T[] values, Class cls) {
+    public ObjectColumn(String name, Boolean indexed, T[] values, Class<T> cls) {
 
         this.indexed = indexed;
-        index = new ObjectIndex(values, cls);
+        index = new ObjectIndex<>(values, cls);
         data = ObjectArrayList.wrap(values);
         this.name = name;
         dataType = cls;
     }
 
-    public ObjectColumn(String name, Boolean indexed, ObjectArrayList<T> values, Class cls) {
+    public ObjectColumn(String name, Boolean indexed, ObjectArrayList<T> values, Class<T> cls) {
 
         this.indexed = indexed;
         this.name = name;
@@ -36,10 +38,10 @@ public class ObjectColumn<T> extends AbstractColumn {
     @Override
     public void rebuildIndex() {
         //TODO: remove and make incremental
-        index = new ObjectIndex(rawData(), dataType);
+        index = new ObjectIndex<>(rawData(), dataType);
     }
 
-    public ObjectColumn append(T val) {
+    public ObjectColumn<T> append(T val) {
 
         data.add(val);
         return this;
@@ -47,7 +49,7 @@ public class ObjectColumn<T> extends AbstractColumn {
 
     public T getObject(int row) {
 
-        return (T) data.get(row);
+        return data.get(row);
     }
 
     public T[] getRows(int[] rows) {
@@ -84,7 +86,7 @@ public class ObjectColumn<T> extends AbstractColumn {
     @Override
     public Column subColumn(String name, int[] aryMask) {
 
-        return new ObjectColumn(name, indexed, getRows(aryMask), dataType);
+        return new ObjectColumn<>(name, indexed, getRows(aryMask), (Class<T>)dataType);
     }
 
     @Override
@@ -93,14 +95,14 @@ public class ObjectColumn<T> extends AbstractColumn {
         return Arrays.copyOfRange(data.elements(), 0, data.size());
     }
 
-    public ObjectColumn append(T[] vals) {
+    public ObjectColumn<T> append(T[] vals) {
 
         data.addElements(data.size(), vals, 0, vals.length);
         return this;
     }
 
     @Override
-    public void appendAll(AbstractCollection vals) {
+    public void appendAll(Collection vals) {
 
         T[] d = (T[]) Array.newInstance(dataType, vals.size());
         Iterator it = vals.iterator();
@@ -121,7 +123,7 @@ public class ObjectColumn<T> extends AbstractColumn {
 
     @Override
     public Column createEmpty() {
-        return new ObjectColumn<T>(name, false, (T[]) Array.newInstance(dataType, 0), dataType);
+        return new ObjectColumn<T>(name, false, (T[]) Array.newInstance(dataType, 0), (Class<T>)dataType);
     }
 
     @Override

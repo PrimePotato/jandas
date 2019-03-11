@@ -8,6 +8,7 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 import java.util.AbstractCollection;
 import java.util.Arrays;
+import java.util.Collection;
 
 public class IntegerColumn extends AbstractColumn {
 
@@ -110,7 +111,7 @@ public class IntegerColumn extends AbstractColumn {
     }
 
     @Override
-    public void appendAll(AbstractCollection vals) {
+    public void appendAll(Collection vals) {
 
         data = (IntArrayList) vals;
     }

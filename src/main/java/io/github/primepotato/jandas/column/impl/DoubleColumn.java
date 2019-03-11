@@ -14,6 +14,7 @@ import org.ejml.simple.SimpleBase;
 
 import java.util.AbstractCollection;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -111,7 +112,7 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     @Override
-    public void appendAll(AbstractCollection vals) {
+    public void appendAll(Collection vals) {
         DoubleArrayList d = (DoubleArrayList) vals;
         double [] out = new double[d.size()-1];
         d.getElements(0,out,0, d.size()-1);

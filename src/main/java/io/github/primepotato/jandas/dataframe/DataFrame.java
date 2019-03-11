@@ -1,18 +1,20 @@
 package io.github.primepotato.jandas.dataframe;
 
 
-import io.github.primepotato.jandas.column.AbstractColumn;
 import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.column.impl.*;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.IntegerColumn;
+import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
-import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
-import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
-import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
+import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.io.DataFramePrinter;
+import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
+import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.utils.PrintType;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
 
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 
 import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainers;
 
+@SuppressWarnings("unchecked")
 public class DataFrame implements Iterable<Record> {
 
     public List<Column> columns;
@@ -282,6 +285,16 @@ public class DataFrame implements Iterable<Record> {
 
     }
 
+    public List<Record> getRecords(Collection<Integer> row){
+        return row.stream().map(this::getRecord).collect(Collectors.toList());
+    }
+
+
+    public Record getRecord(int row){
+        Record rec = new Record(DataFrame.this);
+        rec.rowNumber = row;
+        return rec;
+    }
 
     public void toCsv(String fPath) {
         DataFrameCsvWriter.toCsv(this, fPath);

@@ -7,11 +7,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 //import org.apache.commons.lang.ClassUtils;
 
+@SuppressWarnings("unchecked")
 public abstract class AbstractColumn implements Column {
 
   public ColIndex index;
   public String name;
-  public Class dataType;
+  public Class<?> dataType;
   public Boolean indexed;
 
   public abstract void rebuildIndex();
@@ -21,7 +22,7 @@ public abstract class AbstractColumn implements Column {
     return index.unique();
   }
 
-  public Set uniqueSet() {
+  public Set<?> uniqueSet() {
 
     return index.positions()
         .values()

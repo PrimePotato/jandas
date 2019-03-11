@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 
-
+@SuppressWarnings("unchecked")
 public class Record implements Iterator<Record> {
 
   public final DataFrame dataFrame;
@@ -25,7 +25,7 @@ public class Record implements Iterator<Record> {
   private final Map<String, ObjectColumn<String>> stringColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
   private final Map<String, Column> columnMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private int rowNumber;
+  public int rowNumber;
 
   public Record(DataFrame df){
     this(df,0);

@@ -3,6 +3,7 @@ package io.github.primepotato.jandas.grouping;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.Record;
+import io.github.primepotato.jandas.utils.DataFrameUtils;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
@@ -45,9 +46,11 @@ public class DataFrameGroupByNew {
     }
 
     public DataFrame getGroup(int grp) {
-        List<Record> lr = new ArrayList<>();
         IntArrayList g = this.groups.get(grp);
-        return this.dataFrame;
+        DataFrame df = DataFrameUtils.createEmptyDataFrameFromAnother(this.dataFrame);
+        List<Record> recs =dataFrame.getRecords(g);
+        recs.forEach(df::addRecord);
+        return df;
     }
 
 //    public DataFrame aggregate(DoubleAggregateFunc daf) {
