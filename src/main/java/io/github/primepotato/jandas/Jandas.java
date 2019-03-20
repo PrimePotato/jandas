@@ -8,6 +8,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 public class Jandas {
 
@@ -20,24 +21,15 @@ public class Jandas {
 
     public static DataFrame readCsv(String path, List<String> importHeaders) {
 
-        CsvParserSettings cps = CsvReader.createEmptyParserSettings();
-        cps.setHeaderExtractionEnabled(true);
-        String[] flds = importHeaders.toArray(new String[0]);
-        cps.selectFields(flds);
-        CsvReader cr = new CsvReader(cps);
+        CsvReader cr = new CsvReader(importHeaders);
         File f = new File(path);
         cr.parser.parse(f);
         return cr.dataFrame;
     }
 
-    public static DataFrame readCsv(String path, List<String> importHeaders, List<Pair<String, Class>> dataTypes) {
+    public static DataFrame readCsv(String path, List<String> importHeaders, Map<String, Class> dataTypes) {
 
-        CsvParserSettings cps = CsvReader.createEmptyParserSettings();
-        cps.setHeaderExtractionEnabled(true);
-        String[] flds = importHeaders.toArray(new String[0]);
-
-        cps.selectFields(flds);
-        CsvReader cr = new CsvReader(cps);
+        CsvReader cr = new CsvReader(importHeaders, dataTypes);
         File f = new File(path);
         cr.parser.parse(f);
         return cr.dataFrame;

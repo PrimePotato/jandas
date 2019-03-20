@@ -1,17 +1,17 @@
 package io.github.primepotato.jandas.utils;
 
 
-import io.github.primepotato.jandas.io.csv.containers.DynamicAbstractColumnDataContainer;
+import io.github.primepotato.jandas.io.csv.containers.DynamicColumnDataContainer;
 import io.github.primepotato.jandas.io.parsers.DoubleParser;
 import io.github.primepotato.jandas.io.parsers.IntParser;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
-public class DynamicAbstractColumnDataContainerTest {
+public class DynamicColumnDataContainerTest {
 
   @Test
   public void add() {
-    DynamicAbstractColumnDataContainer pcd = new DynamicAbstractColumnDataContainer("BOB");
+    DynamicColumnDataContainer pcd = new DynamicColumnDataContainer("BOB");
     pcd.add("1");
     pcd.add("2");
     pcd.add("3");

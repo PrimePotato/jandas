@@ -6,12 +6,12 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DynamicAbstractColumnDataContainer extends AbstractColumnDataContainer {
+public class DynamicColumnDataContainer extends AbstractColumnDataContainer {
 
     private List<AbstractParser> parserCascade;
     private int parserPos;
 
-    public DynamicAbstractColumnDataContainer(String name) {
+    public DynamicColumnDataContainer(String name) {
 
         this.name = name;
         defaultParsers();

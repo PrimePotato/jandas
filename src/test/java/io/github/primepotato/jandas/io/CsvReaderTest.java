@@ -33,11 +33,11 @@ public class CsvReaderTest {
     cps.selectFields(flds);
     File f = new File("src/test/resources/csv/biostats.csv");
 
-    CsvReader crf = new CsvReader(cps);
-    crf.parser.parse(f);
-
-    DataFrame df = crf.dataFrame;
-    df.print();
+//    CsvReader crf = new CsvReader(cps);
+//    crf.parser.parse(f);
+//
+//    DataFrame df = crf.dataFrame;
+//    df.print();
 
   }
 

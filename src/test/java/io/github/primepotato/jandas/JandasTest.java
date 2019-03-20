@@ -6,25 +6,35 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JandasTest {
 
     private DataFrame dataFrame;
 
-    @Before
-    public void setUp() {
-
-//        dataFrame = Jandas.readCsv("src/test/resources/csv/biostats.csv");
-
-    }
-
     @Test
     public void readCsv() {
 
-//        assert (dataFrame.wellFormed());
-//        dataFrame.print();
-
         DataFrame df = Jandas.readCsv("src/test/resources/csv/biostats.csv", Arrays.asList("Name", "Sex", "Age"));
+        df.print();
+    }
+
+    @Test
+    public void readCsv2() {
+
+        DataFrame df = Jandas.readCsv("src/test/resources/csv/biostats.csv");
+        df.print();
+    }
+
+    @Test
+    public void readCsv3() {
+        Map<String, Class> map = new HashMap<>();
+        map.put("Name", String.class);
+        map.put("Sex", String.class);
+        map.put("Age", Double.class);
+
+        DataFrame df = Jandas.readCsv("src/test/resources/csv/biostats.csv", Arrays.asList("Name", "Sex", "Age"), map);
         df.print();
     }
 
