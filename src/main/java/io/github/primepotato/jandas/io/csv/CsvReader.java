@@ -18,7 +18,7 @@ public class CsvReader implements RowProcessor {
     public CsvParser parser;
     String[] headers;
 
-    private List<ParserColumnData> pcds;
+    private List<DynamicColumnDataContainer> pcds;
 
     public DataFrame dataFrame;
     public List<Column> columns;
@@ -52,10 +52,10 @@ public class CsvReader implements RowProcessor {
     public void processStarted(ParsingContext context) {
         columns = new ArrayList<>();
         context.selectedHeaders();
-        headers = context.selectedHeaders(); //TODO: remove hack!
+        headers = context.selectedHeaders(); //TODO: univocity needs to run twice for this to work..... dodgy
         dataFrame = new DataFrame("", columns);
         dataFrame.headers = Arrays.stream(headers).collect(Collectors.toList());
-        Arrays.stream(headers).forEach(x -> pcds.add(new ParserColumnData(x)));
+        Arrays.stream(headers).forEach(x -> pcds.add(new DynamicColumnDataContainer(x)));
     }
 
     @Override
@@ -69,7 +69,7 @@ public class CsvReader implements RowProcessor {
 
     @Override
     public void processEnded(ParsingContext context) {
-        for (ParserColumnData pcd : pcds) {
+        for (DynamicColumnDataContainer pcd : pcds) {
             columns.add(pcd.toColumn());
         }
     }

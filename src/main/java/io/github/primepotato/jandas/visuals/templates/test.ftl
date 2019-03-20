@@ -1,11 +1,9 @@
-FreeMarker Template example: ${message}
+<#include "./macros.ftl">
 
-=======================
-===  County List   ====
-=======================
+[${headers?join(", ")}]
 
-[${countries?join(", ")}]
-
-<#list countries as country>
-    ${country_index + 1}. ${country}
+{
+<#list columns as k, v>
+    ${k} : [${v?join(", ")}] , <br/>
 </#list>
+}

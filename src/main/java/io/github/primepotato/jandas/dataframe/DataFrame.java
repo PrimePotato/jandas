@@ -289,6 +289,17 @@ public class DataFrame implements Iterable<Record> {
         return row.stream().map(this::getRecord).collect(Collectors.toList());
     }
 
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("headers", this.headers);
+        Map<String, Object> m = new HashMap<>();
+        for (Column c: columns()){
+            m.put(c.name(), c.rawData());
+        }
+        map.put("columns", m);
+        return map;
+    }
+
 
     public Record getRecord(int row){
         Record rec = new Record(DataFrame.this);

@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class DataFrameTest {
@@ -129,6 +130,12 @@ public class DataFrameTest {
   @Test
   public void column() {
 
+  }
+
+  @Test
+  public void toMap(){
+    Map m = df1.toMap();
+    System.out.println(m);
   }
 
   @Test
