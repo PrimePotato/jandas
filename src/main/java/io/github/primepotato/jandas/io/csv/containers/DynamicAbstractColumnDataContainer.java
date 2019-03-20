@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.io.csv;
+package io.github.primepotato.jandas.io.csv.containers;
 
 import io.github.primepotato.jandas.io.parsers.*;
 
@@ -6,12 +6,12 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DynamicColumnDataContainer extends ColumnDataContainer {
+public class DynamicAbstractColumnDataContainer extends AbstractColumnDataContainer {
 
     private List<AbstractParser> parserCascade;
     private int parserPos;
 
-    public DynamicColumnDataContainer(String name) {
+    public DynamicAbstractColumnDataContainer(String name) {
 
         this.name = name;
         defaultParsers();
@@ -28,12 +28,12 @@ public class DynamicColumnDataContainer extends ColumnDataContainer {
         try {
             parser = parserCascade.get(parserPos);
             if (data == null) {
-                data = ColumnDataContainer.createNewContainer(parser.elementClass());
+                data = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
             } else if (data.size() == 0) {
-                data = ColumnDataContainer.createNewContainer(parser.elementClass());
+                data = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
             } else {
                 Class cls = parser.elementClass();
-                AbstractCollection newData = ColumnDataContainer.createNewContainer(parser.elementClass());
+                AbstractCollection newData = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
                 switch (cls.getSimpleName()) {
                     case "Double":
                         for (Object d : data) {

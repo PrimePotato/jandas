@@ -6,6 +6,7 @@ import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.io.csv.containers.DynamicAbstractColumnDataContainer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class CsvReader implements RowProcessor {
     public CsvParser parser;
     String[] headers;
 
-    private List<DynamicColumnDataContainer> pcds;
+    private List<DynamicAbstractColumnDataContainer> pcds;
 
     public DataFrame dataFrame;
     public List<Column> columns;
@@ -55,7 +56,7 @@ public class CsvReader implements RowProcessor {
         headers = context.selectedHeaders(); //TODO: univocity needs to run twice for this to work..... dodgy
         dataFrame = new DataFrame("", columns);
         dataFrame.headers = Arrays.stream(headers).collect(Collectors.toList());
-        Arrays.stream(headers).forEach(x -> pcds.add(new DynamicColumnDataContainer(x)));
+        Arrays.stream(headers).forEach(x -> pcds.add(new DynamicAbstractColumnDataContainer(x)));
     }
 
     @Override
@@ -69,7 +70,7 @@ public class CsvReader implements RowProcessor {
 
     @Override
     public void processEnded(ParsingContext context) {
-        for (DynamicColumnDataContainer pcd : pcds) {
+        for (DynamicAbstractColumnDataContainer pcd : pcds) {
             columns.add(pcd.toColumn());
         }
     }

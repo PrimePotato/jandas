@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.io.csv;
+package io.github.primepotato.jandas.io.csv.containers;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
@@ -15,7 +15,7 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ColumnDataContainer {
+public abstract class AbstractColumnDataContainer {
 
     public String name;
     public AbstractCollection data;
