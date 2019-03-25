@@ -521,7 +521,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553526197418" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553526403212" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/sql" />
@@ -657,8 +657,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DataFrameVisualsTest.dfPlot" />
         <item itemvalue="JUnit.All in jandas" />
+        <item itemvalue="JUnit.DataFrameVisualsTest.dfPlot" />
         <item itemvalue="JUnit.DataFrameTest.toCsv" />
         <item itemvalue="JUnit.HeaderTest.init (1)" />
         <item itemvalue="JUnit.HeaderTest.init" />
