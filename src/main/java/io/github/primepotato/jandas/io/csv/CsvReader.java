@@ -12,7 +12,6 @@ import io.github.primepotato.jandas.io.csv.containers.DynamicColumnDataContainer
 import io.github.primepotato.jandas.io.csv.containers.FixedColumnDataContainer;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CsvReader implements RowProcessor {
 
