@@ -11,7 +11,7 @@ public class DataFrameFilter {
 
     private Predicate<Record> predicate;
 
-    DataFrameFilter(Predicate<Record> predicate){
+    public DataFrameFilter(Predicate<Record> predicate){
         this.predicate = predicate;
     }
 
@@ -19,7 +19,7 @@ public class DataFrameFilter {
         return predicate;
     }
 
-    DataFrame apply(DataFrame df){
+    public DataFrame apply(DataFrame df){
 
         DataFrame frame = DataFrameUtils.createEmptyDataFrameFromAnother(df);
         for (Record rec: df){

@@ -1,9 +1,15 @@
 <#include "./macros.ftl">
 
-[${headers?join(", ")}]
 
-{
-<#list columns as k, v>
-    ${k} : [${v?join(", ")}] , <br/>
-</#list>
-}
+<script>
+    let a = ['${header?join("', '")}']
+
+    let b = {
+    <#list columns as k, v>
+    "${k}" : [${v?join(", ")}] ,
+    </#list>
+    }
+
+    console.log(a, b)
+
+</script>

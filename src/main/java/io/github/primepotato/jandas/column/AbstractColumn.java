@@ -22,6 +22,11 @@ public abstract class AbstractColumn implements Column {
     return index.unique();
   }
 
+  @Override
+  public int hashCode() {
+    return super.hashCode();
+  }
+
   public Set<?> uniqueSet() {
 
     return index.positions()

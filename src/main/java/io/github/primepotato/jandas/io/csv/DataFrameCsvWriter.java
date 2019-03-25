@@ -14,7 +14,7 @@ public class DataFrameCsvWriter {
         try (FileOutputStream csvResult = new FileOutputStream(file)) {
             Writer outputWriter = new OutputStreamWriter(csvResult);
             CsvWriter csvWriter = new CsvWriter(outputWriter, new CsvWriterSettings());
-            csvWriter.writeHeaders(df.headers);
+            csvWriter.writeHeaders(df.header.toList());
 
             for (Record rec : df){
                 csvWriter.writeRow(rec.rowString());

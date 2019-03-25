@@ -2,6 +2,7 @@ package io.github.primepotato.jandas.demos;
 
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.dataframe.Record;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
@@ -11,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class JandasDemo {
 
@@ -92,6 +94,13 @@ public class JandasDemo {
     }
 
     @Test
+    public void filter(){
+        Predicate<Record> predicate = record -> record.getDouble("BMI (Sep)")>30.;
+        DataFrame df = dfFreshmen.filter(predicate);
+        df.print();
+    }
+
+    @Test
     public void join() {
         DataFrame dfJoin;
 
@@ -113,6 +122,25 @@ public class JandasDemo {
     @Test
     public void tail(){
         dfLdnElection.tail();
+    }
+
+
+    @Test
+    public void userCase(){
+        DataFrame dfElection = Jandas.readCsv("src/test/resources/csv/general-elections-votes-party-2015.csv");
+//        dfElection.print();
+
+        DataFrame dfVotes = Jandas.readCsv("src/test/resources/csv/party_constituency_vote_shares.csv");
+//        dfVotes.print();
+
+        DataFrame dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.INNER);
+
+        dfJoin.print();
+
+        DataFrame df = dfJoin.filter(rec->rec.getInt("Candidate VotesL")>5000);
+
+        df.print();
+
     }
 
 }

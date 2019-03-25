@@ -138,7 +138,7 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     @Override
-    public boolean equals(Column other) {
+    public boolean equals(Object other) {
         try{
             return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
         } catch (Exception e) {

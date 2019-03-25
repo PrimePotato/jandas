@@ -18,9 +18,11 @@ import java.util.Map;
 public class DataFrameVisuals {
 
     Configuration config;
+    DataFrame dataFrame;
 
-    public DataFrameVisuals() throws IOException {
+    public DataFrameVisuals(DataFrame dataFrame) throws IOException {
         config = createConfig();
+        this.dataFrame = dataFrame;
     }
 
     public static Configuration createConfig() throws IOException {
@@ -33,25 +35,17 @@ public class DataFrameVisuals {
         return cfg;
     }
 
-    public void linePlot() throws IOException, TemplateException {
-        Map<String, Object> data = new HashMap<String, Object>();
-        data.put("message", "Hello World!");
 
-        List<String> countries = new ArrayList<String>();
-        countries.add("India");
-        countries.add("United States");
-        countries.add("Germany");
-        countries.add("France");
-
-        data.put("countries", countries);
-
-        Template template = config.getTemplate("lineChart.ftl");
-
-        File file = new File("output.html");
-
+    public void dtPlot(String templatePath, String outputPath) throws IOException, TemplateException {
+        if (outputPath==null) {
+            outputPath = "output.html";
+        }
+        Template template = config.getTemplate(templatePath);
+        File file = new File(outputPath);
         Writer fileWriter = new FileWriter(file);
+
         try {
-            template.process(data, fileWriter);
+            template.process(dataFrame.toMap(), fileWriter);
         } finally {
             fileWriter.close();
         }
@@ -64,36 +58,5 @@ public class DataFrameVisuals {
 
     }
 
-    public void dtPlot(Map data) throws IOException, TemplateException {
-
-//        data.put("countries", countries);
-
-        Template template = config.getTemplate("test.ftl");
-
-        File file = new File("output.html");
-
-        Writer fileWriter = new FileWriter(file);
-        try {
-            template.process(data, fileWriter);
-        } finally {
-            fileWriter.close();
-        }
-
-        try {
-            Desktop.getDesktop().browse(file.toURI());
-        } catch (IOException e) {
-
-        }
-
-    }
-
-    public static void main(String[] args) throws IOException, TemplateException {
-
-        DataFrame df = Jandas.readCsv("src/test/resources/csv/freshman_kgs.csv");
-        Map map = df.toMap();
-        System.out.println(System.getProperty("java.io.tmpdir"));
-        DataFrameVisuals dfv = new DataFrameVisuals();
-        dfv.dtPlot(map);
-    }
 
 }

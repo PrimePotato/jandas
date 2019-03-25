@@ -37,7 +37,7 @@ public interface Column {
 
   AbstractCollection newDataContainer(int size);
 
-  boolean equals(Column other);
+  boolean equals(Object other);
 
   Column createEmpty();
 
