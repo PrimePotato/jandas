@@ -2,6 +2,7 @@ package io.github.primepotato.jandas.column.impl;
 
 
 import io.github.primepotato.jandas.column.Column;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.impl.DoubleIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
@@ -12,7 +13,6 @@ import org.ejml.data.Matrix;
 import org.ejml.data.MatrixType;
 import org.ejml.simple.SimpleBase;
 
-import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
@@ -24,25 +24,32 @@ public class DoubleColumn extends SimpleBase implements Column {
     private DMatrixRMaj data;
     public static final double DEFAULT_MISSING_VALUE_INDICATOR = Double.NaN;
     public ColIndex index;
-    public String name;
+    public Heading heading;
     public Class dataType;
     public Boolean indexed;
 
-    public DoubleColumn(String name, Boolean indexed, double[] values) {
-
+    public DoubleColumn(Heading heading, Boolean indexed, double[] values) {
         this.indexed = indexed;
         data = new DMatrixRMaj(values);
-        this.name = name;
+        this.heading = heading;
         dataType = Double.class;
         this.setMatrix(this.data);
+    }
+
+    public DoubleColumn(Heading heading, Boolean indexed, DoubleArrayList values) {
+        this(heading, indexed, values.toArray(new double[0]));
+    }
+
+    public DoubleColumn(String name, Boolean indexed, double[] values) {
+        this(new Heading(name), indexed, values);
     }
 
     public DoubleColumn(String name, Boolean indexed, DoubleArrayList values) {
         this(name, indexed, values.toArray(new double[0]));
     }
 
-    public DoubleColumn(String name, Boolean indexed, DMatrixRBlock mat) {
-        this(name, indexed, mat.getData());
+    public DoubleColumn(Heading heading, Boolean indexed, DMatrixRBlock mat) {
+        this(heading, indexed, mat.getData());
     }
 
     public void rebuildIndex(double[] vals) {
@@ -78,7 +85,7 @@ public class DoubleColumn extends SimpleBase implements Column {
             append(parser.parseDouble(value));
         } catch (final NumberFormatException e) {
             throw new NumberFormatException(
-                    "Error adding value to column " + name + ": " + e.getMessage());
+                    "Error adding value to column " + heading + ": " + e.getMessage());
         }
     }
 
@@ -96,14 +103,15 @@ public class DoubleColumn extends SimpleBase implements Column {
                 .collect(Collectors.toSet());
     }
 
-    public String name() {
+    @Override
+    public Heading heading() {
 
-        return name;
+        return heading;
     }
 
     @Override
     public String cleanName() {
-        return name.replaceAll("[^A-Za-z0-9]", "");
+        return heading.toString().replaceAll("[^A-Za-z0-9]", "");
     }
 
     public ColIndex index() {
@@ -148,7 +156,7 @@ public class DoubleColumn extends SimpleBase implements Column {
 
     @Override
     public Column createEmpty() {
-        return new DoubleColumn(name, false, new double[0]);
+        return new DoubleColumn(heading, false, new double[0]);
     }
 
     public double[] getRows(int[] rows) {
@@ -189,6 +197,12 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     @Override
+    public DoubleColumn subColumn(Heading heading, int[] aryMask) {
+
+        return new DoubleColumn(heading, indexed, getRows(aryMask));
+    }
+
+    @Override
     public DoubleColumn subColumn(String name, int[] aryMask) {
 
         return new DoubleColumn(name, indexed, getRows(aryMask));
@@ -203,13 +217,13 @@ public class DoubleColumn extends SimpleBase implements Column {
     @Override
     protected DoubleColumn createMatrix(int i, int j, MatrixType matrixType) {
 
-        return new DoubleColumn(this.name + "new", indexed, new DoubleArrayList());
+        return new DoubleColumn(this.heading, indexed, new DoubleArrayList());
     }
 
 
     @Override
     protected DoubleColumn wrapMatrix(Matrix matrix) {
 
-        return new DoubleColumn(this.name + "new", indexed, (DMatrixRBlock) matrix);
+        return new DoubleColumn(this.heading, indexed, (DMatrixRBlock) matrix);
     }
 }

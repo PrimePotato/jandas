@@ -1,5 +1,6 @@
 package io.github.primepotato.jandas.column;
 
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 
 import java.text.Normalizer;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 public abstract class AbstractColumn implements Column {
 
   public ColIndex index;
-  public String name;
+  public Heading heading;
   public Class<?> dataType;
   public Boolean indexed;
 
@@ -36,14 +37,14 @@ public abstract class AbstractColumn implements Column {
         .collect(Collectors.toSet());
   }
 
-  public String name() {
+  public Heading heading() {
 
-    return name;
+    return heading;
   }
 
   public String cleanName() {
 
-    return Normalizer.normalize(name, Normalizer.Form.NFD);
+    return Normalizer.normalize(heading.toString(), Normalizer.Form.NFD);
   }
 
   public ColIndex index() {

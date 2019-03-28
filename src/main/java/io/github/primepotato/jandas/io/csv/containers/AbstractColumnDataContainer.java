@@ -4,7 +4,8 @@ import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
 import io.github.primepotato.jandas.column.impl.ObjectColumn;
-import io.github.primepotato.jandas.io.parsers.*;
+import io.github.primepotato.jandas.header.Heading;
+import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -12,8 +13,6 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.AbstractCollection;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class AbstractColumnDataContainer {
 

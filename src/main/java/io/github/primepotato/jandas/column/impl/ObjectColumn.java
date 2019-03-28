@@ -2,6 +2,7 @@ package io.github.primepotato.jandas.column.impl;
 
 import io.github.primepotato.jandas.column.AbstractColumn;
 import io.github.primepotato.jandas.column.Column;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.impl.ObjectIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -17,21 +18,29 @@ public class ObjectColumn<T> extends AbstractColumn {
     public static final Object MISSING_VALUE = null;
     private ObjectArrayList<T> data;
 
-    public ObjectColumn(String name, Boolean indexed, T[] values, Class<T> cls) {
+    public ObjectColumn(Heading heading, Boolean indexed, T[] values, Class<T> cls) {
 
         this.indexed = indexed;
         index = new ObjectIndex<>(values, cls);
         data = ObjectArrayList.wrap(values);
-        this.name = name;
+        this.heading = heading;
         dataType = cls;
     }
 
-    public ObjectColumn(String name, Boolean indexed, ObjectArrayList<T> values, Class<T> cls) {
+    public ObjectColumn(Heading heading, Boolean indexed, ObjectArrayList<T> values, Class<T> cls) {
 
         this.indexed = indexed;
-        this.name = name;
+        this.heading = heading;
         dataType = cls;
         appendAll(values);
+    }
+
+    public ObjectColumn(String heading, Boolean indexed, ObjectArrayList<T> values, Class<T> cls){
+        this(new Heading(heading), indexed, values, cls);
+    }
+
+    public ObjectColumn(String heading, Boolean indexed, T[] values, Class<T> cls){
+        this(new Heading(heading), indexed, values, cls);
     }
 
     @Override
@@ -84,6 +93,11 @@ public class ObjectColumn<T> extends AbstractColumn {
 
     @Override
     public Column subColumn(String name, int[] aryMask) {
+        return subColumn(new Heading(name), aryMask);
+    }
+
+    @Override
+    public Column subColumn(Heading name, int[] aryMask) {
 
         return new ObjectColumn<>(name, indexed, getRows(aryMask), (Class<T>)dataType);
     }
@@ -122,7 +136,7 @@ public class ObjectColumn<T> extends AbstractColumn {
 
     @Override
     public Column createEmpty() {
-        return new ObjectColumn<T>(name, false, (T[]) Array.newInstance(dataType, 0), (Class<T>)dataType);
+        return new ObjectColumn<T>(heading, false, (T[]) Array.newInstance(dataType, 0), (Class<T>)dataType);
     }
 
     @Override
@@ -142,7 +156,7 @@ public class ObjectColumn<T> extends AbstractColumn {
             return append((T) parser.parse(stringValue));
         } catch (final NumberFormatException e) {
             throw new NumberFormatException(
-                    "Error adding value to column " + name + ": " + e.getMessage());
+                    "Error adding value to column " + heading + ": " + e.getMessage());
         }
     }
 }

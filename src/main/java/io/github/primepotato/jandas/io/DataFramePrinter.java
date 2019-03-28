@@ -175,7 +175,7 @@ public class DataFramePrinter {
         final int colCount = frame.columnCount();
         final String[] header = new String[colCount];
         IntStream.range(0, colCount).forEach(colIndex -> {
-            header[colIndex] = frame.column(colIndex).name();
+            header[colIndex] = frame.column(colIndex).heading().toString();
         });
         return header;
     }

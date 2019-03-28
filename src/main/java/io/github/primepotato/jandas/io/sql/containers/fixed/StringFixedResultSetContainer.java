@@ -1,6 +1,7 @@
 package io.github.primepotato.jandas.io.sql.containers.fixed;
 
 import io.github.primepotato.jandas.column.impl.ObjectColumn;
+import io.github.primepotato.jandas.header.Heading;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class StringFixedResultSetContainer implements FixedResultSetContainer {
 
     @Override
     public ObjectColumn<String> toColumn() {
-        return new ObjectColumn<> ("", false,  data, String.class);
+        return new ObjectColumn<> (new Heading(""), false,  data, String.class);
     }
 
 

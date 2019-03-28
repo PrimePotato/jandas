@@ -89,7 +89,7 @@ public class ColumnCellException extends RuntimeException {
     }
 
     /**
-     * Returns the name of the column that caused the Exception
+     * Returns the heading of the column that caused the Exception
      */
     public String getColumnName() {
         return columnNames[columnIndex];

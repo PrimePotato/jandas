@@ -1,5 +1,6 @@
 package io.github.primepotato.jandas.column;
 
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 
@@ -17,6 +18,8 @@ public interface Column {
 
   Column subColumn(String name, int[] aryMask);
 
+  Column subColumn(Heading name, int[] aryMask);
+
   String getString(int row);
 
   void appendString(final String value, AbstractParser<?> parser);
@@ -25,7 +28,7 @@ public interface Column {
 
   Set uniqueSet();
 
-  String name();
+  Heading heading();
 
   String cleanName();
 

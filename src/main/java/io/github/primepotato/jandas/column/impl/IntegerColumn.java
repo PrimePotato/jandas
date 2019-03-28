@@ -2,11 +2,11 @@ package io.github.primepotato.jandas.column.impl;
 
 import io.github.primepotato.jandas.column.AbstractColumn;
 import io.github.primepotato.jandas.column.Column;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.impl.IntegerIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
-import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -15,22 +15,25 @@ public class IntegerColumn extends AbstractColumn {
     public static final int DEFAULT_MISSING_VALUE_INDICATOR = Integer.MIN_VALUE;
     private IntArrayList data;
 
-    public IntegerColumn(String name, Boolean indexed, int[] values) {
+    public IntegerColumn(Heading heading, Boolean indexed, int[] values) {
 
         this.indexed = indexed;
         data = new IntArrayList(values);
-        this.name = name;
+        this.heading = heading;
         dataType = Integer.class;
         index = indexed ? new IntegerIndex(values) : null;
     }
 
-    public IntegerColumn(String name, Boolean indexed, IntArrayList values) {
+    public IntegerColumn(Heading heading, Boolean indexed, IntArrayList values) {
+        this(heading, indexed, values.toArray(new int[0]));
+    }
 
-        this.indexed = indexed;
-        data = values;
-        this.name = name;
-        dataType = Integer.class;
-        index = indexed ? new IntegerIndex(rawData()) : null;
+    public IntegerColumn(String name, Boolean indexed, IntArrayList values) {
+        this(new Heading(name), indexed, values.toArray(new int[0]));
+    }
+
+    public IntegerColumn(String name, Boolean indexed, int[] values) {
+        this(new Heading(name), indexed, values);
     }
 
     public IntegerColumn append(int val) {
@@ -73,7 +76,7 @@ public class IntegerColumn extends AbstractColumn {
 
     @Override
     public Column createEmpty() {
-        return new IntegerColumn(name, false, new int[0]);
+        return new IntegerColumn(heading, false, new int[0]);
     }
 
     public int size() {
@@ -82,9 +85,14 @@ public class IntegerColumn extends AbstractColumn {
     }
 
     @Override
-    public IntegerColumn subColumn(String name, int[] aryMask) {
+    public Column subColumn(String name, int[] aryMask) {
+        return subColumn(new Heading(name), aryMask);
+    }
 
-        return new IntegerColumn(name, indexed, getRows(aryMask));
+
+    @Override
+    public Column subColumn(Heading heading, int[] aryMask) {
+        return new IntegerColumn(heading, indexed, getRows(aryMask));
     }
 
     @Override
@@ -100,7 +108,7 @@ public class IntegerColumn extends AbstractColumn {
             append(parser.parseInt(value));
         } catch (final NumberFormatException e) {
             throw new NumberFormatException(
-                    "Error adding value to column " + name + ": " + e.getMessage());
+                    "Error adding value to column " + heading + ": " + e.getMessage());
         }
     }
 

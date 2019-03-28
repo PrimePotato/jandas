@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
-
 public class HeaderTest {
 
     @Test
@@ -19,11 +17,11 @@ public class HeaderTest {
         header.addKey(k2);
         header.addKey(k3);
 
-        HeaderKey h = new HeaderKey("ABC");
+        Heading h = new Heading("ABC");
 
-        for (HeaderKey hk : header.columnPositions) {
+        for (Heading hk : header.columnPositions) {
             if (hk.equals(h)) {
-                System.out.println(Arrays.toString(hk.key));
+                System.out.println(Arrays.toString(hk.keys));
             }
         }
 

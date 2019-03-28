@@ -4,6 +4,7 @@ import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.Record;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import io.github.primepotato.jandas.Jandas;
@@ -128,18 +129,14 @@ public class JandasDemo {
     @Test
     public void userCase(){
         DataFrame dfElection = Jandas.readCsv("src/test/resources/csv/general-elections-votes-party-2015.csv");
-//        dfElection.print();
 
         DataFrame dfVotes = Jandas.readCsv("src/test/resources/csv/party_constituency_vote_shares.csv");
-//        dfVotes.print();
 
-        DataFrame dfJoin = dfLdnElection.join(Arrays.asList("Constituency"), dfVoteShare, JoinType.INNER);
+        DataFrame dfJoin = dfElection.join(Arrays.asList("Constituency"), dfVotes, JoinType.INNER);
 
-        dfJoin.print();
+        DataFrame df = dfJoin.filter(rec->rec.getInt(new Heading("Candidate Votes","L"))>20000);
 
-        DataFrame df = dfJoin.filter(rec->rec.getInt("Candidate VotesL")>5000);
-
-        df.print();
+        DataFrameGroupBy g = df.groupBy(Arrays.asList("[Election year, L]"), Arrays.asList("[Candidate Votes, L]"));
 
     }
 

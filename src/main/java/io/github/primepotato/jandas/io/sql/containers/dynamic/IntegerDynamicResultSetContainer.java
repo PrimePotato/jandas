@@ -1,6 +1,7 @@
 package io.github.primepotato.jandas.io.sql.containers.dynamic;
 
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
+import io.github.primepotato.jandas.header.Heading;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
 
@@ -28,7 +29,7 @@ public class IntegerDynamicResultSetContainer implements DynamicResultSetContain
 
     @Override
     public IntegerColumn toColumn() {
-        return new IntegerColumn("", false, data);
+        return new IntegerColumn(new Heading(""), false, data);
     }
 
     @Override

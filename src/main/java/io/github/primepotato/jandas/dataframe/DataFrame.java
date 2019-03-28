@@ -8,6 +8,7 @@ import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.filter.DataFrameFilter;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.header.Header;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
@@ -33,7 +34,6 @@ import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainer
 public class DataFrame implements Iterable<Record> {
 
     public List<Column> columns;
-    //    public List<String> headers;
     public Header header;
     public String name;
 
@@ -44,7 +44,7 @@ public class DataFrame implements Iterable<Record> {
     public DataFrame(String name, List<Column> cols) {
         this.name = name;
         columns = cols;
-        String[] headers = cols.stream().map(Column::name).toArray(String[]::new);
+        List<Heading> headers = cols.stream().map(Column::heading).collect(Collectors.toList());
         header = new Header(headers);
     }
 
@@ -75,7 +75,7 @@ public class DataFrame implements Iterable<Record> {
 
     public String[] columnNames() {
 
-        return this.columns.stream().map(c -> c.name()).toArray(String[]::new);
+        return this.columns.stream().map(c -> c.heading()).toArray(String[]::new);
     }
 
     public String name() {
@@ -91,7 +91,7 @@ public class DataFrame implements Iterable<Record> {
     public void addColumn(Column col) {
 
         columns.add(col);
-        header.addKey(col.name());
+        header.addKey(col.heading());
     }
 
     public void createColumn(String name, String equation) {
@@ -222,10 +222,10 @@ public class DataFrame implements Iterable<Record> {
 
         List<Column> joinCols = new ArrayList<>();
         for (Column c : dfLeft.columns) {
-            joinCols.add(c.subColumn(c.name() + "L", left));
+            joinCols.add(c.subColumn(c.heading().newKeyHeading("L"), left));
         }
         for (Column c : dfRight.columns) {
-            joinCols.add(c.subColumn(c.name() + "R", right));
+            joinCols.add(c.subColumn(c.heading().newKeyHeading("R"), right));
         }
 
         return new DataFrame("Joined" + name, joinCols);
@@ -291,9 +291,9 @@ public class DataFrame implements Iterable<Record> {
         Map<String, Object> map = new HashMap<>();
         map.put("header", this.header.toList().toArray());
 
-        Map<String, Object> m = new HashMap<>();
+        Map<Heading, Object> m = new HashMap<>();
         for (Column c : columns()) {
-            m.put(c.name(), c.rawData());
+            m.put(c.heading(), c.rawData());
         }
         map.put("columns", m);
         return map;

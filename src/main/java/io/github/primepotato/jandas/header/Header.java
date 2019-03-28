@@ -3,9 +3,9 @@ package io.github.primepotato.jandas.header;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Header {
+public class Header{
 
-    public List<HeaderKey> columnPositions = new ArrayList<>();
+    public List<Heading> columnPositions = new ArrayList<>();
     public int level = 0;
 
     public Header(String... headers) {
@@ -14,7 +14,7 @@ public class Header {
         }
     }
 
-    public Header(List<HeaderKey> columnPositions) {
+    public Header(List<Heading> columnPositions) {
         this.columnPositions = columnPositions;
     }
 
@@ -22,11 +22,15 @@ public class Header {
         addKey(columnPositions.size(), key);
     }
 
-    public void addKey(int position, String... key) {
-        addKey(position, new HeaderKey(key));
+    public void addKey(Heading hdr) {
+        addKey(columnPositions.size(), hdr);
     }
 
-    public void addKey(int position, HeaderKey key) {
+    public void addKey(int position, String... key) {
+        addKey(position, new Heading(key));
+    }
+
+    public void addKey(int position, Heading key) {
         if (level == 0) {
             level = key.level;
         } else {
@@ -38,15 +42,15 @@ public class Header {
     }
 
     public int indexOf(String... colName){
-        return columnPositions.indexOf(new HeaderKey(colName));
+        return columnPositions.indexOf(new Heading(colName));
     }
 
-    public int indexOf(HeaderKey hk){
+    public int indexOf(Heading hk){
         return columnPositions.indexOf(hk);
     }
 
     public int getLevel() {
-        return columnPositions.toArray(new HeaderKey[0])[0].level;
+        return columnPositions.toArray(new Heading[0])[0].level;
     }
 
     public boolean wellFormed() {
@@ -55,7 +59,7 @@ public class Header {
     }
 
     public List<String> toList(){
-        return columnPositions.stream().map(HeaderKey::toString).collect(Collectors.toList());
+        return columnPositions.stream().map(Heading::toString).collect(Collectors.toList());
     }
 
 }

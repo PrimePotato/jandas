@@ -24,7 +24,7 @@ public class PerformanceTesterTest {
     @Before
     public void setUp() throws Exception {
 
-        pt = new PerformanceTester(randGen,100000);
+        pt = new PerformanceTester(randGen,10000);
     }
 
     @Test
