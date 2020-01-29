@@ -29,6 +29,9 @@ It is also available via Maven Central and so the pom.xml should include:
 
 ### Usage
 
+[![Coverage Status](https://coveralls.io/repos/github/PrimePotato/jandas/badge.svg?branch=dev)](https://coveralls.io/github/PrimePotato/jandas?branch=dev)
+
+
 #### Manual Construction
 
 Here is a simple example of a data frame being manually constructed:  
