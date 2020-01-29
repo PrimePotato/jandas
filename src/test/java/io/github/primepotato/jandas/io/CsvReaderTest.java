@@ -1,10 +1,13 @@
 package io.github.primepotato.jandas.io;
 
-import io.github.primepotato.jandas.column.DoubleColumn;
+
+import com.univocity.parsers.csv.CsvParserSettings;
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.io.csv.CsvReader;
 import org.junit.Test;
 
 import java.io.File;
+
 
 public class CsvReaderTest {
 
@@ -12,19 +15,31 @@ public class CsvReaderTest {
   public void parse(){
 
     CsvReader cr = new CsvReader();
-    File f = new File("src/test/resources/EG1.csv");
+    File f = new File("src/test/resources/csv/biostats.csv");
 
     cr.parser.parse(f);
     DataFrame df = cr.dataFrame;
-
-    DoubleColumn ask = df.column("Ask");
-    DoubleColumn bid = df.column("Bid");
-    DoubleColumn mid = (DoubleColumn)ask.plus(bid).scale(0.5);
-    mid.name = "midDouble";
-    df.addColumn(mid);
-
-    df.print(20);
+    df.print();
 
   }
+
+  @Test
+  public void parseSelected(){
+
+    CsvParserSettings cps = CsvReader.createEmptyParserSettings();
+    cps.setHeaderExtractionEnabled(true);
+
+    String[] flds = {"Name","Sex","Age"};
+    cps.selectFields(flds);
+    File f = new File("src/test/resources/csv/biostats.csv");
+
+//    CsvReader crf = new CsvReader(cps);
+//    crf.parser.parse(f);
+//
+//    DataFrame df = crf.dataFrame;
+//    df.print();
+
+  }
+
 
 }

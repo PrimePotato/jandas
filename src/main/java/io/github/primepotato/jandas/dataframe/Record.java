@@ -1,142 +1,147 @@
 package io.github.primepotato.jandas.dataframe;
 
 
-import io.github.primepotato.jandas.column.*;
+import io.github.primepotato.jandas.column.Column;
+import io.github.primepotato.jandas.column.impl.DoubleColumn;
+import io.github.primepotato.jandas.column.impl.IntegerColumn;
+import io.github.primepotato.jandas.column.impl.ObjectColumn;
+import io.github.primepotato.jandas.header.Heading;
 
 import java.time.LocalDate;
 import java.util.*;
 
+
+@SuppressWarnings("unchecked")
 public class Record implements Iterator<Record> {
 
-  private final DataFrame dataFrame;
-  private final String[] columnNames;
-  private final Map<String, DateColumn> dateColumnMap =
-      new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private final Map<String, DoubleColumn> doubleColumnMap =
-      new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private final Map<String, IntegerColumn> intColumnMap =
-      new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private final Map<String, StringColumn> stringColumnMap =
-      new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private final Map<String, Column> columnMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  private int rowNumber;
+    public final DataFrame dataFrame;
+    private final Heading[] columnHeadings;
+    private final Map<Heading, ObjectColumn<LocalDate>> dateColumnMap = new TreeMap<>();
+    private final Map<Heading, DoubleColumn> doubleColumnMap = new TreeMap<>();
+    private final Map<Heading, IntegerColumn> intColumnMap = new TreeMap<>();
+    private final Map<Heading, ObjectColumn<String>> stringColumnMap = new TreeMap<>();
+    private final Map<Heading, Column> columnMap = new TreeMap<>();
+    public int rowNumber;
 
-  public Record(DataFrame df) {
-
-    this.dataFrame = df;
-    columnNames = df.columns.stream().map(c -> c.name()).toArray(String[]::new);
-    rowNumber = 0;
-    for (Column column : df.columns) {
-      if (column instanceof DoubleColumn) {
-        doubleColumnMap.put(column.name(), (DoubleColumn) column);
-      }
-      if (column instanceof IntegerColumn) {
-        intColumnMap.put(column.name(), (IntegerColumn) column);
-      }
-      if (column instanceof StringColumn) {
-        stringColumnMap.put(column.name(), (StringColumn) column);
-      }
-      columnMap.put(column.name(), column);
+    public Record(DataFrame df) {
+        this(df, 0);
     }
-  }
 
-  @Override
-  public boolean hasNext() {
+    public Record(DataFrame df, int rowNumber) {
 
-    return rowNumber < dataFrame.rowCount() - 1;
-  }
-
-  public String[] rowString(){
-    String [] rs = new String[dataFrame.columnCount()];
-    for (int i =0; i<dataFrame.columnCount(); ++i){
-      rs[i] = this.getString(i);
+        this.dataFrame = df;
+        columnHeadings = df.columns.stream().map(Column::heading).toArray(Heading[]::new);
+        for (Column column : df.columns) {
+            if (column instanceof DoubleColumn) {
+                doubleColumnMap.put(column.heading(), (DoubleColumn) column);
+            }
+            if (column instanceof IntegerColumn) {
+                intColumnMap.put(column.heading(), (IntegerColumn) column);
+            }
+            if (column instanceof ObjectColumn) {
+                stringColumnMap.put(column.heading(), (ObjectColumn) column);
+            }
+            columnMap.put(column.heading(), column);
+        }
     }
-    return rs;
-  }
 
-  /**
-   * Returns a list containing the names of each column in the row
-   */
-  public List<String> columnNames() {
+    @Override
+    public boolean hasNext() {
 
-    return Arrays.asList(dataFrame.columnNames());
-  }
+        return rowNumber < dataFrame.rowCount() - 1;
+    }
 
-  public int columnCount() {
+    public String[] rowString() {
+        String[] rs = new String[dataFrame.columnCount()];
+        for (int i = 0; i < dataFrame.columnCount(); ++i) {
+            rs[i] = this.getString(i);
+        }
+        return rs;
+    }
 
-    return dataFrame.columnCount();
-  }
+    /**
+     * Returns a list containing the names of each column in the row
+     */
+    public List<String> columnNames() {
 
-  @Override
-  public Record next() {
+        return Arrays.asList(dataFrame.columnNames());
+    }
 
-    rowNumber++;
-    return this;
-  }
+    public int columnCount() {
 
-  public double getDouble(String columnName) {
+        return dataFrame.columnCount();
+    }
 
-    return doubleColumnMap.get(columnName).getDouble(rowNumber);
-  }
+    @Override
+    public Record next() {
 
-  public double getDouble(int columnIndex) {
+        rowNumber++;
+        return this;
+    }
 
-    return getDouble(columnNames[columnIndex]);
-  }
+    public double getDouble(String columnName) {
 
-  public int getInt(String columnName) {
+        return doubleColumnMap.get(new Heading(columnName)).getDouble(rowNumber);
+    }
 
-    return intColumnMap.get(columnName).getInt(rowNumber);
-  }
+    public double getDouble(Heading columnName) {
 
-  public int getInt(int columnIndex) {
+        return doubleColumnMap.get(columnName).getDouble(rowNumber);
+    }
 
-    return getInt(columnNames[columnIndex]);
-  }
+    public double getDouble(int columnIndex) {
 
-  public String getString(String columnName) {
-    return columnMap.get(columnName).getString(rowNumber);
-  }
+        return getDouble(columnHeadings[columnIndex]);
+    }
 
-  public String getString(int columnIndex) {
+    public int getInt(Heading columnName) {
 
-    return getString(columnNames[columnIndex]);
-  }
+        return intColumnMap.get(columnName).getInt(rowNumber);
+    }
 
-  public LocalDate getDate(String columnName) {
+    public int getInt(String columnName) {
 
-    return dateColumnMap.get(columnName).getDate(rowNumber);
-  }
+        return intColumnMap.get(new Heading(columnName)).getInt(rowNumber);
+    }
 
-  public LocalDate getDate(int columnIndex) {
+    public int getInt(int columnIndex) {
 
-    return dateColumnMap.get(columnNames[columnIndex]).getDate(rowNumber);
-  }
+        return getInt(columnHeadings[columnIndex]);
+    }
 
-  public void at(int rowNumber) {
+    public String getString(Heading columnName) {
+        return columnMap.get(columnName).getString(rowNumber);
+    }
 
-    this.rowNumber = rowNumber;
-  }
+    public String getString(int columnIndex) {
 
-  public int getRowNumber() {
+        return getString(columnHeadings[columnIndex]);
+    }
 
-    return rowNumber;
-  }
+    public void at(int rowNumber) {
 
-  Record __offset(int rowNumber) {
+        this.rowNumber = rowNumber;
+    }
 
-    this.rowNumber = rowNumber;
-    return this;
-  }
+    public int getRowNumber() {
 
-  public <T> T getObject(String columnName) {
+        return rowNumber;
+    }
 
-    return (T) columnMap.get(columnName).getObject(rowNumber);
-  }
+    Record __offset(int rowNumber) {
 
-  public <T> T getObject(int columnIndex) {
+        this.rowNumber = rowNumber;
+        return this;
+    }
 
-    return (T) columnMap.get(columnNames[columnIndex]).getObject(rowNumber);
-  }
+    public <T> T getObject(Heading columnName) {
+
+        return (T) columnMap.get(columnName).getObject(rowNumber);
+    }
+
+    public <T> T getObject(int columnIndex) {
+
+        return (T) columnMap.get(columnHeadings[columnIndex]).getObject(rowNumber);
+    }
 
 }

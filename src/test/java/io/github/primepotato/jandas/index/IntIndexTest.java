@@ -1,5 +1,6 @@
 package io.github.primepotato.jandas.index;
 
+import io.github.primepotato.jandas.index.generation.IntIndex;
 import org.junit.Test;
 
 public class IntIndexTest {

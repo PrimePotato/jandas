@@ -1,5 +1,6 @@
 package io.github.primepotato.jandas.index;
 
+import io.github.primepotato.jandas.index.impl.DoubleIndex;
 import org.junit.Before;
 import org.junit.Test;
 

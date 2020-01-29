@@ -5,16 +5,7 @@ import com.google.common.collect.ImmutableList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-/**
- * A parsers for turning strings into objects that can be inserted into a column
- * <p>
- * It serves two purposes, to determine if a string can be parsed into the desired object type, and to actually
- * parse the string.
- * <p>
- * Implementations may take additional parameters such as a locale or DateTimeFormatter.
- *
- * @param <T> The Class of object to be inserted: String for StringColumn, LocalDate for DateColumn, etc.
- */
+
 public abstract class AbstractParser<T> {
 
     public static final ImmutableList<String> MISSING_INDICATORS = ImmutableList.of(
