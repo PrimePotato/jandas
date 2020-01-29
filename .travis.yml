@@ -5,7 +5,7 @@ jdk:
 install: true
 
 script:
-  - ./mvn clean install
+  - mvn clean install
   - bash <(curl -s https://codecov.io/bash)
 
 cache:
