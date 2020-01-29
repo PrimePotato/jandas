@@ -136,7 +136,7 @@ public class JandasDemo {
 
         DataFrame df = dfJoin.filter(rec->rec.getInt(new Heading("Candidate Votes","L"))>20000);
 
-        DataFrameGroupBy g = df.groupBy(Arrays.asList("[Election year, L]"), Arrays.asList("[Candidate Votes, L]"));
+//        DataFrameGroupBy g = df.groupBy(Arrays.asList(new Heading("[Election year, L]"), Arrays.asList("[Candidate Votes, L]"));
 
     }
 
