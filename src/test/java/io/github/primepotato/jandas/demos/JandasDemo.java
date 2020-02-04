@@ -75,7 +75,7 @@ public class JandasDemo {
     @Test
     public void groupBy() {
 
-        DataFrameGroupBy grp = dfFreshmen.groupBy(Arrays.asList("Sex"), Arrays.asList("BMI (Apr)", "BMI (Sep)"));
+        DataFrameGroupBy grp = dfFreshmen.groupBy(Arrays.asList(new Heading("Sex")), Arrays.asList(new Heading("BMI (Apr)"), new Heading("BMI (Sep)")));
         DataFrame df = grp.aggregate(DoubleAggregateFunc.MEAN);
         df.print();
     }
@@ -136,7 +136,7 @@ public class JandasDemo {
 
         DataFrame df = dfJoin.filter(rec->rec.getInt(new Heading("Candidate Votes","L"))>20000);
 
-        DataFrameGroupBy g = df.groupBy(Arrays.asList("[Election year, L]"), Arrays.asList("[Candidate Votes, L]"));
+//        DataFrameGroupBy g = df.groupBy(Arrays.asList(new Heading("[Election year, L]")), Arrays.asList(new Heading("[Election year, L]")));
 
     }
 

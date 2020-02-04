@@ -30,6 +30,8 @@ public interface Column {
 
   Heading heading();
 
+  boolean unique();
+
   String cleanName();
 
   ColIndex index();

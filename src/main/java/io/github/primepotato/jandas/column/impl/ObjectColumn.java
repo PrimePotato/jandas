@@ -145,11 +145,6 @@ public class ObjectColumn<T> extends AbstractColumn {
         return new ObjectArrayList<Object>(size);
     }
 
-    public boolean unique() {
-
-        return index.unique();
-    }
-
     public ObjectColumn append(String stringValue, AbstractParser<?> parser) {
 
         try {

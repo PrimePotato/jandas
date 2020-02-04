@@ -102,10 +102,10 @@ public class DataFrame implements Iterable<Record> {
         this.addColumn(dc);
     }
 
-    public DataFrame select(String name, String... colNames) {
+    public DataFrame select(String name, Heading... colHeaders) {
 
-        List<String> cols = Arrays.stream(colNames).collect(Collectors.toList());
-        return new DataFrame(this.name, getColumns(cols, Column.class));
+        List<Heading> cols = Arrays.stream(colHeaders).collect(Collectors.toList());
+        return new DataFrame(name, getColumns(cols, Column.class));
     }
 
     public String getString(int row, int col) {
@@ -124,6 +124,11 @@ public class DataFrame implements Iterable<Record> {
     }
 
     public <T extends Column> T column(String colName) {
+
+        return (T) columns.get(header.indexOf(colName));
+    }
+
+    public <T extends Column> T column(Heading colName) {
 
         return (T) columns.get(header.indexOf(colName));
     }
@@ -185,17 +190,22 @@ public class DataFrame implements Iterable<Record> {
     }
 
 
-    <T extends Column> T getColumn(String name, Class<T> tClass) {
+    <T extends Column> T getColumn(Heading name, Class<T> tClass) {
 
         return tClass.cast(column(name));
     }
 
-    <T extends Column> List<T> getColumns(List<String> names, Class<T> tClass) {
+    <T extends Column> List<T> getColumns(List<Heading> names, Class<T> tClass) {
 
         return names.stream().map(x -> getColumn(x, tClass)).collect(Collectors.toList());
     }
 
-    public DataFrameGroupBy groupBy(List<String> grpCols, List<String> aggCols) {
+    List<Column> getColumns(List<String> names) {
+
+        return names.stream().map(x -> getColumn(x)).collect(Collectors.toList());
+    }
+
+    public DataFrameGroupBy groupBy(List<Heading> grpCols, List<Heading> aggCols) {
 
         List<Column> gCols = getColumns(grpCols, Column.class);
         List<DoubleColumn> aCols = getColumns(aggCols, DoubleColumn.class);
@@ -237,8 +247,8 @@ public class DataFrame implements Iterable<Record> {
             return other.quickJoin(joinHeaders, this, JoinType.LEFT);
         }
 
-        MetaIndex thisMi = buildMetaIndex(getColumns(joinHeaders, Column.class));
-        MetaIndex otherMi = buildMetaIndex(other.getColumns(joinHeaders, Column.class));
+        MetaIndex thisMi = buildMetaIndex(getColumns(joinHeaders));
+        MetaIndex otherMi = buildMetaIndex(other.getColumns(joinHeaders));
         int[][] qjAry = IndexUtils.quickJoin(thisMi, otherMi, jt);
         return resolveJoin(Pair.of(true, qjAry), this, other);
     }
@@ -248,8 +258,8 @@ public class DataFrame implements Iterable<Record> {
             return other.join(joinHeaders, this, JoinType.LEFT);
         }
 
-        MetaIndex thisMi = buildMetaIndex(getColumns(joinHeaders, Column.class));
-        MetaIndex otherMi = buildMetaIndex(other.getColumns(joinHeaders, Column.class));
+        MetaIndex thisMi = buildMetaIndex(getColumns(joinHeaders));
+        MetaIndex otherMi = buildMetaIndex(other.getColumns(joinHeaders));
         Pair<Boolean, int[][]> qjAry = IndexUtils.join(thisMi, otherMi, jt);
         return resolveJoin(qjAry, this, other);
     }
