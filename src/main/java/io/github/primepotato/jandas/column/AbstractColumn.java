@@ -19,8 +19,7 @@ public abstract class AbstractColumn implements Column {
   public abstract void rebuildIndex();
 
   public boolean unique() {
-
-    return index.unique();
+    return index().unique();
   }
 
   @Override
@@ -30,7 +29,7 @@ public abstract class AbstractColumn implements Column {
 
   public Set<?> uniqueSet() {
 
-    return index.positions()
+    return index().positions()
         .values()
         .stream()
         .map(x -> getObject(x.getInt(0)))
