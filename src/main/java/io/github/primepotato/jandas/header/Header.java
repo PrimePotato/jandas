@@ -8,8 +8,8 @@ public class Header{
     public List<Heading> columnPositions = new ArrayList<>();
     public int level = 0;
 
-    public Header(String... headers) {
-        for (String h : headers) {
+    public Header(String... headings) {
+        for (String h : headings) {
             addKey(h);
         }
     }
@@ -62,4 +62,8 @@ public class Header{
         return columnPositions.stream().map(Heading::toString).collect(Collectors.toList());
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

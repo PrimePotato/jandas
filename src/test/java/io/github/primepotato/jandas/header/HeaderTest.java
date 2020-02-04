@@ -27,4 +27,40 @@ public class HeaderTest {
 
 
     }
+
+    @Test
+    public void addKey() {
+    }
+
+    @Test
+    public void addKey1() {
+    }
+
+    @Test
+    public void addKey2() {
+    }
+
+    @Test
+    public void addKey3() {
+    }
+
+    @Test
+    public void indexOf() {
+    }
+
+    @Test
+    public void indexOf1() {
+    }
+
+    @Test
+    public void getLevel() {
+    }
+
+    @Test
+    public void wellFormed() {
+    }
+
+    @Test
+    public void toList() {
+    }
 }

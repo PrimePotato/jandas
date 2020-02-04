@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9574858-05d8-459a-82b5-71eea14ce866" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/column/ColumnTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeadingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/column/AbstractColumnTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,6 +16,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/jandas$All_in_jandas.ic" NAME="All in jandas Coverage Results" MODIFIED="1580815137060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/jandas$io_github_primepotato_jandas_in_jandas.ic" NAME="io.github.primepotato.jandas in jandas Coverage Results" MODIFIED="1580817657672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.github.primepotato.jandas.*</FILTER>
+    </SUITE>
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="270" />
@@ -55,7 +58,7 @@
               <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/column/ColumnTest.java">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="165">
-                    <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+                    <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
                     <folding>
                       <element signature="e#771#772#0" expanded="true" />
                       <element signature="e#799#800#0" expanded="true" />
@@ -99,15 +102,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/ObjectColumn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/Column.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
@@ -121,27 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-240">
               <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/demos/JandasDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="43" selection-start-column="43" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/visuals/DataFrameVisualsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -175,27 +148,72 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/IntegerColumn.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="270">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
-                <element signature="e#1261#1262#0" expanded="true" />
-                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#545#546#0" expanded="true" />
+                <element signature="e#578#579#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/org/w3c/dom/html/HTMLHeadingElement.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#249#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <folding>
+                <element signature="e#472#473#0" expanded="true" />
+                <element signature="e#523#524#0" expanded="true" />
+                <element signature="e#1712#1713#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Heading.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <folding>
+                <element signature="e#576#577#0" expanded="true" />
+                <element signature="e#620#621#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeadingTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-              <folding>
-                <element signature="e#545#546#0" expanded="true" />
-                <element signature="e#578#579#0" expanded="true" />
-              </folding>
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -254,7 +272,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/ParserColumnDataFast.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/AbstractColumnData.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/ParserColumnData.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/ColumnData.java" />
@@ -277,7 +294,6 @@
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/dataframe/Header.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/dataframe/HeaderKey.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/dataframe/HeaderTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/DataFrameCsvWriter.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/visuals/DataFrameVisuals.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/visuals/templates/test.ftl" />
@@ -286,7 +302,6 @@
         <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/utils/PerformanceTesterTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/HeaderKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/sql/containers/dynamic/StringDynamicResultSetContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/grouping/DataFrameGroupBy.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/DataFramePrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/sql/containers/fixed/StringFixedResultSetContainer.java" />
@@ -305,6 +320,9 @@
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/DoubleColumn.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/column/ColumnTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java" />
+        <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeadingTest.java" />
       </list>
     </option>
   </component>
@@ -400,6 +418,15 @@
               <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -436,7 +463,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1580817385643" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1580817672261" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
@@ -452,8 +479,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="io.github.primepotato.jandas.column" />
       <recent name="io.github.primepotato.jandas.header" />
+      <recent name="io.github.primepotato.jandas.column" />
       <recent name="io.github.primepotato.jandas.dataframe" />
       <recent name="io.github.primepotato.jandas.visuals" />
       <recent name="io.github.primepotato.jandas.io.csv" />
@@ -498,26 +525,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ColumnTest.appendString">
+  <component name="RunManager" selected="JUnit.io.github.primepotato.jandas in jandas">
     <configuration name="All in jandas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jandas" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ColumnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jandas" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.github.primepotato.jandas.column.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="io.github.primepotato.jandas.column" />
-      <option name="MAIN_CLASS_NAME" value="io.github.primepotato.jandas.column.ColumnTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -533,22 +545,6 @@
       <option name="PACKAGE_NAME" value="io.github.primepotato.jandas.column" />
       <option name="MAIN_CLASS_NAME" value="io.github.primepotato.jandas.column.ColumnTest" />
       <option name="METHOD_NAME" value="appendString" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ColumnTest.unique" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jandas" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.github.primepotato.jandas.column.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="io.github.primepotato.jandas.column" />
-      <option name="MAIN_CLASS_NAME" value="io.github.primepotato.jandas.column.ColumnTest" />
-      <option name="METHOD_NAME" value="unique" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -570,13 +566,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HeadingTest.hashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jandas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.primepotato.jandas.header.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.primepotato.jandas.header" />
+      <option name="MAIN_CLASS_NAME" value="io.github.primepotato.jandas.header.HeadingTest" />
+      <option name="METHOD_NAME" value="hashCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="io.github.primepotato.jandas in jandas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jandas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.primepotato.jandas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.primepotato.jandas" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.io.github.primepotato.jandas in jandas" />
+        <item itemvalue="JUnit.HeadingTest.hashCode" />
         <item itemvalue="JUnit.ColumnTest.appendString" />
         <item itemvalue="JUnit.All in jandas" />
         <item itemvalue="JUnit.ColumnTest.uniqueSet" />
-        <item itemvalue="JUnit.ColumnTest" />
-        <item itemvalue="JUnit.ColumnTest.unique" />
       </list>
     </recent_temporary>
   </component>
@@ -603,7 +629,7 @@
       <workItem from="1558428254917" duration="3150000" />
       <workItem from="1579601146681" duration="3017000" />
       <workItem from="1580727797992" duration="242000" />
-      <workItem from="1580728179262" duration="4207000" />
+      <workItem from="1580728179262" duration="4525000" />
     </task>
     <task id="LOCAL-00001" summary="Heading refactor">
       <created>1580815645644</created>
@@ -619,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580815886293</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Heading refactor">
+      <created>1580817430929</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580817430930</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -655,7 +688,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196419000" />
+    <option name="totallyTimeSpent" value="196737000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -670,8 +703,8 @@
     <frame x="0" y="0" width="1920" height="1055" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5448718" visible="true" weight="0.22998933" />
-      <window_info id="Structure" order="1" sideWeight="0.4551282" side_tool="true" visible="true" weight="0.22998933" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5456" visible="true" weight="0.22998933" />
+      <window_info id="Structure" order="1" sideWeight="0.4544" side_tool="true" visible="true" weight="0.22998933" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -680,7 +713,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.32939914" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49199572" weight="0.27896994" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49573106" visible="true" weight="0.3304721" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49573106" weight="0.3304721" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4994664" weight="0.32939914" />
@@ -689,7 +722,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49893278" weight="0.21888413" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50426894" side_tool="true" weight="0.3304721" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32939914" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4855923" weight="0.32939914" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.4855923" visible="true" weight="0.32939914" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32939914" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.32939914" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -754,6 +787,12 @@
           <line>140</line>
           <properties />
           <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/column/ColumnTest.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="132" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -874,20 +913,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/index/ColIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/index/impl/ObjectIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/dataframe/ColumnPosition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1024,13 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/sql/containers/dynamic/StringDynamicResultSetContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1109,23 +1127,6 @@
           <folding>
             <element signature="e#660#661#0" expanded="true" />
             <element signature="e#717#718#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Heading.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#620#621#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1290,21 +1291,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/column/ColumnTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
           <folding>
             <element signature="e#771#772#0" expanded="true" />
             <element signature="e#799#800#0" expanded="true" />
@@ -1333,6 +1323,65 @@
             <element signature="e#1734#1735#0" expanded="true" />
             <element signature="e#1777#1778#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/org/w3c/dom/html/HTMLHeadingElement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#249#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#1712#1713#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/header/Heading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/header/HeadingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
         </state>
       </provider>
     </entry>
