@@ -34,8 +34,8 @@ public class Record implements Iterator<Record> {
   public Record(DataFrame df, int rowNumber) {
 
     this.dataFrame = df;
-    columnNames = df.columns.stream().map(c -> c.name()).toArray(String[]::new);
-    for (Column column : df.columns) {
+    columnNames = df.stream().map(Column::name).toArray(String[]::new);
+    for (Column column : df) {
       if (column instanceof DoubleColumn) {
         doubleColumnMap.put(column.name(), (DoubleColumn) column);
       }
@@ -56,24 +56,11 @@ public class Record implements Iterator<Record> {
   }
 
   public String[] rowString(){
-    String [] rs = new String[dataFrame.columnCount()];
-    for (int i =0; i<dataFrame.columnCount(); ++i){
+    String [] rs = new String[dataFrame.size()];
+    for (int i =0; i<dataFrame.size(); ++i){
       rs[i] = this.getString(i);
     }
     return rs;
-  }
-
-  /**
-   * Returns a list containing the names of each column in the row
-   */
-  public List<String> columnNames() {
-
-    return Arrays.asList(dataFrame.columnNames());
-  }
-
-  public int columnCount() {
-
-    return dataFrame.columnCount();
   }
 
   @Override

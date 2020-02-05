@@ -11,7 +11,7 @@ public class DataFrameUtils {
 
     public static DataFrame createEmptyDataFrameFromAnother(DataFrame df) {
         List<Column> newFrame = new ArrayList<>();
-        for (Column col : df.columns()) {
+        for (Column col : df) {
             newFrame.add(col.createEmpty());
         }
         return new DataFrame("copy" + df.name(), newFrame);

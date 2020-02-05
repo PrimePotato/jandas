@@ -5,6 +5,7 @@ import io.github.primepotato.jandas.dataframe.Record;
 import io.github.primepotato.jandas.utils.DataFrameUtils;
 
 
+import java.util.Iterator;
 import java.util.function.Predicate;
 
 public class DataFrameFilter {
@@ -22,7 +23,8 @@ public class DataFrameFilter {
     public DataFrame apply(DataFrame df){
 
         DataFrame frame = DataFrameUtils.createEmptyDataFrameFromAnother(df);
-        for (Record rec: df){
+        for (Iterator<Record> it = df.recordSet(); it.hasNext(); ) {
+            Record rec = it.next();
             if (predicate.test(rec)) {
                 frame.addRecord(rec);
             }

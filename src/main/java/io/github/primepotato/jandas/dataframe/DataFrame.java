@@ -12,14 +12,14 @@ import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
-import io.github.primepotato.jandas.io.DataFramePrinter;
 import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
 import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.utils.PrintType;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
 
-import java.io.ByteArrayOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -29,53 +29,31 @@ import java.util.stream.Collectors;
 
 import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainers;
 
-@SuppressWarnings("unchecked")
-public class DataFrame implements Iterable<Record> {
+@Getter
+@Setter
+public class DataFrame extends ArrayList<Column>{
 
-    public List<Column> columns;
-    //    public List<String> headers;
-    public Header header;
-    public String name;
+    private Header header;
+    private String name;
 
     public DataFrame(ResultSet resultSet) throws SQLException {
         this("", resultSetToContainers(resultSet).stream().map(ResultSetContainer::toColumn).collect(Collectors.toList()));
     }
 
-    public DataFrame(String name, List<Column> cols) {
+    public DataFrame(String name, Collection<Column> columns){
+        super(columns);
         this.name = name;
-        columns = cols;
-        String[] headers = cols.stream().map(Column::name).toArray(String[]::new);
-        header = new Header(headers);
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        for (int i = 0; i < columns.size(); ++i) {
-            if (!columns.get(i).equals(columns.get(i))) {
-                return false;
-            }
-        }
-        return true;
+        header = new Header(columns.stream().map(Column::name).toArray(String[]::new));
     }
 
     public boolean wellFormed() {
 
-        for (Column c : columns) {
+        for (Column c : this) {
             if (rowCount() != c.size()) {
                 return false;
             }
         }
         return true;
-    }
-
-    public int columnCount() {
-
-        return columns.size();
-    }
-
-    public String[] columnNames() {
-
-        return this.columns.stream().map(c -> c.name()).toArray(String[]::new);
     }
 
     public String name() {
@@ -85,13 +63,13 @@ public class DataFrame implements Iterable<Record> {
 
     public int rowCount() {
 
-        return columns.get(0).size();
+        return this.get(0).size();
     }
 
-    public void addColumn(Column col) {
-
-        columns.add(col);
-        header.addKey(col.name());
+    @Override
+    public boolean add(Column col) {
+        header.add(col.name());
+        return this.add(col);
     }
 
     public void createColumn(String name, String equation) {
@@ -99,7 +77,7 @@ public class DataFrame implements Iterable<Record> {
         DoubleColumn dc = new DoubleColumn(name, false, new double[0]);
         eq.alias(dc.getMatrix(), dc.cleanName());
         eq.process(name + " = " + equation);
-        this.addColumn(dc);
+        this.add(dc);
     }
 
     public DataFrame select(String name, String... colNames) {
@@ -120,30 +98,26 @@ public class DataFrame implements Iterable<Record> {
 
     public <T extends Column> T column(int idx) {
 
-        return (T) columns.get(idx);
+        return (T) this.get(idx);
     }
 
     public <T extends Column> T column(String colName) {
 
-        return (T) columns.get(header.indexOf(colName));
+        return (T) this.get(header.indexOf(colName));
     }
 
     public Column column(int idx, Class<? extends Column> cls) {
 
-        return cls.cast(columns.get(idx));
-    }
-
-    public List<Column> columns() {
-
-        return columns;
+        return cls.cast(this.get(idx));
     }
 
     private String toPrintString(int maxRows, PrintType pt) {
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        DataFramePrinter dfp = new DataFramePrinter(maxRows, pt, baos);
-        dfp.print(this);
-        return new String(baos.toByteArray());
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        DataFramePrinter dfp = new DataFramePrinter(maxRows, pt, baos);
+//        dfp.print(this);
+//        return new String(baos.toByteArray());
+        return "";
     }
 
     public void head() {
@@ -181,7 +155,7 @@ public class DataFrame implements Iterable<Record> {
 
     List<DoubleColumn> getDoubleColumns() {
 
-        return columns.stream().filter(x -> x instanceof DoubleColumn).map(x -> (DoubleColumn) x).collect(Collectors.toList());
+        return this.stream().filter(x -> x instanceof DoubleColumn).map(x -> (DoubleColumn) x).collect(Collectors.toList());
     }
 
 
@@ -221,10 +195,10 @@ public class DataFrame implements Iterable<Record> {
         }
 
         List<Column> joinCols = new ArrayList<>();
-        for (Column c : dfLeft.columns) {
+        for (Column c : dfLeft) {
             joinCols.add(c.subColumn(c.name() + "L", left));
         }
-        for (Column c : dfRight.columns) {
+        for (Column c : dfRight) {
             joinCols.add(c.subColumn(c.name() + "R", right));
         }
 
@@ -266,7 +240,7 @@ public class DataFrame implements Iterable<Record> {
     public void addRecord(Record rec) {
 
         int i = 0;
-        for (Column col : columns) {
+        for (Column col : this) {
             if (col instanceof DoubleColumn) {
                 ((DoubleColumn) col).append(rec.getDouble(i));
             } else if (col instanceof IntegerColumn) {
@@ -289,10 +263,10 @@ public class DataFrame implements Iterable<Record> {
 
     public Map<String, Object> toMap() {
         Map<String, Object> map = new HashMap<>();
-        map.put("header", this.header.toList().toArray());
+        map.put("header", this.header.toArray());
 
         Map<String, Object> m = new HashMap<>();
-        for (Column c : columns()) {
+        for (Column c : this) {
             m.put(c.name(), c.rawData());
         }
         map.put("columns", m);
@@ -314,8 +288,7 @@ public class DataFrame implements Iterable<Record> {
         return dataFrameFilter.apply(this);
     }
 
-    @Override
-    public Iterator<Record> iterator() {
+    public Iterator<Record> recordSet() {
 
         return new Iterator<Record>() {
             final private Record row = new Record(DataFrame.this);

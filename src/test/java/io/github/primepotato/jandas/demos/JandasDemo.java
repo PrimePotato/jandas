@@ -44,7 +44,7 @@ public class JandasDemo {
         DoubleColumn b = dfFreshmen.column("BMI (Apr)");
 
         DoubleColumn x = (DoubleColumn) a.plus(b);
-        dfFreshmen.addColumn(x);
+        dfFreshmen.add(x);
 
         dfFreshmen.print();
     }
@@ -60,7 +60,7 @@ public class JandasDemo {
         eq.alias(a.getMatrix(), "a", b.getMatrix(), "b", c.getMatrix(), "c");
         eq.process("c = (a+b)/2");
 
-        dfFreshmen.addColumn(c);
+        dfFreshmen.add(c);
         dfFreshmen.print();
 
     }

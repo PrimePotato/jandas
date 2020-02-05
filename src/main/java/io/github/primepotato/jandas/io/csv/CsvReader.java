@@ -65,7 +65,7 @@ public class CsvReader implements RowProcessor {
         context.selectedHeaders();
         headers = context.selectedHeaders(); //TODO: univocity needs to run twice for this to work..... dodgy
         dataFrame = new DataFrame("", columns);
-        dataFrame.header = new Header(headers);
+        dataFrame.setHeader(new Header(headers));
         for (String h : headers){
             if (dataTypes.containsKey(h)) {
                 pcds.add(new FixedColumnDataContainer(h, dataTypes.get(h)));

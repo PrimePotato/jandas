@@ -16,7 +16,7 @@ public class Row {
     }
 
     public void getData() {
-        for (int i = 0; i < df.columnCount(); ++i) {
+        for (int i = 0; i < df.size(); ++i) {
             Column column = df.column(i);
 //            data.computeIfAbsent(column.getClass(), x -> new HashMap<String, ?>());
         }

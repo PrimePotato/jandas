@@ -7,10 +7,7 @@ import io.github.primepotato.jandas.utils.DataFrameUtils;
 import io.github.primepotato.jandas.utils.DoubleAggregateFunc;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DataFrameGroupByNew {
 
@@ -30,7 +27,8 @@ public class DataFrameGroupByNew {
 
     public int[] createIntMap(){
         int[] index = new int[dataFrame.rowCount()];
-        for (Record rec : dataFrame){
+        for (Iterator<Record> it = dataFrame.recordSet(); it.hasNext(); ) {
+            Record rec = it.next();
             index[rec.getRowNumber()] = indexFunction.apply(rec);
         }
         return index;

@@ -6,6 +6,7 @@ import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.Record;
 
 import java.io.*;
+import java.util.Iterator;
 
 public class DataFrameCsvWriter {
 
@@ -14,9 +15,10 @@ public class DataFrameCsvWriter {
         try (FileOutputStream csvResult = new FileOutputStream(file)) {
             Writer outputWriter = new OutputStreamWriter(csvResult);
             CsvWriter csvWriter = new CsvWriter(outputWriter, new CsvWriterSettings());
-            csvWriter.writeHeaders(df.header.toList());
+            csvWriter.writeHeaders(df.getHeader());
 
-            for (Record rec : df){
+            for (Iterator<Record> it = df.recordSet(); it.hasNext(); ) {
+                Record rec = it.next();
                 csvWriter.writeRow(rec.rowString());
             }
 
