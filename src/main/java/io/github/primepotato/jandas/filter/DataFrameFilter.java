@@ -3,22 +3,18 @@ package io.github.primepotato.jandas.filter;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.dataframe.RecordSet;
 import io.github.primepotato.jandas.utils.DataFrameUtils;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 
 import java.util.Iterator;
 import java.util.function.Predicate;
 
+@AllArgsConstructor
+@Getter
 public class DataFrameFilter {
 
     private Predicate<RecordSet> predicate;
-
-    public DataFrameFilter(Predicate<RecordSet> predicate){
-        this.predicate = predicate;
-    }
-
-    Predicate<RecordSet> getPredicate(){
-        return predicate;
-    }
 
     public DataFrame apply(DataFrame df){
 

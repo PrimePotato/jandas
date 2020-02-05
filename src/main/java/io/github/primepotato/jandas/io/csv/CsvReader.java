@@ -7,13 +7,12 @@ import com.univocity.parsers.csv.CsvParserSettings;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.header.Header;
-import io.github.primepotato.jandas.io.csv.containers.AbstractColumnDataContainer;
-import io.github.primepotato.jandas.io.csv.containers.DynamicColumnDataContainer;
-import io.github.primepotato.jandas.io.csv.containers.FixedColumnDataContainer;
+import io.github.primepotato.jandas.io.csv.containers.AbstractDataParser;
+import io.github.primepotato.jandas.io.csv.containers.DynamicDataParser;
+import io.github.primepotato.jandas.io.csv.containers.FixedDataParser;
 import lombok.Getter;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CsvReader implements RowProcessor {
 
@@ -22,7 +21,7 @@ public class CsvReader implements RowProcessor {
     String[] headers;
     Map<String, Class> dataTypes;
 
-    private List<AbstractColumnDataContainer> pcds;
+    private List<AbstractDataParser> pcds;
     @Getter
     private DataFrame dataFrame;
     private List<Column> columns;
@@ -69,9 +68,9 @@ public class CsvReader implements RowProcessor {
         dataFrame.setHeader(new Header(headers));
         for (String h : headers){
             if (dataTypes.containsKey(h)) {
-                pcds.add(new FixedColumnDataContainer(h, dataTypes.get(h)));
+                pcds.add(new FixedDataParser(h, dataTypes.get(h)));
             } else {
-                pcds.add(new DynamicColumnDataContainer(h));
+                pcds.add(new DynamicDataParser(h));
             }
         }
     }
@@ -87,7 +86,7 @@ public class CsvReader implements RowProcessor {
 
     @Override
     public void processEnded(ParsingContext context) {
-        for (AbstractColumnDataContainer pcd : pcds) {
+        for (AbstractDataParser pcd : pcds) {
             columns.add(pcd.toColumn());
         }
         dataFrame = new DataFrame("", columns);

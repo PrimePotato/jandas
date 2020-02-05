@@ -15,7 +15,7 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractColumnDataContainer {
+public abstract class AbstractDataParser {
 
     public String name;
     public AbstractCollection data;
