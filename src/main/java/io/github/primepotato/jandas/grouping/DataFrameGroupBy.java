@@ -40,7 +40,6 @@ public class DataFrameGroupBy {
         for (DoubleColumn dc : aCols) {
             results.put(dc.name, metaIndex.aggregateDouble(dc.rawData(), daf::apply));
         }
-
         return resolveToFrame(results);
     }
 
