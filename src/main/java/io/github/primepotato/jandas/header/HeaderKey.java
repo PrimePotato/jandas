@@ -7,13 +7,15 @@ public class HeaderKey {
     public int level;
     public String[] key;
 
-    HeaderKey(String... key) {
+    public HeaderKey(String... key) {
         this.level = key.length;
         this.key = key;
     }
 
     @Override
     public String toString() {
+        if (level == 1)
+            return key[0];
         return Arrays.toString(key);
     }
 

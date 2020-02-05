@@ -49,34 +49,6 @@ public class Header extends ArrayList<HeaderKey>{
             }
         }
     }
-//
-//    public void addKey(String... key) {
-//        addKey(this.size(), key);
-//    }
-//
-//    public void addKey(int position, String... key) {
-//        addKey(position, new HeaderKey(key));
-//    }
-//
-//    public void addKey(int position, HeaderKey key) {
-//        if (level == 0) {
-//            level = key.level;
-//        } else {
-//            if (level != key.level) {
-//                throw new RuntimeException("Invalid Key " + key.toString() + " not same level as header");
-//            \}
-//        }
-//        this.add(position, key);
-//    }
-//
-//    public int indexOf(String... colName){
-//        return columnPositions.indexOf(new HeaderKey(colName));
-//    }
-//
-//    public int indexOf(HeaderKey hk){
-//        return columnPositions.indexOf(hk);
-//    }
-//
     public int getLevel() {
         return this.toArray(new HeaderKey[0])[0].level;
     }
@@ -86,8 +58,11 @@ public class Header extends ArrayList<HeaderKey>{
         return levels.size() <= 1;
     }
 
-//    public List<String> toList(){
-//        return columnPositions.stream().map(HeaderKey::toString).collect(Collectors.toList());
-//    }
-
+    public String[] toStringArray(){
+        String[] str = new String[this.size()];
+        for (int i=0; i<this.size() ;i++){
+            str[i] = this.get(i).toString();
+        }
+        return str;
+    }
 }

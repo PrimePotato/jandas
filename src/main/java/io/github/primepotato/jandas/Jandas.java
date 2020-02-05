@@ -16,7 +16,7 @@ public class Jandas {
         CsvReader cr = new CsvReader();
         File f = new File(path);
         cr.parser.parse(f);
-        return cr.dataFrame;
+        return cr.getDataFrame();
     }
 
     public static DataFrame readCsv(String path, List<String> importHeaders) {
@@ -24,7 +24,7 @@ public class Jandas {
         CsvReader cr = new CsvReader(importHeaders);
         File f = new File(path);
         cr.parser.parse(f);
-        return cr.dataFrame;
+        return cr.getDataFrame();
     }
 
     public static DataFrame readCsv(String path, List<String> importHeaders, Map<String, Class> dataTypes) {
@@ -32,7 +32,7 @@ public class Jandas {
         CsvReader cr = new CsvReader(importHeaders, dataTypes);
         File f = new File(path);
         cr.parser.parse(f);
-        return cr.dataFrame;
+        return cr.getDataFrame();
     }
 
 }

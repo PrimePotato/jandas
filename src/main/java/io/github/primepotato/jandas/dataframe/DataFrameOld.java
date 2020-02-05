@@ -30,7 +30,7 @@
 //import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainers;
 //
 //@SuppressWarnings("unchecked")
-//public class DataFrame implements Iterable<Record> {
+//public class DataFrame implements Iterable<RecordSet> {
 //
 //    public List<Column> columns;
 //    //    public List<String> headers;
@@ -263,7 +263,7 @@
 //        return eq;
 //    }
 //
-//    public void addRecord(Record rec) {
+//    public void addRecord(RecordSet rec) {
 //
 //        int i = 0;
 //        for (Column col : columns) {
@@ -283,7 +283,7 @@
 //
 //    }
 //
-//    public List<Record> getRecords(Collection<Integer> row) {
+//    public List<RecordSet> getRecords(Collection<Integer> row) {
 //        return row.stream().map(this::getRecord).collect(Collectors.toList());
 //    }
 //
@@ -299,8 +299,8 @@
 //        return map;
 //    }
 //
-//    public Record getRecord(int row) {
-//        Record rec = new Record(DataFrame.this);
+//    public RecordSet getRecord(int row) {
+//        RecordSet rec = new RecordSet(DataFrame.this);
 //        rec.rowNumber = row;
 //        return rec;
 //    }
@@ -309,19 +309,19 @@
 //        DataFrameCsvWriter.toCsv(this, fPath);
 //    }
 //
-//    public DataFrame filter(Predicate<Record> predicate) {
+//    public DataFrame filter(Predicate<RecordSet> predicate) {
 //        DataFrameFilter dataFrameFilter = new DataFrameFilter(predicate);
 //        return dataFrameFilter.apply(this);
 //    }
 //
 //    @Override
-//    public Iterator<Record> iterator() {
+//    public Iterator<RecordSet> iterator() {
 //
-//        return new Iterator<Record>() {
-//            final private Record row = new Record(DataFrame.this);
+//        return new Iterator<RecordSet>() {
+//            final private RecordSet row = new RecordSet(DataFrame.this);
 //
 //            @Override
-//            public Record next() {
+//            public RecordSet next() {
 //                return row.next();
 //            }
 //

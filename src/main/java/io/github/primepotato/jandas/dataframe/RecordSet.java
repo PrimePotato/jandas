@@ -5,14 +5,15 @@ import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
 import io.github.primepotato.jandas.column.impl.ObjectColumn;
-import io.github.primepotato.jandas.index.impl.ObjectIndex;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.*;
 
 
 @SuppressWarnings("unchecked")
-public class Record implements Iterator<Record> {
+public class RecordSet implements Iterator<RecordSet> {
 
   public final DataFrame dataFrame;
   private final String[] columnNames;
@@ -25,15 +26,18 @@ public class Record implements Iterator<Record> {
   private final Map<String, ObjectColumn<String>> stringColumnMap =
       new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
   private final Map<String, Column> columnMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-  public int rowNumber;
 
-  public Record(DataFrame df){
+  @Getter @Setter
+  private int rowNumber;
+
+  public RecordSet(DataFrame df){
     this(df,0);
   }
 
-  public Record(DataFrame df, int rowNumber) {
+  public RecordSet(DataFrame df, int rowNumber) {
 
     this.dataFrame = df;
+    this.rowNumber = rowNumber;
     columnNames = df.stream().map(Column::name).toArray(String[]::new);
     for (Column column : df) {
       if (column instanceof DoubleColumn) {
@@ -64,7 +68,7 @@ public class Record implements Iterator<Record> {
   }
 
   @Override
-  public Record next() {
+  public RecordSet next() {
 
     rowNumber++;
     return this;
@@ -109,7 +113,7 @@ public class Record implements Iterator<Record> {
     return rowNumber;
   }
 
-  Record __offset(int rowNumber) {
+  RecordSet __offset(int rowNumber) {
 
     this.rowNumber = rowNumber;
     return this;

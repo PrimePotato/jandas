@@ -18,7 +18,7 @@ public class CsvReaderTest {
     File f = new File("src/test/resources/csv/biostats.csv");
 
     cr.parser.parse(f);
-    DataFrame df = cr.dataFrame;
+    DataFrame df = cr.getDataFrame();
     df.print();
 
   }

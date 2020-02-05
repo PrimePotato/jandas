@@ -7,6 +7,7 @@ import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
 import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.index.meta.JoinType;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class DataFrameTest {
         int[] data2 = {1, 2, 3};
         IntegerColumn ic2 = new IntegerColumn("int2", true, data2);
 
-        double[] dblData = {1., 2., 3.};
+        double[] dblData = {1.1, 2.1, 3.1};
         DoubleColumn dbl1 = new DoubleColumn("dbl1", true, dblData);
 
         List<Column> cols = new ArrayList<>();
@@ -152,6 +153,6 @@ public class DataFrameTest {
     public void toCsv() {
         df1.toCsv("src/test/resources/toCsvTest.csv");
         DataFrame dfs = Jandas.readCsv("src/test/resources/toCsvTest.csv");
-        assert (df1.equals(dfs));
+        Assert.assertEquals(df1, dfs);
     }
 }

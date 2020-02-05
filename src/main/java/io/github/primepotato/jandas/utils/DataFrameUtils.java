@@ -2,7 +2,6 @@ package io.github.primepotato.jandas.utils;
 
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.dataframe.Record;
 
 import java.util.ArrayList;
 import java.util.List;

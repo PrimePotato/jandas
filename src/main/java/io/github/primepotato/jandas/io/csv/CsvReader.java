@@ -10,6 +10,7 @@ import io.github.primepotato.jandas.header.Header;
 import io.github.primepotato.jandas.io.csv.containers.AbstractColumnDataContainer;
 import io.github.primepotato.jandas.io.csv.containers.DynamicColumnDataContainer;
 import io.github.primepotato.jandas.io.csv.containers.FixedColumnDataContainer;
+import lombok.Getter;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,9 +23,9 @@ public class CsvReader implements RowProcessor {
     Map<String, Class> dataTypes;
 
     private List<AbstractColumnDataContainer> pcds;
-
-    public DataFrame dataFrame;
-    public List<Column> columns;
+    @Getter
+    private DataFrame dataFrame;
+    private List<Column> columns;
 
     public CsvReader(List<String> selectedHeaders, Map<String, Class> dataTypes) {
         CsvParserSettings cps = createEmptyParserSettings();
@@ -89,5 +90,6 @@ public class CsvReader implements RowProcessor {
         for (AbstractColumnDataContainer pcd : pcds) {
             columns.add(pcd.toColumn());
         }
+        dataFrame = new DataFrame("", columns);
     }
 }

@@ -8,10 +8,12 @@ import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.filter.DataFrameFilter;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.header.Header;
+import io.github.primepotato.jandas.header.HeaderKey;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
+import io.github.primepotato.jandas.io.DataFramePrinter;
 import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
 import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
 import io.github.primepotato.jandas.utils.PrintType;
@@ -20,6 +22,7 @@ import lombok.Setter;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ejml.equation.Equation;
 
+import java.io.ByteArrayOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -62,14 +65,16 @@ public class DataFrame extends ArrayList<Column>{
     }
 
     public int rowCount() {
-
+        if (this.size() ==0) {
+            return 0;
+        }
         return this.get(0).size();
     }
 
     @Override
     public boolean add(Column col) {
         header.add(col.name());
-        return this.add(col);
+        return super.add(col);
     }
 
     public void createColumn(String name, String equation) {
@@ -103,7 +108,7 @@ public class DataFrame extends ArrayList<Column>{
 
     public <T extends Column> T column(String colName) {
 
-        return (T) this.get(header.indexOf(colName));
+        return (T) this.get(header.indexOf(new HeaderKey(colName)));
     }
 
     public Column column(int idx, Class<? extends Column> cls) {
@@ -113,11 +118,10 @@ public class DataFrame extends ArrayList<Column>{
 
     private String toPrintString(int maxRows, PrintType pt) {
 
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        DataFramePrinter dfp = new DataFramePrinter(maxRows, pt, baos);
-//        dfp.print(this);
-//        return new String(baos.toByteArray());
-        return "";
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DataFramePrinter dfp = new DataFramePrinter(maxRows, pt, baos);
+        dfp.print(this);
+        return new String(baos.toByteArray());
     }
 
     public void head() {
@@ -237,7 +241,7 @@ public class DataFrame extends ArrayList<Column>{
         return eq;
     }
 
-    public void addRecord(Record rec) {
+    public void addRecord(RecordSet rec) {
 
         int i = 0;
         for (Column col : this) {
@@ -257,7 +261,7 @@ public class DataFrame extends ArrayList<Column>{
 
     }
 
-    public List<Record> getRecords(Collection<Integer> row) {
+    public List<RecordSet> getRecords(Collection<Integer> row) {
         return row.stream().map(this::getRecord).collect(Collectors.toList());
     }
 
@@ -273,9 +277,9 @@ public class DataFrame extends ArrayList<Column>{
         return map;
     }
 
-    public Record getRecord(int row) {
-        Record rec = new Record(DataFrame.this);
-        rec.rowNumber = row;
+    public RecordSet getRecord(int row) {
+        RecordSet rec = new RecordSet(DataFrame.this);
+        rec.setRowNumber(row);
         return rec;
     }
 
@@ -283,24 +287,24 @@ public class DataFrame extends ArrayList<Column>{
         DataFrameCsvWriter.toCsv(this, fPath);
     }
 
-    public DataFrame filter(Predicate<Record> predicate) {
+    public DataFrame filter(Predicate<RecordSet> predicate) {
         DataFrameFilter dataFrameFilter = new DataFrameFilter(predicate);
         return dataFrameFilter.apply(this);
     }
 
-    public Iterator<Record> recordSet() {
+    public Iterator<RecordSet> recordSet() {
 
-        return new Iterator<Record>() {
-            final private Record row = new Record(DataFrame.this);
+        return new Iterator<RecordSet>() {
+            final private RecordSet record = new RecordSet(DataFrame.this, -1);
 
             @Override
-            public Record next() {
-                return row.next();
+            public RecordSet next() {
+                return record.next();
             }
 
             @Override
             public boolean hasNext() {
-                return row.hasNext();
+                return record.hasNext();
             }
         };
     }

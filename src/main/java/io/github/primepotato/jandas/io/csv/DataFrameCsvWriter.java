@@ -3,7 +3,7 @@ package io.github.primepotato.jandas.io.csv;
 import com.univocity.parsers.csv.CsvWriter;
 import com.univocity.parsers.csv.CsvWriterSettings;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.dataframe.Record;
+import io.github.primepotato.jandas.dataframe.RecordSet;
 
 import java.io.*;
 import java.util.Iterator;
@@ -15,10 +15,10 @@ public class DataFrameCsvWriter {
         try (FileOutputStream csvResult = new FileOutputStream(file)) {
             Writer outputWriter = new OutputStreamWriter(csvResult);
             CsvWriter csvWriter = new CsvWriter(outputWriter, new CsvWriterSettings());
-            csvWriter.writeHeaders(df.getHeader());
+            csvWriter.writeHeaders(df.getHeader().toStringArray());
 
-            for (Iterator<Record> it = df.recordSet(); it.hasNext(); ) {
-                Record rec = it.next();
+            for (Iterator<RecordSet> it = df.recordSet(); it.hasNext(); ) {
+                RecordSet rec = it.next();
                 csvWriter.writeRow(rec.rowString());
             }
 
