@@ -1,5 +1,9 @@
 # Jandas
 
+
+[![Coverage Status](https://coveralls.io/repos/github/PrimePotato/jandas/badge.svg?branch=dev)](https://coveralls.io/github/PrimePotato/jandas?branch=dev)
+
+
 ### Java Data Frames 
 
 Bringing the Data Frame concept to Java. It aims to provide features that will be familiar those who have used data frames in Pandas and R.
@@ -28,6 +32,7 @@ It is also available via Maven Central and so the pom.xml should include:
 
 
 ### Usage
+
 
 #### Manual Construction
 

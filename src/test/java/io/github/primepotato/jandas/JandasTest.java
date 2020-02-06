@@ -1,8 +1,6 @@
 package io.github.primepotato.jandas;
 
-import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
