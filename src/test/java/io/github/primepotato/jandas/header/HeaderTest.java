@@ -19,11 +19,11 @@ public class HeaderTest {
         header.add(k2);
         header.add(k3);
 
-        HeaderKey h = new HeaderKey("ABC");
+        Heading h = new Heading("ABC");
 
-        for (HeaderKey hk : header) {
+        for (Heading hk : header) {
             if (hk.equals(h)) {
-                System.out.println(Arrays.toString(hk.key));
+                System.out.println(Arrays.toString(hk.keys));
             }
         }
 

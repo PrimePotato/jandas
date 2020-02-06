@@ -72,6 +72,10 @@ public class DoubleColumn extends SimpleBase implements Column {
         return data.unsafe_get(row, 0);
     }
 
+    public String name() {
+        return heading.toString();
+    }
+
     @Override
     public String getString(int row) {
 
@@ -122,8 +126,8 @@ public class DoubleColumn extends SimpleBase implements Column {
     @Override
     public void appendAll(Collection vals) {
         DoubleArrayList d = (DoubleArrayList) vals;
-        double [] out = new double[d.size()-1];
-        d.getElements(0,out,0, d.size()-1);
+        double[] out = new double[d.size() - 1];
+        d.getElements(0, out, 0, d.size() - 1);
         data = new DMatrixRMaj(out);
     }
 
@@ -147,7 +151,7 @@ public class DoubleColumn extends SimpleBase implements Column {
 
     @Override
     public boolean equals(Object other) {
-        try{
+        try {
             return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
         } catch (Exception e) {
             return false;
@@ -173,7 +177,7 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     public DoubleColumn append(double dbl) {
-        double[] d = new double[data.numRows+1];
+        double[] d = new double[data.numRows + 1];
         double[] old = data.getData();
         System.arraycopy(old, 0, d, 0, old.length);
         d[data.numRows] = dbl;

@@ -46,4 +46,6 @@ public interface Column {
 
   Column createEmpty();
 
+  String name();
+
 }

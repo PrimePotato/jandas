@@ -68,12 +68,12 @@ public class DataFrameTest {
     @Test
     public void groupBy() {
 
-        List<Heading> gby = new ArrayList<Heading>() {{
-            add(new Heading("int1"));
-            add(new Heading("int2"));
+        List<String> gby = new ArrayList<String>() {{
+            add("int1");
+            add("int2");
         }};
-        List<Heading> agg = new ArrayList<Heading>() {{
-            add(new Heading("dbl1"));
+        List<String> agg = new ArrayList<String>() {{
+            add("dbl1");
         }};
         System.out.println(df1.groupBy(gby, agg));
     }
@@ -91,8 +91,8 @@ public class DataFrameTest {
     @Test
     public void getColumn() {
 
-        List<Heading> jhs = new ArrayList<Heading>() {{
-            add(new Heading("str"));
+        List<String> jhs = new ArrayList<String>() {{
+            add("str");
         }};
 
         List<Column> cols2 = df2.getColumns(jhs, Column.class);

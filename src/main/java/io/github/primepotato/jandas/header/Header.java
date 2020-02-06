@@ -5,26 +5,26 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-public class Header extends ArrayList<HeaderKey>{
+public class Header extends ArrayList<Heading>{
 
     private int level = 0;
 
     public Header(String... headers) {
         for (String h : headers) {
-            add(new HeaderKey(h));
+            add(new Heading(h));
         }
     }
 
     public void add(String key){
-        this.add(new HeaderKey(key));
+        this.add(new Heading(key));
     }
 
     public void add(String... key){
-        this.add(new HeaderKey(key));
+        this.add(new Heading(key));
     }
 
     @Override
-    public boolean add(HeaderKey key){
+    public boolean add(Heading key){
         try {
             errorCheck(key);
         } catch (RuntimeException e) {
@@ -35,12 +35,12 @@ public class Header extends ArrayList<HeaderKey>{
     }
 
     @Override
-    public void add(int position, HeaderKey key){
+    public void add(int position, Heading key){
         errorCheck(key);
         super.add(position, key);
     }
 
-    private void errorCheck(HeaderKey key){
+    private void errorCheck(Heading key){
         if (level == 0) {
             level = key.level;
         } else {
@@ -50,7 +50,7 @@ public class Header extends ArrayList<HeaderKey>{
         }
     }
     public int getLevel() {
-        return this.toArray(new HeaderKey[0])[0].level;
+        return this.toArray(new Heading[0])[0].level;
     }
 
     public boolean wellFormed() {

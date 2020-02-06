@@ -8,7 +8,7 @@ import io.github.primepotato.jandas.column.impl.ObjectColumn;
 import io.github.primepotato.jandas.filter.DataFrameFilter;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.header.Header;
-import io.github.primepotato.jandas.header.HeaderKey;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 
 import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainers;
 
+
 @Getter
 @Setter
 public class DataFrame extends ArrayList<Column>{
@@ -46,7 +47,7 @@ public class DataFrame extends ArrayList<Column>{
     public DataFrame(String name, Collection<Column> columns){
         super(columns);
         this.name = name;
-        header = new Header(columns.stream().map(Column::name).toArray(String[]::new));
+        header = new Header(columns.stream().map(Column::cleanName).toArray(String[]::new));
     }
 
     public boolean wellFormed() {
@@ -73,7 +74,7 @@ public class DataFrame extends ArrayList<Column>{
 
     @Override
     public boolean add(Column col) {
-        header.add(col.name());
+        header.add(col.cleanName());
         return super.add(col);
     }
 
@@ -108,7 +109,7 @@ public class DataFrame extends ArrayList<Column>{
 
     public <T extends Column> T column(String colName) {
 
-        return (T) this.get(header.indexOf(new HeaderKey(colName)));
+        return (T) this.get(header.indexOf(new Heading(colName)));
     }
 
     public Column column(int idx, Class<? extends Column> cls) {
@@ -200,10 +201,10 @@ public class DataFrame extends ArrayList<Column>{
 
         List<Column> joinCols = new ArrayList<>();
         for (Column c : dfLeft) {
-            joinCols.add(c.subColumn(c.name() + "L", left));
+            joinCols.add(c.subColumn(c.cleanName() + "L", left));
         }
         for (Column c : dfRight) {
-            joinCols.add(c.subColumn(c.name() + "R", right));
+            joinCols.add(c.subColumn(c.cleanName() + "R", right));
         }
 
         return new DataFrame("Joined" + name, joinCols);
@@ -271,7 +272,7 @@ public class DataFrame extends ArrayList<Column>{
 
         Map<String, Object> m = new HashMap<>();
         for (Column c : this) {
-            m.put(c.name(), c.rawData());
+            m.put(c.cleanName(), c.rawData());
         }
         map.put("columns", m);
         return map;
