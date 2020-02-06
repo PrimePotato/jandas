@@ -6,12 +6,12 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DynamicColumnDataContainer extends AbstractColumnDataContainer {
+public class DynamicDataParser extends AbstractDataParser {
 
     private List<AbstractParser> parserCascade;
     private int parserPos;
 
-    public DynamicColumnDataContainer(String name) {
+    public DynamicDataParser(String name) {
 
         this.name = name;
         defaultParsers();
@@ -28,12 +28,12 @@ public class DynamicColumnDataContainer extends AbstractColumnDataContainer {
         try {
             parser = parserCascade.get(parserPos);
             if (data == null) {
-                data = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
+                data = AbstractDataParser.createNewContainer(parser.elementClass());
             } else if (data.size() == 0) {
-                data = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
+                data = AbstractDataParser.createNewContainer(parser.elementClass());
             } else {
                 Class cls = parser.elementClass();
-                AbstractCollection newData = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
+                AbstractCollection newData = AbstractDataParser.createNewContainer(parser.elementClass());
                 switch (cls.getSimpleName()) {
                     case "Double":
                         for (Object d : data) {

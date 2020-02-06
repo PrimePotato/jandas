@@ -2,7 +2,7 @@ package io.github.primepotato.jandas.demos;
 
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.dataframe.Record;
+import io.github.primepotato.jandas.dataframe.RecordSet;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.meta.JoinType;
@@ -45,7 +45,7 @@ public class JandasDemo {
         DoubleColumn b = dfFreshmen.column("BMI (Apr)");
 
         DoubleColumn x = (DoubleColumn) a.plus(b);
-        dfFreshmen.addColumn(x);
+        dfFreshmen.add(x);
 
         dfFreshmen.print();
     }
@@ -61,7 +61,7 @@ public class JandasDemo {
         eq.alias(a.getMatrix(), "a", b.getMatrix(), "b", c.getMatrix(), "c");
         eq.process("c = (a+b)/2");
 
-        dfFreshmen.addColumn(c);
+        dfFreshmen.add(c);
         dfFreshmen.print();
 
     }
@@ -96,7 +96,7 @@ public class JandasDemo {
 
     @Test
     public void filter(){
-        Predicate<Record> predicate = record -> record.getDouble("BMI (Sep)")>30.;
+        Predicate<RecordSet> predicate = record -> record.getDouble("BMI (Sep)")>30.;
         DataFrame df = dfFreshmen.filter(predicate);
         df.print();
     }

@@ -172,7 +172,7 @@ public class DataFramePrinter {
      * @return the header tokens
      */
     private String[] getHeaderTokens(DataFrame frame) {
-        final int colCount = frame.columnCount();
+        final int colCount = frame.size();
         final String[] header = new String[colCount];
         IntStream.range(0, colCount).forEach(colIndex -> {
             header[colIndex] = frame.column(colIndex).heading().toString();
@@ -207,7 +207,7 @@ public class DataFramePrinter {
 
     private String[][] getDataTokens(DataFrame frame) {
         if (frame.rowCount() == 0) return new String[0][0];
-        final int colCount = frame.columnCount();
+        final int colCount = frame.size();
         final int rowCount= Math.min(maxRows, frame.rowCount());
         final String[][] data = new String[rowCount][colCount];
         switch (printType) {

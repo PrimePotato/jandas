@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.*;
+
 public class HeaderTest {
 
     @Test
@@ -13,54 +15,18 @@ public class HeaderTest {
         String[] k1 = {"ABC", "ASEF"};
         String[] k2 = {"ABC", "AsdfgSEF"};
         String[] k3 = {"AsdfgsdBC", "ABC"};
-        header.addKey(k1);
-        header.addKey(k2);
-        header.addKey(k3);
+        header.add(k1);
+        header.add(k2);
+        header.add(k3);
 
-        Heading h = new Heading("ABC");
+        HeaderKey h = new HeaderKey("ABC");
 
-        for (Heading hk : header.columnPositions) {
+        for (HeaderKey hk : header) {
             if (hk.equals(h)) {
-                System.out.println(Arrays.toString(hk.keys));
+                System.out.println(Arrays.toString(hk.key));
             }
         }
 
 
-    }
-
-    @Test
-    public void addKey() {
-    }
-
-    @Test
-    public void addKey1() {
-    }
-
-    @Test
-    public void addKey2() {
-    }
-
-    @Test
-    public void addKey3() {
-    }
-
-    @Test
-    public void indexOf() {
-    }
-
-    @Test
-    public void indexOf1() {
-    }
-
-    @Test
-    public void getLevel() {
-    }
-
-    @Test
-    public void wellFormed() {
-    }
-
-    @Test
-    public void toList() {
     }
 }

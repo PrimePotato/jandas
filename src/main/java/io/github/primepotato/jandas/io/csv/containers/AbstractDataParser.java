@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.AbstractCollection;
 
-public abstract class AbstractColumnDataContainer {
+public abstract class AbstractDataParser {
 
     public String name;
     public AbstractCollection data;
@@ -43,15 +43,15 @@ public abstract class AbstractColumnDataContainer {
 
     static <T extends AbstractCollection> T createNewContainer(Class cls) {
 
-        if (cls.getSimpleName().equals("Integer")) {
+        if (cls.equals(Integer.class)) {
             return (T) new IntArrayList();
-        } else if (cls.getSimpleName().equals("Double")) {
+        } else if (cls.equals(Double.class)) {
             return (T) new DoubleArrayList();
-        } else if (cls.getSimpleName().equals("LocalDate")) {
+        } else if (cls.equals(LocalDate.class)) {
             return (T) new ObjectArrayList<LocalDate>();
-        } else if (cls.getSimpleName().equals("LocalTime")) {
+        } else if (cls.equals(LocalTime.class)) {
             return (T) new ObjectArrayList<LocalTime>();
-        } else if (cls.getSimpleName().equals("String")) {
+        } else if (cls.equals(String.class)) {
             return (T) new ObjectArrayList<String>();
         }
         return null;

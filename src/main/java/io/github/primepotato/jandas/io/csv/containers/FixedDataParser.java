@@ -2,12 +2,12 @@ package io.github.primepotato.jandas.io.csv.containers;
 
 import io.github.primepotato.jandas.io.parsers.*;
 
-public class FixedColumnDataContainer extends AbstractColumnDataContainer {
+public class FixedDataParser extends AbstractDataParser {
 
-    public FixedColumnDataContainer(String name, Class cls) {
+    public FixedDataParser(String name, Class cls) {
         this.name = name;
         parser = getParserGivenClass(cls);
-        data = AbstractColumnDataContainer.createNewContainer(parser.elementClass());
+        data = AbstractDataParser.createNewContainer(parser.elementClass());
     }
 
     private AbstractParser getParserGivenClass(Class cls){
