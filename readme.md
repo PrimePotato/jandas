@@ -1,7 +1,8 @@
 # Jandas
 
+[![Build Status](https://travis-ci.org/PrimePotato/jandas.svg?branch=master)](https://travis-ci.org/PrimePotato/jandas)
 
-[![Coverage Status](https://coveralls.io/repos/github/PrimePotato/jandas/badge.svg?branch=dev)](https://coveralls.io/github/PrimePotato/jandas?branch=dev)
+[![codecov](https://codecov.io/gh/PrimePotato/jandas/branch/master/graph/badge.svg)](https://codecov.io/gh/PrimePotato/jandas)
 
 
 ### Java Data Frames 
