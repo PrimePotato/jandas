@@ -129,15 +129,10 @@ public class JandasDemo {
     @Test
     public void userCase() {
         DataFrame dfElection = Jandas.readCsv("src/test/resources/csv/general-elections-votes-party-2015.csv");
-
         DataFrame dfVotes = Jandas.readCsv("src/test/resources/csv/party_constituency_vote_shares.csv");
-
         DataFrame dfJoin = dfElection.join(Arrays.asList("Constituency"), dfVotes, JoinType.INNER);
-
 //        DataFrame df = dfJoin.filter(rec -> rec.getInt(new Heading("Candidate Votes", "L")) > 20000);
-
 //        DataFrameGroupBy g = df.groupBy(Arrays.asList(new Heading("[Election year, L]")), Arrays.asList(new Heading("[Election year, L]")));
-
     }
 
 }

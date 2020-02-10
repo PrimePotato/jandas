@@ -47,7 +47,7 @@ public class DataFrame extends ArrayList<Column>{
     public DataFrame(String name, Collection<Column> columns){
         super(columns);
         this.name = name;
-        header = new Header(columns.stream().map(Column::cleanName).toArray(String[]::new));
+        header = new Header(columns.stream().map(Column::name).toArray(String[]::new));
     }
 
     public boolean wellFormed() {

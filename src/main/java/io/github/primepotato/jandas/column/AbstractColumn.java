@@ -70,4 +70,9 @@ public abstract class AbstractColumn implements Column {
         return cleanName();
     }
 
+    @Override
+    public String toString(){
+        return name() + rawData().toString();
+    }
+
 }

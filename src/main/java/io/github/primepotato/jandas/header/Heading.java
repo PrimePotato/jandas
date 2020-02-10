@@ -21,6 +21,8 @@ public class Heading implements Comparable<Heading>{
 
     @Override
     public String toString() {
+        if (keys.length == 1)
+            return keys[0];
         return Arrays.toString(keys);
     }
 

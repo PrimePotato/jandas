@@ -230,4 +230,10 @@ public class DoubleColumn extends SimpleBase implements Column {
 
         return new DoubleColumn(this.heading, indexed, (DMatrixRBlock) matrix);
     }
+
+    @Override
+    public String toString(){
+        return name() + rawData().toString();
+    }
+
 }
