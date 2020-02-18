@@ -3,6 +3,7 @@ package io.github.primepotato.jandas.column;
 import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.io.parsers.StringParser;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,7 +40,7 @@ public class ColumnTest {
 
     @Test
     public void subColumn() {
-        strColumn.subColumn("Bob", new int[]{0,2,4});
+        strColumn.subColumn("Bob", new int[]{0, 2, 4});
     }
 
     @Test
@@ -74,7 +75,7 @@ public class ColumnTest {
 
     @Test
     public void appendAll() {
-        strColumn.appendAll(Arrays.asList("1","2","3","4"));
+        strColumn.appendAll(Arrays.asList("1", "2", "3", "4"));
     }
 
     @Test
@@ -84,12 +85,12 @@ public class ColumnTest {
 
     @Test
     public void equals() {
-        strColumn.newDataContainer(10);
+        Assert.assertEquals(strColumn, strColumn);
     }
 
     @Test
     public void createEmpty() {
+        strColumn.createEmpty();
     }
-
 
 }

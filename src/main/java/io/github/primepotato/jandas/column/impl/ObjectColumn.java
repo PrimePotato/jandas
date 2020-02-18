@@ -75,7 +75,12 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public void appendString(String value, AbstractParser<?> parser) {
-
+        try {
+            add((T) parser.parse(value));
+        } catch (final NumberFormatException e) {
+            throw new NumberFormatException(
+                    "Error adding value to column " + heading + ": " + e.getMessage());
+        }
     }
 
     @Override
@@ -107,7 +112,12 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public ColIndex index() {
-        return colIndex;
+        if (colIndex == null) {
+            rebuildIndex();
+            return index();
+        } else {
+            return colIndex;
+        }
     }
 
     @Override

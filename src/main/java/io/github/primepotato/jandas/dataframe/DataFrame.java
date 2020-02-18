@@ -183,7 +183,7 @@ public class DataFrame extends ArrayList<Column>{
 
     public static MetaIndex buildMetaIndex(List<Column> grpCol) {
 
-        List<ColIndex> colIdxs = grpCol.stream().map(x -> x.index()).collect(Collectors.toList());
+        List<ColIndex> colIdxs = grpCol.stream().map(Column::index).collect(Collectors.toList());
         return new MetaIndex(colIdxs);
     }
 
