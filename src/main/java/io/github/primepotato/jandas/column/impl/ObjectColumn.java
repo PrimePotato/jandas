@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -31,7 +32,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     private ColIndex colIndex;
 
     public ObjectColumn(Heading heading, Boolean indexed, T[] values, Class<T> elementClass) {
-        super.a = values;
+        super(values);
         this.heading = heading;
         this.elementClass = elementClass;
         this.indexed = indexed;
@@ -82,23 +83,23 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     }
 
     @Override
-    public Set uniqueSet() {
-        return null;
+    public Set<T> uniqueSet() {
+        return new HashSet<>(Arrays.asList(a));
     }
 
     @Override
     public boolean unique() {
-        return false;
+        return colIndex.unique();
     }
 
     @Override
     public String cleanName() {
-        return null;
+        return heading.toString();
     }
 
     @Override
     public ColIndex index() {
-        return null;
+        return colIndex;
     }
 
     @Override

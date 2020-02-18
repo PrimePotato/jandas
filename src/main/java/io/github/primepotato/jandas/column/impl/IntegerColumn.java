@@ -85,13 +85,8 @@ public class IntegerColumn extends AbstractColumn<Integer> {
     }
 
     @Override
-    public Heading getHeading() {
-        return null;
-    }
-
-    @Override
     public Object getMissingValue() {
-        return null;
+        return DEFAULT_MISSING_VALUE_INDICATOR;
     }
 
     public int size() {

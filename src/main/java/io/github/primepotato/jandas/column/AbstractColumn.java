@@ -2,6 +2,7 @@ package io.github.primepotato.jandas.column;
 
 import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
+import lombok.Getter;
 
 import java.text.Normalizer;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 public abstract class AbstractColumn<T> implements Column<T> {
 
     public ColIndex index;
+    @Getter
     public Heading heading;
     public Class<?> dataType;
     public Boolean indexed;
@@ -34,11 +36,6 @@ public abstract class AbstractColumn<T> implements Column<T> {
                 .stream()
                 .map(x -> getObject(x.getInt(0)))
                 .collect(Collectors.toSet());
-    }
-
-    public Heading heading() {
-
-        return heading;
     }
 
     public String cleanName() {
