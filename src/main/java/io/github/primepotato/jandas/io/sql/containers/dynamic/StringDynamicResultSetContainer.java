@@ -23,12 +23,11 @@ public class StringDynamicResultSetContainer implements DynamicResultSetContaine
     @Override
     public void insert(ResultSet rs, int col) throws SQLException {
         data.add(rs.getString(col));
-
     }
 
     @Override
     public ObjectColumn<String> toColumn() {
-        return new ObjectColumn<>(new Heading(""), false, data.elements(), String.class);
+        return new ObjectColumn<>(new Heading(""), false, data, String.class);
     }
 
     @Override

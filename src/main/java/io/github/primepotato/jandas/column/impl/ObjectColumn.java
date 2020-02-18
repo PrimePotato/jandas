@@ -40,7 +40,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     }
 
     public ObjectColumn(Heading heading, Boolean indexed, ObjectArrayList<T> values, Class<T> elementClass) {
-        this(heading, indexed, values.elements(), elementClass);
+        this(heading, indexed, Arrays.copyOf(values.elements(), values.size()), elementClass);
     }
 
     @Override
@@ -50,6 +50,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public void rebuildIndex() {
+        indexed = true;
         colIndex = new ObjectIndex<>(rawData(), elementClass);
     }
 
@@ -89,7 +90,14 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public boolean unique() {
-        return colIndex.unique();
+        if (indexed) {
+            return colIndex.unique();
+        } else {
+            rebuildIndex();
+            return unique();
+        }
+
+
     }
 
     @Override
@@ -119,7 +127,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     }
 
     public T[] rawData() {
-        return this.elements();
+        return Arrays.copyOf(elements(), size);
     }
 
     @Override
