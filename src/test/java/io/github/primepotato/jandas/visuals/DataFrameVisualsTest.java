@@ -15,7 +15,7 @@ public class DataFrameVisualsTest {
 
         DataFrame df = Jandas.readCsv("src/test/resources/csv/freshman_kgs.csv");
         DataFrameVisuals dfv = new DataFrameVisuals(df);
-        dfv.dtPlot("test.ftl", "output.html");
+//        dfv.dtPlot("test.ftl", "output.html");
     }
 
 }
