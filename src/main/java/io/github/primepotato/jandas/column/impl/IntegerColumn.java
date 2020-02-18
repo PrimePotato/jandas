@@ -10,7 +10,7 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class IntegerColumn extends AbstractColumn {
+public class IntegerColumn extends AbstractColumn<Integer> {
 
     public static final int DEFAULT_MISSING_VALUE_INDICATOR = Integer.MIN_VALUE;
     private IntArrayList data;
@@ -52,6 +52,11 @@ public class IntegerColumn extends AbstractColumn {
         return data.getInt(row);
     }
 
+    @Override
+    public void append(Integer val) {
+        data.add((int)val);
+    }
+
     public int[] getRows(int[] rows) {
 
         int[] res = new int[rows.length];
@@ -77,6 +82,16 @@ public class IntegerColumn extends AbstractColumn {
     @Override
     public Column createEmpty() {
         return new IntegerColumn(heading, false, new int[0]);
+    }
+
+    @Override
+    public Heading getHeading() {
+        return null;
+    }
+
+    @Override
+    public Object getMissingValue() {
+        return null;
     }
 
     public int size() {
@@ -112,6 +127,7 @@ public class IntegerColumn extends AbstractColumn {
         }
     }
 
+
     @Override
     public IntArrayList newDataContainer(int size) {
 
@@ -127,13 +143,11 @@ public class IntegerColumn extends AbstractColumn {
     @Override
     public void rebuildIndex() {
 
-        index = new IntegerIndex(rawData());
+        index = new IntegerIndex(this.data.elements());
     }
 
-    @Override
-    public int[] rawData() {
-
-        return Arrays.copyOfRange(data.elements(), 0, data.size());
+    public Integer[] rawData() {
+        return Arrays.stream(data.elements()).boxed().toArray(Integer[]::new);
     }
 
     public IntegerColumn append(int[] vals) {

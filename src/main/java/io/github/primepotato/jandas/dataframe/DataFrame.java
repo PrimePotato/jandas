@@ -47,7 +47,7 @@ public class DataFrame extends ArrayList<Column>{
     public DataFrame(String name, Collection<Column> columns){
         super(columns);
         this.name = name;
-        header = new Header(columns.stream().map(Column::name).toArray(String[]::new));
+        header = new Header(columns.stream().map(Column::getHeading).toArray(String[]::new));
     }
 
     public boolean wellFormed() {
@@ -251,10 +251,10 @@ public class DataFrame extends ArrayList<Column>{
             } else if (col instanceof IntegerColumn) {
                 ((IntegerColumn) col).append(rec.getInt(i));
             } else if (col instanceof ObjectColumn) {
-                if (((ObjectColumn) col).dataType == LocalDate.class) {
-                    ((ObjectColumn) col).append(rec.getObject(i));
-                } else if (((ObjectColumn) col).dataType == String.class) {
-                    ((ObjectColumn) col).append(rec.getString(i));
+                if (((ObjectColumn) col).getElementClass() == LocalDate.class) {
+                    ((ObjectColumn) col).add(rec.getObject(i));
+                } else if (((ObjectColumn) col).getElementClass() == String.class) {
+                    ((ObjectColumn) col).add(rec.getString(i));
                 }
             }
             ++i;

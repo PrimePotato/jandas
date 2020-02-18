@@ -38,18 +38,18 @@ public class RecordSet implements Iterator<RecordSet> {
 
     this.dataFrame = df;
     this.rowNumber = rowNumber;
-    columnNames = df.stream().map(Column::name).toArray(String[]::new);
+    columnNames = df.stream().map(x->x.getHeading().toString()).toArray(String[]::new);
     for (Column column : df) {
       if (column instanceof DoubleColumn) {
-        doubleColumnMap.put(column.name(), (DoubleColumn) column);
+        doubleColumnMap.put(column.getHeading().toString(), (DoubleColumn) column);
       }
       if (column instanceof IntegerColumn) {
-        intColumnMap.put(column.name(), (IntegerColumn) column);
+        intColumnMap.put(column.getHeading().toString(), (IntegerColumn) column);
       }
       if (column instanceof ObjectColumn) {
-        stringColumnMap.put(column.name(), (ObjectColumn) column);
+        stringColumnMap.put(column.getHeading().toString(), (ObjectColumn) column);
       }
-      columnMap.put(column.name(), column);
+      columnMap.put(column.getHeading().toString(), column);
     }
   }
 

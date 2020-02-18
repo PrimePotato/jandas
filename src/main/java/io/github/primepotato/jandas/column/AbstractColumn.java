@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 //import org.apache.commons.lang.ClassUtils;
 
 @SuppressWarnings("unchecked")
-public abstract class AbstractColumn implements Column {
+public abstract class AbstractColumn<T> implements Column<T> {
 
     public ColIndex index;
     public Heading heading;
@@ -55,12 +55,12 @@ public abstract class AbstractColumn implements Column {
         }
     }
 
-    public <T> T firstValue() {
+    public T firstValue() {
 
         int idx = 0;
         T t = null;
         while (t == null) {
-            t = getObject(idx);
+            t = (T)getObject(idx);
             idx++;
         }
         return t;

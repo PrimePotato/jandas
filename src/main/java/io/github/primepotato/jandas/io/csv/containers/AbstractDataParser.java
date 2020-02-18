@@ -25,17 +25,18 @@ public abstract class AbstractDataParser {
     }
 
     public Column toColumn(){
-        switch (elementClass().getSimpleName()) {
-            case "Integer":
-                return new IntegerColumn(name, false, (IntArrayList) data);
-            case "Double":
-                return new DoubleColumn(name, false, (DoubleArrayList) data);
-            case "LocalTime":
-                return new ObjectColumn<>(name, false, (ObjectArrayList<LocalTime>) data, LocalTime.class);
-            case "LocalDate":
-                return new ObjectColumn<>(name, false, (ObjectArrayList<LocalDate>) data, LocalDate.class);
-            default:
-                return new ObjectColumn<>(name, false, (ObjectArrayList<String>) data, String.class);
+        if (elementClass().equals(Integer.class)){
+            return new IntegerColumn(new Heading(name), false, (IntArrayList) data);
+        } else if (elementClass().equals(Integer.class)){
+            return new DoubleColumn(new Heading(name), false, (DoubleArrayList) data);
+        } if (elementClass().equals(Integer.class)){
+            return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList) data, LocalTime.class);
+        } if (elementClass().equals(Integer.class)){
+            return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList<LocalDate>) data, LocalDate.class);
+        } if (elementClass().equals(Integer.class)){
+            return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList<String>) data, String.class);
+        } else{
+            return null;
         }
     }
 

@@ -1,74 +1,65 @@
 package io.github.primepotato.jandas.column.impl;
 
-import io.github.primepotato.jandas.column.AbstractColumn;
 import io.github.primepotato.jandas.column.Column;
+import io.github.primepotato.jandas.header.Header;
 import io.github.primepotato.jandas.header.Heading;
+import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.impl.ObjectIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.Set;
 
-@SuppressWarnings("unchecked")
-public class ObjectColumn<T> extends AbstractColumn {
 
-    public static final Object MISSING_VALUE = null;
-    private ObjectArrayList<T> data;
+@RequiredArgsConstructor
+public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
-    public ObjectColumn(Heading heading, Boolean indexed, T[] values, Class<T> cls) {
+    private static final Object MISSING_VALUE = null;
 
-        this.indexed = indexed;
-        index = new ObjectIndex<>(values, cls);
-        data = ObjectArrayList.wrap(values);
+    @Getter
+    private Heading heading;
+    @Getter
+    private Boolean indexed;
+    @Getter
+    private Class<T> elementClass;
+    @Getter
+    private ColIndex colIndex;
+
+    public ObjectColumn(Heading heading, Boolean indexed, T[] values, Class<T> elementClass) {
+        super.a = values;
         this.heading = heading;
-        dataType = cls;
-    }
-
-    public ObjectColumn(Heading heading, Boolean indexed, ObjectArrayList<T> values, Class<T> cls) {
-
+        this.elementClass = elementClass;
         this.indexed = indexed;
-        this.heading = heading;
-        dataType = cls;
-        appendAll(values);
+        if (indexed) rebuildIndex();
     }
 
-    public ObjectColumn(String heading, Boolean indexed, ObjectArrayList<T> values, Class<T> cls){
-        this(new Heading(heading), indexed, values, cls);
+    public ObjectColumn(Heading heading, Boolean indexed, ObjectArrayList<T> values, Class<T> elementClass) {
+        this(heading, indexed, values.elements(), elementClass);
     }
 
-    public ObjectColumn(String heading, Boolean indexed, T[] values, Class<T> cls){
-        this(new Heading(heading), indexed, values, cls);
+    @Override
+    public Object getMissingValue() {
+        return MISSING_VALUE;
     }
 
     @Override
     public void rebuildIndex() {
-        //TODO: remove and make incremental
-        index = new ObjectIndex<>(rawData(), dataType);
-    }
-
-    public ObjectColumn<T> append(T val) {
-
-        data.add(val);
-        return this;
-    }
-
-    public T getObject(int row) {
-
-        return data.get(row);
+        colIndex = new ObjectIndex<>(rawData(), elementClass);
     }
 
     public T[] getRows(int[] rows) {
-
-        T[] res = (T[]) Array.newInstance(dataType, rows.length);
+        T[] res = (T[]) Array.newInstance(elementClass, rows.length);
 
         for (int i = 0; i < rows.length; i++) {
             if (rows[i] == Integer.MIN_VALUE) {
                 res[i] = (T) MISSING_VALUE;
             } else {
-                res[i] = getObject(rows[i]);
+                res[i] = get(rows[i]);
             }
         }
         return res;
@@ -77,18 +68,42 @@ public class ObjectColumn<T> extends AbstractColumn {
     @Override
     public String getString(int row) {
 
-        return String.valueOf(data.get(row));
+        return String.valueOf(this.get(row));
     }
 
     @Override
     public void appendString(String value, AbstractParser<?> parser) {
 
-        append((T) parser.parse(value));
     }
 
-    public int size() {
+    @Override
+    public T getObject(int row) {
+        return (T) get(row);
+    }
 
-        return data.size();
+    @Override
+    public Set uniqueSet() {
+        return null;
+    }
+
+    @Override
+    public boolean unique() {
+        return false;
+    }
+
+    @Override
+    public String cleanName() {
+        return null;
+    }
+
+    @Override
+    public ColIndex index() {
+        return null;
+    }
+
+    @Override
+    public T firstValue() {
+        return this.a[0];
     }
 
     @Override
@@ -99,30 +114,21 @@ public class ObjectColumn<T> extends AbstractColumn {
     @Override
     public Column subColumn(Heading name, int[] aryMask) {
 
-        return new ObjectColumn<>(name, indexed, getRows(aryMask), (Class<T>)dataType);
+        return new ObjectColumn<>(name, indexed, getRows(aryMask), (Class<T>) elementClass);
     }
 
-    @Override
     public T[] rawData() {
-
-        return Arrays.copyOfRange(data.elements(), 0, data.size());
-    }
-
-    public ObjectColumn<T> append(T[] vals) {
-
-        data.addElements(data.size(), vals, 0, vals.length);
-        return this;
+        return this.elements();
     }
 
     @Override
     public void appendAll(Collection vals) {
+        this.addAll(vals);
+    }
 
-        T[] d = (T[]) Array.newInstance(dataType, vals.size());
-        Iterator it = vals.iterator();
-        for (int i = 0; i < vals.size(); i++) {
-            d[i] = (T) it.next();
-        }
-        data = ObjectArrayList.wrap(d);
+    @Override
+    public void append(T val) {
+        this.add(val);
     }
 
     @Override
@@ -136,22 +142,21 @@ public class ObjectColumn<T> extends AbstractColumn {
 
     @Override
     public Column createEmpty() {
-        return new ObjectColumn<T>(heading, false, (T[]) Array.newInstance(dataType, 0), (Class<T>)dataType);
+        return new ObjectColumn<>(heading, false, (T[]) Array.newInstance(elementClass, 0), elementClass);
     }
 
     @Override
     public ObjectArrayList newDataContainer(int size) {
-
         return new ObjectArrayList<Object>(size);
     }
 
-    public ObjectColumn append(String stringValue, AbstractParser<?> parser) {
-
-        try {
-            return append((T) parser.parse(stringValue));
-        } catch (final NumberFormatException e) {
-            throw new NumberFormatException(
-                    "Error adding value to column " + heading + ": " + e.getMessage());
-        }
-    }
+//    public ObjectColumn append(String stringValue, AbstractParser<?> parser) {
+//
+//        try {
+//            return add((T) parser.parse(stringValue));
+//        } catch (final NumberFormatException e) {
+//            throw new NumberFormatException(
+//                    "Error adding value to column " + heading + ": " + e.getMessage());
+//        }
+//    }
 }

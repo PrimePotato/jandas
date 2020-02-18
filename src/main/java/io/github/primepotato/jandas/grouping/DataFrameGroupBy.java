@@ -39,7 +39,7 @@ public class DataFrameGroupBy {
     public DataFrame aggregate(Function<double[], Double> daf) {
         Map<Heading, Object2DoubleOpenHashMap> results = new HashMap<>();
         for (DoubleColumn dc : aCols) {
-            results.put(dc.heading(), metaIndex.aggregateDouble(dc.rawData(), daf::apply));
+            results.put(dc.getHeading(), metaIndex.aggregateDouble(dc.getData(), daf::apply));
         }
         return resolveToFrame(results);
     }

@@ -7,6 +7,7 @@ import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.impl.DoubleIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
+import lombok.Getter;
 import org.ejml.data.DMatrixRBlock;
 import org.ejml.data.DMatrixRMaj;
 import org.ejml.data.Matrix;
@@ -18,12 +19,13 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class DoubleColumn extends SimpleBase implements Column {
+public class DoubleColumn extends SimpleBase implements Column<Double> {
     //TODO: Tidy up this class, all over the place
 
     private DMatrixRMaj data;
     public static final double DEFAULT_MISSING_VALUE_INDICATOR = Double.NaN;
     public ColIndex index;
+    @Getter
     public Heading heading;
     public Class dataType;
     public Boolean indexed;
@@ -63,12 +65,10 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     public double getDouble(int row) {
-
         return data.unsafe_get(row, 0);
     }
 
     public Double getObject(int row) {
-
         return data.unsafe_get(row, 0);
     }
 
@@ -108,12 +108,6 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     @Override
-    public Heading heading() {
-
-        return heading;
-    }
-
-    @Override
     public String cleanName() {
         return heading.toString().replaceAll("[^A-Za-z0-9]", "");
     }
@@ -150,6 +144,11 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     @Override
+    public void append(Double val) {
+        append((double)val);
+    }
+
+    @Override
     public boolean equals(Object other) {
         try {
             return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
@@ -161,6 +160,11 @@ public class DoubleColumn extends SimpleBase implements Column {
     @Override
     public Column createEmpty() {
         return new DoubleColumn(heading, false, new double[0]);
+    }
+
+    @Override
+    public Object getMissingValue() {
+        return DEFAULT_MISSING_VALUE_INDICATOR;
     }
 
     public double[] getRows(int[] rows) {
@@ -195,6 +199,11 @@ public class DoubleColumn extends SimpleBase implements Column {
     }
 
     @Override
+    public void rebuildIndex() {
+
+    }
+
+    @Override
     public int size() {
 
         return data.numRows;
@@ -212,9 +221,11 @@ public class DoubleColumn extends SimpleBase implements Column {
         return new DoubleColumn(name, indexed, getRows(aryMask));
     }
 
-    @Override
-    public double[] rawData() {
+    public Double[] rawData() {
+        return Arrays.stream(data.getData()).boxed().toArray(Double[]::new);
+    }
 
+    public double[] getData() {
         return data.getData();
     }
 

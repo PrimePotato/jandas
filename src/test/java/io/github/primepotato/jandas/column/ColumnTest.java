@@ -59,7 +59,7 @@ public class ColumnTest {
 
     @Test
     public void heading() {
-        strColumn.heading();
+        strColumn.getHeading();
     }
 
     @Test

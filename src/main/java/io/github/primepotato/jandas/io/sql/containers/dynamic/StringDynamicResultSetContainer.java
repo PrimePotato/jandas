@@ -28,7 +28,7 @@ public class StringDynamicResultSetContainer implements DynamicResultSetContaine
 
     @Override
     public ObjectColumn<String> toColumn() {
-        return new ObjectColumn<>(new Heading(""), false, data, String.class);
+        return new ObjectColumn<>(new Heading(""), false, data.elements(), String.class);
     }
 
     @Override
