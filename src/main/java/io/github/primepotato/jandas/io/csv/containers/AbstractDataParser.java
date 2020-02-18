@@ -27,13 +27,13 @@ public abstract class AbstractDataParser {
     public Column toColumn(){
         if (elementClass().equals(Integer.class)){
             return new IntegerColumn(new Heading(name), false, (IntArrayList) data);
-        } else if (elementClass().equals(Integer.class)){
+        } else if (elementClass().equals(Double.class)){
             return new DoubleColumn(new Heading(name), false, (DoubleArrayList) data);
-        } if (elementClass().equals(Integer.class)){
-            return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList) data, LocalTime.class);
-        } if (elementClass().equals(Integer.class)){
+        } if (elementClass().equals(LocalTime.class)){
+            return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList<LocalTime>) data, LocalTime.class);
+        } if (elementClass().equals(LocalDate.class)){
             return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList<LocalDate>) data, LocalDate.class);
-        } if (elementClass().equals(Integer.class)){
+        } if (elementClass().equals(String.class)){
             return new ObjectColumn<>(new Heading(name), false, (ObjectArrayList<String>) data, String.class);
         } else{
             return null;
