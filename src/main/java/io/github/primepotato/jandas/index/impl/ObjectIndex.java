@@ -20,7 +20,14 @@ public class ObjectIndex<T> extends ColIndex {
 
     @Override
     public Class elementClass() {
-        return Double.class;
+        return cls;
+    }
+
+    public <T> T indexValue(int i) {
+        if (cls.equals(String.class)) {
+            int a = 1;
+        }
+        return IndexGenerator.indexValue(i, elementClass());
     }
 
 }

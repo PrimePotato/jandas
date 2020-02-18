@@ -3,8 +3,7 @@ package io.github.primepotato.jandas.filter;
 
 import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.dataframe.Record;
-import org.junit.Assert;
+import io.github.primepotato.jandas.dataframe.RecordSet;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.function.Predicate;
@@ -15,7 +14,7 @@ public class DataFrameFilterTest {
 
     private DataFrame dfFreshmen;
     private DataFrameFilter dataFrameFilter;
-    private Predicate<Record> predicate;
+    private Predicate<RecordSet> predicate;
 
     @Before
     public void setUp() throws Exception {
@@ -32,6 +31,6 @@ public class DataFrameFilterTest {
     @Test
     public void apply() {
         DataFrame df = dataFrameFilter.apply(dfFreshmen);
-        assertEquals(dfFreshmen.rowCount()/10, df.rowCount());
+        assertEquals(7, df.rowCount());
     }
 }

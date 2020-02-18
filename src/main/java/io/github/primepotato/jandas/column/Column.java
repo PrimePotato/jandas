@@ -8,13 +8,13 @@ import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Set;
 
-public interface Column {
+public interface Column<T> {
 
   default void rebuildIndex() {}
 
   int size();
 
-  <T> T rawData();
+  T[] rawData();
 
   Column subColumn(String name, int[] aryMask);
 
@@ -24,17 +24,19 @@ public interface Column {
 
   void appendString(final String value, AbstractParser<?> parser);
 
-  <T> T getObject(int row);
+  T getObject(int row);
 
   Set uniqueSet();
 
-  Heading heading();
+  boolean unique();
 
   String cleanName();
 
   ColIndex index();
 
-  <T> T firstValue();
+  T firstValue();
+
+  void append(T val);
 
   void appendAll(Collection vals);
 
@@ -43,5 +45,10 @@ public interface Column {
   boolean equals(Object other);
 
   Column createEmpty();
+
+  Heading getHeading();
+
+  public Object getMissingValue();
+
 
 }

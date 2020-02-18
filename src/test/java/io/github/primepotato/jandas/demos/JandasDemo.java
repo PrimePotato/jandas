@@ -2,7 +2,7 @@ package io.github.primepotato.jandas.demos;
 
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.dataframe.DataFrame;
-import io.github.primepotato.jandas.dataframe.Record;
+import io.github.primepotato.jandas.dataframe.RecordSet;
 import io.github.primepotato.jandas.grouping.DataFrameGroupBy;
 import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.meta.JoinType;
@@ -45,7 +45,7 @@ public class JandasDemo {
         DoubleColumn b = dfFreshmen.column("BMI (Apr)");
 
         DoubleColumn x = (DoubleColumn) a.plus(b);
-        dfFreshmen.addColumn(x);
+        dfFreshmen.add(x);
 
         dfFreshmen.print();
     }
@@ -61,7 +61,7 @@ public class JandasDemo {
         eq.alias(a.getMatrix(), "a", b.getMatrix(), "b", c.getMatrix(), "c");
         eq.process("c = (a+b)/2");
 
-        dfFreshmen.addColumn(c);
+        dfFreshmen.add(c);
         dfFreshmen.print();
 
     }
@@ -95,8 +95,8 @@ public class JandasDemo {
     }
 
     @Test
-    public void filter(){
-        Predicate<Record> predicate = record -> record.getDouble("BMI (Sep)")>30.;
+    public void filter() {
+        Predicate<RecordSet> predicate = record -> record.getDouble("BMI (Sep)") > 30.;
         DataFrame df = dfFreshmen.filter(predicate);
         df.print();
     }
@@ -116,28 +116,23 @@ public class JandasDemo {
     }
 
     @Test
-    public void head(){
+    public void head() {
         dfLdnElection.head();
     }
 
     @Test
-    public void tail(){
+    public void tail() {
         dfLdnElection.tail();
     }
 
 
     @Test
-    public void userCase(){
+    public void userCase() {
         DataFrame dfElection = Jandas.readCsv("src/test/resources/csv/general-elections-votes-party-2015.csv");
-
         DataFrame dfVotes = Jandas.readCsv("src/test/resources/csv/party_constituency_vote_shares.csv");
-
         DataFrame dfJoin = dfElection.join(Arrays.asList("Constituency"), dfVotes, JoinType.INNER);
-
-        DataFrame df = dfJoin.filter(rec->rec.getInt(new Heading("Candidate Votes","L"))>20000);
-
-//        DataFrameGroupBy g = df.groupBy(Arrays.asList(new Heading("[Election year, L]"), Arrays.asList("[Candidate Votes, L]"));
-
+//        DataFrame df = dfJoin.filter(rec -> rec.getInt(new Heading("Candidate Votes", "L")) > 20000);
+//        DataFrameGroupBy g = df.groupBy(Arrays.asList(new Heading("[Election year, L]")), Arrays.asList(new Heading("[Election year, L]")));
     }
 
 }

@@ -1,27 +1,37 @@
 package io.github.primepotato.jandas.column.impl;
 
-import io.github.primepotato.jandas.column.AbstractColumn;
 import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.header.Heading;
+import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.impl.IntegerIndex;
 import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
+import lombok.Getter;
 
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-public class IntegerColumn extends AbstractColumn {
+public class IntegerColumn extends IntArrayList implements Column<Integer> {
 
     public static final int DEFAULT_MISSING_VALUE_INDICATOR = Integer.MIN_VALUE;
-    private IntArrayList data;
+
+    @Getter
+    private Heading heading;
+    @Getter
+    private Boolean indexed;
+    @Getter
+    private Class elementClass = Integer.class;
+    @Getter
+    private ColIndex colIndex;
 
     public IntegerColumn(Heading heading, Boolean indexed, int[] values) {
-
+        super(values);
         this.indexed = indexed;
-        data = new IntArrayList(values);
         this.heading = heading;
-        dataType = Integer.class;
-        index = indexed ? new IntegerIndex(values) : null;
+        colIndex = indexed ? new IntegerIndex(values) : null;
     }
 
     public IntegerColumn(Heading heading, Boolean indexed, IntArrayList values) {
@@ -38,18 +48,72 @@ public class IntegerColumn extends AbstractColumn {
 
     public IntegerColumn append(int val) {
 
-        data.add(val);
+        this.add(val);
         return this;
-    }
-
-    public int getInt(int row) {
-
-        return data.getInt(row);
     }
 
     public Integer getObject(int row) {
 
-        return data.getInt(row);
+        return this.getInt(row);
+    }
+
+
+    public boolean unique() {
+        return index().unique();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    public Set<?> uniqueSet() {
+
+        return index().positions()
+                .values()
+                .stream()
+                .map(x -> getObject(x.getInt(0)))
+                .collect(Collectors.toSet());
+    }
+
+    public String cleanName() {
+
+        return Normalizer.normalize(heading.toString(), Normalizer.Form.NFD);
+    }
+
+    public ColIndex index() {
+        if (colIndex == null) {
+            rebuildIndex();
+            return index();
+        } else {
+            return colIndex;
+        }
+    }
+
+    public Integer firstValue() {
+
+        int idx = 0;
+        Integer t = null;
+        while (t == null) {
+            t = getObject(idx);
+            idx++;
+        }
+        return t;
+    }
+
+    public String name() {
+        return cleanName();
+    }
+
+    @Override
+    public String toString(){
+        return name() + rawData().toString();
+    }
+
+
+    @Override
+    public void append(Integer val) {
+        this.add((int) val);
     }
 
     public int[] getRows(int[] rows) {
@@ -67,7 +131,7 @@ public class IntegerColumn extends AbstractColumn {
 
     @Override
     public boolean equals(Object other) {
-        try{
+        try {
             return Arrays.equals((this.getClass().cast(other)).rawData(), rawData());
         } catch (Exception e) {
             return false;
@@ -79,10 +143,11 @@ public class IntegerColumn extends AbstractColumn {
         return new IntegerColumn(heading, false, new int[0]);
     }
 
-    public int size() {
-
-        return data.size();
+    @Override
+    public Object getMissingValue() {
+        return DEFAULT_MISSING_VALUE_INDICATOR;
     }
+
 
     @Override
     public Column subColumn(String name, int[] aryMask) {
@@ -98,7 +163,7 @@ public class IntegerColumn extends AbstractColumn {
     @Override
     public String getString(int row) {
 
-        return String.valueOf(data.getInt(row));
+        return String.valueOf(this.getInt(row));
     }
 
     @Override
@@ -112,33 +177,28 @@ public class IntegerColumn extends AbstractColumn {
         }
     }
 
+
     @Override
     public IntArrayList newDataContainer(int size) {
-
         return new IntArrayList(size);
     }
 
     @Override
     public void appendAll(Collection vals) {
-
-        data = (IntArrayList) vals;
+        this.addAll(vals);
     }
 
     @Override
     public void rebuildIndex() {
-
-        index = new IntegerIndex(rawData());
+        colIndex = new IntegerIndex(this.elements());
     }
 
-    @Override
-    public int[] rawData() {
-
-        return Arrays.copyOfRange(data.elements(), 0, data.size());
+    public Integer[] rawData() {
+        return Arrays.stream(this.elements()).boxed().toArray(Integer[]::new);
     }
 
     public IntegerColumn append(int[] vals) {
-
-        data.addElements(data.size(), vals, 0, vals.length);
+        this.addElements(this.size(), vals, 0, vals.length);
         return this;
     }
 

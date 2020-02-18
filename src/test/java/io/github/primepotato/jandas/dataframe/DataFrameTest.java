@@ -6,7 +6,9 @@ import io.github.primepotato.jandas.column.Column;
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
 import io.github.primepotato.jandas.column.impl.ObjectColumn;
+import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.meta.JoinType;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,16 +25,16 @@ public class DataFrameTest {
     public void setUp() {
 
         String[] str1 = {"a", "b", "c"};
-        ObjectColumn<String> sc1 = new ObjectColumn<>("str", true, str1, String.class);
+        ObjectColumn<String> sc1 = new ObjectColumn<String>(new Heading("str"), true, str1, String.class);
 
         int[] data1 = {1, 2, 3};
-        IntegerColumn ic1 = new IntegerColumn("int1", true, data1);
+        IntegerColumn ic1 = new IntegerColumn(new Heading("int1"), true, data1);
 
         int[] data2 = {1, 2, 3};
-        IntegerColumn ic2 = new IntegerColumn("int2", true, data2);
+        IntegerColumn ic2 = new IntegerColumn(new Heading("int2"), true, data2);
 
-        double[] dblData = {1., 2., 3.};
-        DoubleColumn dbl1 = new DoubleColumn("dbl1", true, dblData);
+        double[] dblData = {1.1, 2.1, 3.1};
+        DoubleColumn dbl1 = new DoubleColumn(new Heading("dbl1"), true, dblData);
 
         List<Column> cols = new ArrayList<>();
         cols.add(sc1);
@@ -43,7 +45,7 @@ public class DataFrameTest {
         df1 = new DataFrame("1", cols);
 
         String[] str2 = {"a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"};
-        ObjectColumn<String> sc2 = new ObjectColumn<>("str", true, str2, String.class);
+        ObjectColumn<String> sc2 = new ObjectColumn<>(new Heading("str"), true, str2, String.class);
 
         int[] data3 = {55, 25, 35, 455, 2, 3, 4, 2, 4, 23, 423, 234};
         IntegerColumn ic3 = new IntegerColumn("int3", true, data3);
@@ -152,6 +154,6 @@ public class DataFrameTest {
     public void toCsv() {
         df1.toCsv("src/test/resources/toCsvTest.csv");
         DataFrame dfs = Jandas.readCsv("src/test/resources/toCsvTest.csv");
-        assert (df1.equals(dfs));
+        Assert.assertEquals(df1, dfs);
     }
 }

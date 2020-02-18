@@ -23,7 +23,6 @@ public class StringDynamicResultSetContainer implements DynamicResultSetContaine
     @Override
     public void insert(ResultSet rs, int col) throws SQLException {
         data.add(rs.getString(col));
-
     }
 
     @Override
