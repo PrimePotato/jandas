@@ -35,7 +35,7 @@ import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainer
 
 @Getter
 @Setter
-public class DataFrame extends ArrayList<Column>{
+public class DataFrame extends ArrayList<Column> {
 
     private Header header;
     private String name;
@@ -44,10 +44,10 @@ public class DataFrame extends ArrayList<Column>{
         this("", resultSetToContainers(resultSet).stream().map(ResultSetContainer::toColumn).collect(Collectors.toList()));
     }
 
-    public DataFrame(String name, Collection<Column> columns){
+    public DataFrame(String name, Collection<Column> columns) {
         super(columns);
         this.name = name;
-        header = new Header(columns.stream().map(x->x.getHeading().toString()).toArray(String[]::new));
+        header = new Header(columns.stream().map(x -> x.getHeading().toString()).toArray(String[]::new));
     }
 
     public boolean wellFormed() {
@@ -66,7 +66,7 @@ public class DataFrame extends ArrayList<Column>{
     }
 
     public int rowCount() {
-        if (this.size() ==0) {
+        if (this.size() == 0) {
             return 0;
         }
         return this.get(0).size();
@@ -87,33 +87,27 @@ public class DataFrame extends ArrayList<Column>{
     }
 
     public DataFrame select(String name, String... colNames) {
-
         List<String> cols = Arrays.stream(colNames).collect(Collectors.toList());
         return new DataFrame(this.name, getColumns(cols, Column.class));
     }
 
     public String getString(int row, int col) {
-
         return column(col).getString(row);
     }
 
     public <T> T getObject(int r, int c) {
-
         return (T) column(c).getObject(r);
     }
 
     public <T extends Column> T column(int idx) {
-
         return (T) this.get(idx);
     }
 
     public <T extends Column> T column(String colName) {
-
         return (T) this.get(header.indexOf(new Heading(colName)));
     }
 
     public Column column(int idx, Class<? extends Column> cls) {
-
         return cls.cast(this.get(idx));
     }
 
@@ -154,41 +148,34 @@ public class DataFrame extends ArrayList<Column>{
     }
 
     Column getColumn(String name) {
-
         return column(header.indexOf(name));
     }
 
     List<DoubleColumn> getDoubleColumns() {
-
         return this.stream().filter(x -> x instanceof DoubleColumn).map(x -> (DoubleColumn) x).collect(Collectors.toList());
     }
 
 
     <T extends Column> T getColumn(String name, Class<T> tClass) {
-
         return tClass.cast(column(name));
     }
 
     <T extends Column> List<T> getColumns(List<String> names, Class<T> tClass) {
-
         return names.stream().map(x -> getColumn(x, tClass)).collect(Collectors.toList());
     }
 
     public DataFrameGroupBy groupBy(List<String> grpCols, List<String> aggCols) {
-
         List<Column> gCols = getColumns(grpCols, Column.class);
         List<DoubleColumn> aCols = getColumns(aggCols, DoubleColumn.class);
         return new DataFrameGroupBy(gCols, aCols);
     }
 
     public static MetaIndex buildMetaIndex(List<Column> grpCol) {
-
         List<ColIndex> colIdxs = grpCol.stream().map(Column::index).collect(Collectors.toList());
         return new MetaIndex(colIdxs);
     }
 
     DataFrame resolveJoin(Pair<Boolean, int[][]> joinData, DataFrame dfLeft, DataFrame dfRight) {
-
         int[][] joinArray = joinData.getRight();
         int[] left, right;
         if (joinData.getLeft()) {
@@ -243,7 +230,6 @@ public class DataFrame extends ArrayList<Column>{
     }
 
     public void addRecord(RecordSet rec) {
-
         int i = 0;
         for (Column col : this) {
             if (col instanceof DoubleColumn) {
