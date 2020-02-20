@@ -2,7 +2,9 @@ package io.github.primepotato.jandas.column;
 
 import io.github.primepotato.jandas.Jandas;
 import io.github.primepotato.jandas.dataframe.DataFrame;
+import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.io.parsers.StringParser;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,26 +23,28 @@ public class ColumnTest {
 
     @Test
     public void rebuildIndex() {
+        Assert.assertNotNull(strColumn.getIndex());
     }
 
     @Test
     public void unique() {
-        strColumn.unique();
+        Assert.assertFalse(strColumn.unique());
     }
 
     @Test
     public void uniqueSet() {
-        strColumn.uniqueSet();
+        Assert.assertEquals(strColumn.uniqueSet().size(), 2);
     }
 
     @Test
     public void cleanName() {
-        strColumn.cleanName();
+        Assert.assertEquals(strColumn.cleanName(), "Sex");
     }
 
     @Test
     public void subColumn() {
-        strColumn.subColumn("Bob", new int[]{0, 2, 4});
+        Column c = strColumn.subColumn("Bob", new int[]{0, 2, 4});
+        
     }
 
     @Test
@@ -65,7 +69,7 @@ public class ColumnTest {
 
     @Test
     public void index() {
-        strColumn.index();
+        strColumn.getIndex();
     }
 
     @Test

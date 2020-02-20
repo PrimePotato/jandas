@@ -1,7 +1,6 @@
 package io.github.primepotato.jandas.column.impl;
 
 import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.header.Header;
 import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.impl.ObjectIndex;
@@ -111,10 +110,10 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     }
 
     @Override
-    public ColIndex index() {
+    public ColIndex getIndex() {
         if (colIndex == null) {
             rebuildIndex();
-            return index();
+            return getIndex();
         } else {
             return colIndex;
         }

@@ -13,7 +13,7 @@ public class IndexUtils {
 
 
         if (!miLeft.unique()) {
-            throw new RuntimeException("Left index must be unique");
+            throw new RuntimeException("Left getIndex must be unique");
         }
 
         if (miLeft.colCount != miRight.colCount) {

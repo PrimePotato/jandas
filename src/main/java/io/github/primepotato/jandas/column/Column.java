@@ -32,7 +32,7 @@ public interface Column<T> {
 
   String cleanName();
 
-  ColIndex index();
+  ColIndex getIndex();
 
   T firstValue();
 
@@ -48,7 +48,6 @@ public interface Column<T> {
 
   Heading getHeading();
 
-  public Object getMissingValue();
-
+  Object getMissingValue();
 
 }

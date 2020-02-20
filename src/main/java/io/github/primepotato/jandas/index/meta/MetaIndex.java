@@ -13,7 +13,7 @@ import java.lang.reflect.Array;
 import java.util.List;
 import java.util.function.Function;
 
-//import io.github.primepotato.jandas.index.impl.IntArrayListIndex;
+//import io.github.primepotato.jandas.getIndex.impl.IntArrayListIndex;
 
 public class MetaIndex {
 

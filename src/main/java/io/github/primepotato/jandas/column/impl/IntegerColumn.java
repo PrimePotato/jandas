@@ -59,7 +59,7 @@ public class IntegerColumn extends IntArrayList implements Column<Integer> {
 
 
     public boolean unique() {
-        return index().unique();
+        return getIndex().unique();
     }
 
     @Override
@@ -69,7 +69,7 @@ public class IntegerColumn extends IntArrayList implements Column<Integer> {
 
     public Set<?> uniqueSet() {
 
-        return index().positions()
+        return getIndex().positions()
                 .values()
                 .stream()
                 .map(x -> getObject(x.getInt(0)))
@@ -81,10 +81,10 @@ public class IntegerColumn extends IntArrayList implements Column<Integer> {
         return Normalizer.normalize(heading.toString(), Normalizer.Form.NFD);
     }
 
-    public ColIndex index() {
+    public ColIndex getIndex() {
         if (colIndex == null) {
             rebuildIndex();
-            return index();
+            return getIndex();
         } else {
             return colIndex;
         }

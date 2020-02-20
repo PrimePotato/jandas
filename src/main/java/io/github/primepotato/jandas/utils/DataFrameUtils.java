@@ -13,7 +13,7 @@ public class DataFrameUtils {
         for (Column col : df) {
             newFrame.add(col.createEmpty());
         }
-        return new DataFrame("copy" + df.name(), newFrame);
+        return new DataFrame("copy" + df.getName(), newFrame);
     }
 
 }

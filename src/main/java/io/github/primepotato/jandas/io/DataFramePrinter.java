@@ -157,11 +157,11 @@ public class DataFramePrinter {
     }
 
     private String tableName(DataFrame frame, int width) {
-        if (frame.name().length() > width) {
-            return frame.name();
+        if (frame.getName().length() > width) {
+            return frame.getName();
         }
-        int diff = width - frame.name().length();
-        String result = StringUtils.repeat(" ", diff / 2) + frame.name();
+        int diff = width - frame.getName().length();
+        String result = StringUtils.repeat(" ", diff / 2) + frame.getName();
         return result + StringUtils.repeat(" ", width - result.length());
     }
 

@@ -112,7 +112,7 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
         return heading.toString().replaceAll("[^A-Za-z0-9]", "");
     }
 
-    public ColIndex index() {
+    public ColIndex getIndex() {
 
         return index;
     }
