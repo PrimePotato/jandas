@@ -37,8 +37,8 @@
     </scm>
 
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
-
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
