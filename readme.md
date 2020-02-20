@@ -14,12 +14,13 @@ Bringing the Data Frame concept to Java. It aims to provide features that will b
  * Mixed type storage for optimal memory usage
  * Pretty printing
  * Column operations
- * Linear algebra via EJML   
- * Parsing from / writing To CSV
+ * Reading / Writing to CSV
+ * Reading / Writing using SQL
  * Group by
  * Aggregation
  * Multi-level indexing
  * Join and merge
+ * Linear algebra via EJML   
   
 
 ### Installation
