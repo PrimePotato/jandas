@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.lang.reflect.Array;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -106,7 +107,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public String cleanName() {
-        return heading.toString();
+        return Normalizer.normalize(heading.toString(), Normalizer.Form.NFD);
     }
 
     @Override

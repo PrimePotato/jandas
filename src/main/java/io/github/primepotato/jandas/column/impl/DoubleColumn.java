@@ -54,9 +54,9 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
         this(heading, indexed, mat.getData());
     }
 
-    public void rebuildIndex(double[] vals) {
-
-        index = buildIndex(vals);
+    public void rebuildIndex() {
+        indexed = true;
+        index = buildIndex(data.getData());
     }
 
     public DoubleIndex buildIndex(double[] vals) {
@@ -95,12 +95,12 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
 
     public boolean unique() {
 
-        return index.unique();
+        return getIndex().unique();
     }
 
     public Set uniqueSet() {
 
-        return index.positions()
+        return getIndex().positions()
                 .values()
                 .stream()
                 .map(x -> getObject(x.getInt(0)))
@@ -113,13 +113,14 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
     }
 
     public ColIndex getIndex() {
-
-        return index;
+        if (indexed) return index;
+        rebuildIndex();
+        return getIndex();
     }
 
     @Override
     public void appendAll(Collection vals) {
-        DoubleArrayList d = (DoubleArrayList) vals;
+        DoubleArrayList d = new DoubleArrayList(vals);
         double[] out = new double[d.size() - 1];
         d.getElements(0, out, 0, d.size() - 1);
         data = new DMatrixRMaj(out);
@@ -196,11 +197,6 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
         System.arraycopy(dbl, 0, d, old.length, d.length);
         data = new DMatrixRMaj(d);
         return this;
-    }
-
-    @Override
-    public void rebuildIndex() {
-
     }
 
     @Override
