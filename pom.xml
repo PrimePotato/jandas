@@ -42,9 +42,9 @@
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
-                <!--<configuration>-->
-                    <!--<timestampFormat>${maven.build.timestamp.format}</timestampFormat>-->
-                <!--</configuration>-->
+                <configuration>
+                    <timestampFormat>${maven.build.timestamp.format}</timestampFormat>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
