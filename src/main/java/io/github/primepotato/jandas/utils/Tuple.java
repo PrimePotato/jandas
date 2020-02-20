@@ -74,8 +74,8 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
     int size();
 
     /**
-     * Returns the item for the index specified
-     * @param index the index of element
+     * Returns the item for the getIndex specified
+     * @param index the getIndex of element
      * @param <T>
      * @return the element value
      */
@@ -229,7 +229,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 0:
                     return (T) item0;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 1");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 1");
             }
         }
     }
@@ -269,7 +269,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 1:
                     return (T) item1;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 2");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 2");
             }
         }
     }
@@ -314,7 +314,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 2:
                     return (T) item2;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 3");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 3");
             }
         }
     }
@@ -364,7 +364,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 3:
                     return (T) item3;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 4");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 4");
             }
         }
     }
@@ -419,7 +419,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 4:
                     return (T) item4;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 4");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 4");
             }
         }
     }
@@ -479,7 +479,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 5:
                     return (T) item5;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 6");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 6");
             }
         }
     }
@@ -544,7 +544,7 @@ public interface Tuple extends Comparable<Tuple>, Serializable {
                 case 6:
                     return (T) item6;
                 default:
-                    throw new IllegalArgumentException("The tuple index is out of bounds: " + index + ", size = 6");
+                    throw new IllegalArgumentException("The tuple getIndex is out of bounds: " + index + ", size = 6");
             }
         }
     }

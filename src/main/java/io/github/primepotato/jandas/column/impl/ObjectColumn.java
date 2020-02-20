@@ -1,7 +1,6 @@
 package io.github.primepotato.jandas.column.impl;
 
 import io.github.primepotato.jandas.column.Column;
-import io.github.primepotato.jandas.header.Header;
 import io.github.primepotato.jandas.header.Heading;
 import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.impl.ObjectIndex;
@@ -11,6 +10,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.lang.reflect.Array;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -107,14 +107,14 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public String cleanName() {
-        return heading.toString();
+        return Normalizer.normalize(heading.toString(), Normalizer.Form.NFD);
     }
 
     @Override
-    public ColIndex index() {
+    public ColIndex getIndex() {
         if (colIndex == null) {
             rebuildIndex();
-            return index();
+            return getIndex();
         } else {
             return colIndex;
         }

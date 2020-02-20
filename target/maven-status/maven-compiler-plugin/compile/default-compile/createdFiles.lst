@@ -49,7 +49,6 @@ io/github/primepotato/jandas/io/sql/containers/fixed/StringFixedResultSetContain
 io/github/primepotato/jandas/io/parsers/TimeParser.class
 io/github/primepotato/jandas/io/sql/SqlReader.class
 io/github/primepotato/jandas/utils/Tuple$Tuple3.class
-io/github/primepotato/jandas/column/AbstractColumn.class
 io/github/primepotato/jandas/io/csv/containers/DynamicDataParser.class
 io/github/primepotato/jandas/index/utils/IndexUtils.class
 io/github/primepotato/jandas/io/sql/containers/dynamic/DoubleDynamicResultSetContainer.class

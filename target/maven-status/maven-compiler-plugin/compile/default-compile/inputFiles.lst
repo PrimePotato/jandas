@@ -34,7 +34,6 @@
 /home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/io/sql/containers/ResultSetContainer.java
 /home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/index/impl/DoubleIndex.java
 /home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/filter/DataFrameFilter.java
-/home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/column/AbstractColumn.java
 /home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/io/csv/containers/DynamicDataParser.java
 /home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/column/impl/DoubleColumn.java
 /home/bob/Documents/Java/jandas/src/main/java/io/github/primepotato/jandas/header/Heading.java

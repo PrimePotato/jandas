@@ -51,18 +51,12 @@ public class DataFrame extends ArrayList<Column> {
     }
 
     public boolean wellFormed() {
-
         for (Column c : this) {
             if (rowCount() != c.size()) {
                 return false;
             }
         }
         return true;
-    }
-
-    public String name() {
-
-        return name;
     }
 
     public int rowCount() {
@@ -95,9 +89,6 @@ public class DataFrame extends ArrayList<Column> {
         return column(col).getString(row);
     }
 
-    public <T> T getObject(int r, int c) {
-        return (T) column(c).getObject(r);
-    }
 
     public <T extends Column> T column(int idx) {
         return (T) this.get(idx);
@@ -112,7 +103,6 @@ public class DataFrame extends ArrayList<Column> {
     }
 
     private String toPrintString(int maxRows, PrintType pt) {
-
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataFramePrinter dfp = new DataFramePrinter(maxRows, pt, baos);
         dfp.print(this);
@@ -148,6 +138,7 @@ public class DataFrame extends ArrayList<Column> {
     }
 
     Column getColumn(String name) {
+
         return column(header.indexOf(name));
     }
 
@@ -171,7 +162,7 @@ public class DataFrame extends ArrayList<Column> {
     }
 
     public static MetaIndex buildMetaIndex(List<Column> grpCol) {
-        List<ColIndex> colIdxs = grpCol.stream().map(Column::index).collect(Collectors.toList());
+        List<ColIndex> colIdxs = grpCol.stream().map(Column::getIndex).collect(Collectors.toList());
         return new MetaIndex(colIdxs);
     }
 
