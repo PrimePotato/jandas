@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.io.sql;
 
-import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
+import io.github.primepotato.jandas.io.containers.ResultSetContainer;
 import io.github.primepotato.jandas.dataframe.DataFrame;
 import io.github.primepotato.jandas.io.sql.connections.SQLiteJDBCDriverConnection;
 import org.junit.Before;

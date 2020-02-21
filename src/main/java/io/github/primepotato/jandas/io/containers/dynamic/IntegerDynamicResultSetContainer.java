@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.io.sql.containers.dynamic;
+package io.github.primepotato.jandas.io.containers.dynamic;
 
 import io.github.primepotato.jandas.column.impl.IntegerColumn;
 import io.github.primepotato.jandas.header.Heading;

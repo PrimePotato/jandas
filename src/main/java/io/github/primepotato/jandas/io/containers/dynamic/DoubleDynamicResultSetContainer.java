@@ -1,4 +1,4 @@
-package io.github.primepotato.jandas.io.sql.containers.dynamic;
+package io.github.primepotato.jandas.io.containers.dynamic;
 
 import io.github.primepotato.jandas.column.impl.DoubleColumn;
 import it.unimi.dsi.fastutil.doubles.DoubleArrayList;

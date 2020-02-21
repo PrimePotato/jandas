@@ -15,7 +15,7 @@ import io.github.primepotato.jandas.index.meta.MetaIndex;
 import io.github.primepotato.jandas.index.utils.IndexUtils;
 import io.github.primepotato.jandas.io.DataFramePrinter;
 import io.github.primepotato.jandas.io.csv.DataFrameCsvWriter;
-import io.github.primepotato.jandas.io.sql.containers.ResultSetContainer;
+import io.github.primepotato.jandas.io.containers.ResultSetContainer;
 import io.github.primepotato.jandas.utils.PrintType;
 import lombok.Getter;
 import lombok.Setter;
