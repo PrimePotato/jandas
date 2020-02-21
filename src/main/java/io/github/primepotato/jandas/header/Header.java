@@ -34,6 +34,7 @@ public class Header extends ArrayList<Heading>{
         return true;
     }
 
+
     @Override
     public void add(int position, Heading key){
         errorCheck(key);

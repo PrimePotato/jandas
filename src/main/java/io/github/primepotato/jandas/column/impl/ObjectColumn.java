@@ -8,6 +8,7 @@ import io.github.primepotato.jandas.io.parsers.AbstractParser;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.lang.reflect.Array;
 import java.text.Normalizer;
@@ -20,14 +21,14 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
-    private static final Object MISSING_VALUE = null;
-
+    @Getter @Setter
+    private T missingValue = null;
     @Getter
     private Heading heading;
     @Getter
     private Boolean indexed;
     @Getter
-    private Class<T> elementClass;
+    private final Class<T> elementClass;
     @Getter
     private ColIndex colIndex;
 
@@ -44,11 +45,6 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     }
 
     @Override
-    public Object getMissingValue() {
-        return MISSING_VALUE;
-    }
-
-    @Override
     public void rebuildIndex() {
         indexed = true;
         colIndex = new ObjectIndex<>(rawData(), elementClass);
@@ -59,7 +55,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
         for (int i = 0; i < rows.length; i++) {
             if (rows[i] == Integer.MIN_VALUE) {
-                res[i] = (T) MISSING_VALUE;
+                res[i] = getMissingValue();
             } else {
                 res[i] = get(rows[i]);
             }
@@ -169,13 +165,4 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
         return new ObjectArrayList<Object>(size);
     }
 
-//    public ObjectColumn append(String stringValue, AbstractParser<?> parser) {
-//
-//        try {
-//            return add((T) parser.parse(stringValue));
-//        } catch (final NumberFormatException e) {
-//            throw new NumberFormatException(
-//                    "Error adding value to column " + heading + ": " + e.getMessage());
-//        }
-//    }
 }

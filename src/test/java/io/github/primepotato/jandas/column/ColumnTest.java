@@ -129,11 +129,20 @@ public class ColumnTest {
         Assert.assertEquals(intColumn, intColumn);
     }
 
+
+
     @Test
     public void createEmpty() {
         Assert.assertNotNull(strColumn.createEmpty());
         Assert.assertNotNull(dblColumn.createEmpty());
         Assert.assertNotNull(intColumn.createEmpty());
+    }
+
+    @Test
+    public void getMissingValue(){
+        Assert.assertNull(strColumn.getMissingValue());
+        dblColumn.getMissingValue().equals(Double.NaN);
+        intColumn.getMissingValue().equals(Integer.MIN_VALUE);
     }
 
 }

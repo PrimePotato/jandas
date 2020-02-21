@@ -144,7 +144,7 @@ public class IntegerColumn extends IntArrayList implements Column<Integer> {
     }
 
     @Override
-    public Object getMissingValue() {
+    public Integer getMissingValue() {
         return DEFAULT_MISSING_VALUE_INDICATOR;
     }
 

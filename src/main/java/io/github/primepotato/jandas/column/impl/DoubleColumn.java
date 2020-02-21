@@ -20,7 +20,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DoubleColumn extends SimpleBase implements Column<Double> {
-    //TODO: Tidy up this class, all over the place
 
     private DMatrixRMaj data;
     public static final double DEFAULT_MISSING_VALUE_INDICATOR = Double.NaN;
@@ -164,7 +163,7 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
     }
 
     @Override
-    public Object getMissingValue() {
+    public Double getMissingValue() {
         return DEFAULT_MISSING_VALUE_INDICATOR;
     }
 
@@ -190,31 +189,19 @@ public class DoubleColumn extends SimpleBase implements Column<Double> {
         return this;
     }
 
-    public DoubleColumn append(double[] dbl) {
-        double[] d = new double[data.numRows + dbl.length - 1];
-        double[] old = data.getData();
-        System.arraycopy(old, 0, d, 0, old.length);
-        System.arraycopy(dbl, 0, d, old.length, d.length);
-        data = new DMatrixRMaj(d);
-        return this;
-    }
-
     @Override
     public int size() {
-
         return data.numRows;
     }
 
     @Override
     public DoubleColumn subColumn(Heading heading, int[] aryMask) {
-
         return new DoubleColumn(heading, indexed, getRows(aryMask));
     }
 
     @Override
     public DoubleColumn subColumn(String name, int[] aryMask) {
-
-        return new DoubleColumn(name, indexed, getRows(aryMask));
+        return subColumn(new Heading(name), aryMask);
     }
 
     public Double[] rawData() {

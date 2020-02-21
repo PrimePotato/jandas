@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface Column<T> {
 
-  default void rebuildIndex() {}
+  void rebuildIndex();
 
   int size();
 
@@ -48,6 +48,6 @@ public interface Column<T> {
 
   Heading getHeading();
 
-  Object getMissingValue();
+  T getMissingValue();
 
 }
