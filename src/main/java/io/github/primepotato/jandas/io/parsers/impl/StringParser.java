@@ -1,5 +1,7 @@
-package io.github.primepotato.jandas.io.parsers;
+package io.github.primepotato.jandas.io.parsers.impl;
 
+
+import io.github.primepotato.jandas.io.parsers.AbstractParser;
 
 import java.util.Arrays;
 

@@ -1,4 +1,6 @@
-package io.github.primepotato.jandas.io.parsers;
+package io.github.primepotato.jandas.io.parsers.impl;
+
+import io.github.primepotato.jandas.io.parsers.AbstractParser;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

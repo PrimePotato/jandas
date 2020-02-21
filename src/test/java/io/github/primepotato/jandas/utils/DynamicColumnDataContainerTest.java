@@ -2,8 +2,8 @@ package io.github.primepotato.jandas.utils;
 
 
 import io.github.primepotato.jandas.io.csv.containers.DynamicDataParser;
-import io.github.primepotato.jandas.io.parsers.DoubleParser;
-import io.github.primepotato.jandas.io.parsers.IntParser;
+import io.github.primepotato.jandas.io.parsers.impl.DoubleParser;
+import io.github.primepotato.jandas.io.parsers.impl.IntParser;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
