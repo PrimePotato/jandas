@@ -2,7 +2,6 @@ package io.github.primepotato.jandas.index.utils;
 
 import io.github.primepotato.jandas.index.meta.JoinType;
 import io.github.primepotato.jandas.index.meta.MetaIndex;
-import io.github.primepotato.jandas.utils.Tuple;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import org.apache.commons.lang3.tuple.Pair;
