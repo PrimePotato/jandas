@@ -22,9 +22,9 @@ public class DataFrameGroupBy {
     List<DoubleColumn> aCols;
     MetaIndex metaIndex;
 
-    public DataFrameGroupBy(IndexFunction indexFunction) {
-
-    }
+//    public DataFrameGroupBy(IndexFunction indexFunction) {
+//
+//    }
 
     public DataFrameGroupBy(List<Column> groupColumns, List<DoubleColumn> aggColumns) {
         this.gCols = groupColumns;

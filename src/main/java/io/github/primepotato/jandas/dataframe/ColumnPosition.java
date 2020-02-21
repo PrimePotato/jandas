@@ -1,6 +1,6 @@
 package io.github.primepotato.jandas.dataframe;
 
-public class ColumnPosition<T> {
+public class ColumnPosition<T>  {
     public int pos;
     public T key;
 

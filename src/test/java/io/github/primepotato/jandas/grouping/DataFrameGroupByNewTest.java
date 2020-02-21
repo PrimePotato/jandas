@@ -9,18 +9,16 @@ import static org.junit.Assert.*;
 
 public class DataFrameGroupByNewTest {
     DataFrame df;
+    DataFrameGroupByNew<String> dfg;
 
     @Before
     public void setUp() throws Exception {
         df = Jandas.readCsv("src/test/resources/csv/freshman_kgs.csv");
+        dfg = new DataFrameGroupByNew<>(x -> x.getString("Sex"), df, String.class);
     }
 
     @Test
-    public void createIntMap() {
-
-    }
-
-    @Test
-    public void groups() {
+    public void getGroup() {
+        DataFrame d = dfg.getGroup("M");
     }
 }
