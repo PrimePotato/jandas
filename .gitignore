@@ -2,4 +2,4 @@
 pp-2018.csv
 pp-2019.csv
 /.idea/**
-/.idea/workspace.xml
+/.idea/*.xml
