@@ -2,10 +2,8 @@ package io.github.primepotato.jandas.io.parsers;
 
 
 import lombok.val;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import org.junit.jupiter.api.Assertions;
 import org.reflections.Reflections;
 
@@ -86,8 +84,8 @@ public class AbstractParserTest {
     @Test
     public void parseDouble() {
         parsers.forEach(x->{
-            if (x.elementClass().equals(Float.class))
-                x.parseFloat("123.1");
+            if (x.elementClass().equals(Double.class))
+                x.parseDouble("123.1");
             else
                 Assertions.assertThrows(Exception.class, ()->x.parseDouble("123.1"));
         });
