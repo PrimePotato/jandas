@@ -5,8 +5,6 @@ import io.github.primepotato.jandas.dataframe.DataFrame;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class DataFrameUtilsTest {
 
     DataFrame df;
