@@ -81,7 +81,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
 
     @Override
     public T getObject(int row) {
-        return (T) get(row);
+        return get(row);
     }
 
     @Override
@@ -129,7 +129,7 @@ public class ObjectColumn<T> extends ObjectArrayList<T> implements Column<T> {
     @Override
     public Column subColumn(Heading name, int[] aryMask) {
 
-        return new ObjectColumn<>(name, indexed, getRows(aryMask), (Class<T>) elementClass);
+        return new ObjectColumn<>(name, indexed, getRows(aryMask), elementClass);
     }
 
     public T[] rawData() {

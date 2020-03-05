@@ -15,6 +15,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
+@SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 public class JandasDemo {
 
     private DataFrame dfFreshmen;

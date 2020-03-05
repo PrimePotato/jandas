@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class StringDynamicResultSetContainer implements DynamicResultSetContainer {
+public class StringDynamicResultSetContainer implements DynamicResultSetContainer<ObjectArrayList<String>> {
 
     ObjectArrayList<String> data;
 
@@ -17,7 +17,7 @@ public class StringDynamicResultSetContainer implements DynamicResultSetContaine
 
     @Override
     public ObjectArrayList<String> createContainer() {
-        return new ObjectArrayList();
+        return new ObjectArrayList<>();
     }
 
     @Override

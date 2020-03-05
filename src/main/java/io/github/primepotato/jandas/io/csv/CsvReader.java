@@ -16,7 +16,9 @@ import java.util.*;
 
 public class CsvReader implements RowProcessor {
 
-    private CsvParserSettings parserSettings;
+    @Getter
+    private CsvParserSettings parserSettings = createEmptyParserSettings();
+    
     public CsvParser parser;
     String[] headers;
     Map<String, Class> dataTypes;
@@ -27,12 +29,10 @@ public class CsvReader implements RowProcessor {
     private List<Column> columns;
 
     public CsvReader(List<String> selectedHeaders, Map<String, Class> dataTypes) {
-        CsvParserSettings cps = createEmptyParserSettings();
         if (selectedHeaders != null) {
-            cps.selectFields(selectedHeaders.toArray(new String[0]));
+            parserSettings.selectFields(selectedHeaders.toArray(new String[0]));
         }
-        parserSettings = cps;
-        cps.setProcessor(this);
+        parserSettings.setProcessor(this);
         parser = new CsvParser(parserSettings);
         pcds = new ArrayList<>();
         this.dataTypes = (dataTypes==null)? new HashMap<>(): dataTypes;
@@ -63,7 +63,7 @@ public class CsvReader implements RowProcessor {
     public void processStarted(ParsingContext context) {
         columns = new ArrayList<>();
         context.selectedHeaders();
-        headers = context.selectedHeaders(); //TODO: univocity needs to run twice for this to work..... dodgy
+        headers = context.selectedHeaders();
         for (String h : headers){
             if (dataTypes.containsKey(h)) {
                 pcds.add(new FixedDataParser(h, dataTypes.get(h)));

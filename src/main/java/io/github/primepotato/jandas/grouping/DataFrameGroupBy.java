@@ -16,15 +16,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("unchecked")
 public class DataFrameGroupBy {
 
     List<Column> gCols;
     List<DoubleColumn> aCols;
     MetaIndex metaIndex;
-
-//    public DataFrameGroupBy(IndexFunction indexFunction) {
-//
-//    }
 
     public DataFrameGroupBy(List<Column> groupColumns, List<DoubleColumn> aggColumns) {
         this.gCols = groupColumns;

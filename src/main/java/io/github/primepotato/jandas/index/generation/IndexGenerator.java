@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("unchecked")
 public interface IndexGenerator {
 
     Object2IntLinkedOpenHashMap<Double> doubleIndex = new Object2IntLinkedOpenHashMap<>();

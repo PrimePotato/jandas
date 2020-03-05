@@ -7,6 +7,7 @@ import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class DynamicDataParser extends AbstractDataParser {
 
     private List<AbstractParser> parserCascade;

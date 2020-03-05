@@ -8,7 +8,7 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class IntegerDynamicResultSetContainer implements DynamicResultSetContainer {
+public class IntegerDynamicResultSetContainer implements DynamicResultSetContainer<IntArrayList> {
 
     IntArrayList data;
 

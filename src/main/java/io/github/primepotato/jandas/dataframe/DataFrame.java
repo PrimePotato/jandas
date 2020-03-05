@@ -35,6 +35,7 @@ import static io.github.primepotato.jandas.io.sql.SqlReader.resultSetToContainer
 
 @Getter
 @Setter
+@SuppressWarnings("unchecked")
 public class DataFrame extends ArrayList<Column> {
 
     private Header header;
@@ -50,7 +51,7 @@ public class DataFrame extends ArrayList<Column> {
         header = new Header(columns.stream().map(x -> x.getHeading().toString()).toArray(String[]::new));
     }
 
-    public boolean wellFormed() {
+    private boolean wellFormed() {
         for (Column c : this) {
             if (rowCount() != c.size()) {
                 return false;

@@ -3,6 +3,7 @@ package io.github.primepotato.jandas.io.csv.containers;
 import io.github.primepotato.jandas.io.parsers.*;
 import io.github.primepotato.jandas.io.parsers.impl.*;
 
+@SuppressWarnings("unchecked")
 public class FixedDataParser extends AbstractDataParser {
 
     public FixedDataParser(String name, Class cls) {

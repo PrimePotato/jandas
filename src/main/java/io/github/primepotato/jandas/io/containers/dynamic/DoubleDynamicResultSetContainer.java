@@ -6,7 +6,7 @@ import it.unimi.dsi.fastutil.doubles.DoubleArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DoubleDynamicResultSetContainer implements DynamicResultSetContainer {
+public class DoubleDynamicResultSetContainer implements DynamicResultSetContainer<DoubleArrayList> {
 
     DoubleArrayList data;
 

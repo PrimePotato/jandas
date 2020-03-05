@@ -14,10 +14,7 @@ public class ColumnPosition<T>  {
         if (!(o instanceof ColumnPosition)){
             return false;
         }
-        if ((key == ((ColumnPosition)o).key) && (pos == ((ColumnPosition)o).pos)){
-            return true;
-        }
-        return false;
+        return (key == ((ColumnPosition) o).key) && (pos == ((ColumnPosition) o).pos);
     }
 
     @Override

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.AbstractCollection;
 
+@SuppressWarnings("unchecked")
 public abstract class AbstractDataParser {
 
     public String name;

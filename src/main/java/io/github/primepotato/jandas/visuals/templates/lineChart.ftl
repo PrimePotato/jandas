@@ -51,11 +51,11 @@
         .y(function (d) {
             return yScale(d.y);
         })
-        .curve(d3.curveMonotoneX)
+        .curve(d3.curveMonotoneX);
 
     var dataset = d3.range(n).map(function (d) {
         return {"y": d3.randomUniform(1)()}
-    })
+    });
 
 
     var svg = d3.select("body").append("svg")
@@ -94,7 +94,7 @@
         })
         .attr("r", 5)
         .on("mouseover", function (a, b, c) {
-            console.log(a)
+            console.log(a);
             this.attr('class', 'focus')
         })
         .on("mouseout", function () {

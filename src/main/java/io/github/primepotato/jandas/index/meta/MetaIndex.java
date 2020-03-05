@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.function.Function;
 
 
+@SuppressWarnings("unchecked")
 public class MetaIndex {
 
     public int rowCount;
@@ -59,7 +60,7 @@ public class MetaIndex {
                 System.out.println(1);
             }
 
-            result.put(indexValue(p.getIntKey()), daf.apply(objAry));
+            result.put(indexValue(p.getIntKey()), (double)daf.apply(objAry));
         }
         return result;
     }
