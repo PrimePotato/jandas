@@ -4,16 +4,13 @@ import io.github.primepotato.jandas.index.ColIndex;
 import io.github.primepotato.jandas.index.generation.IndexGenerator;
 import io.github.primepotato.jandas.index.impl.ObjectIndex;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
-import java.lang.reflect.Array;
 import java.util.List;
 import java.util.function.Function;
 
-//import io.github.primepotato.jandas.getIndex.impl.IntArrayListIndex;
 
 public class MetaIndex {
 
@@ -45,21 +42,6 @@ public class MetaIndex {
         for (int i = 0; i < ial.size(); ++i) {
             ColIndex ci = this.colIndices.get(i);
             result.add(ci.indexValue(ial.getInt(i)));
-        }
-        return result;
-    }
-
-    public <T> Int2ObjectOpenHashMap<T> aggregate(T[] values, Function<T[], T> aggFunc, Class<T>
-            cls) {
-
-        Int2ObjectOpenHashMap<T> result = new Int2ObjectOpenHashMap<>();
-        for (Int2ObjectArrayMap.Entry<IntArrayList> p : index.positions().int2ObjectEntrySet()) {
-            IntArrayList rows = p.getValue();
-            T[] objAry = (T[]) Array.newInstance(cls, rows.size());
-            for (int i = 0; i < rows.size(); i++) {
-                objAry[i] = values[rows.getInt(i)];
-            }
-            result.put(p.getIntKey(), aggFunc.apply(objAry));
         }
         return result;
     }
