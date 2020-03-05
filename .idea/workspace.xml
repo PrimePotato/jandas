@@ -6,28 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9574858-05d8-459a-82b5-71eea14ce866" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/column/Column.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/DataFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/dataframe/DataFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/index/ColIndex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/AbstractParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DateParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DateTimeParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/DoubleParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/EnumParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/IntParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/LongParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/StringParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/io/parsers/TimeParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleAggregateFunc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleFunc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/primepotato/jandas/utils/DoubleMatrixList.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,12 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/jandas$ColumnTest_getMissingValue.ic" NAME="ColumnTest.getMissingValue Coverage Results" MODIFIED="1582283184360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>io.github.primepotato.jandas.column.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/jandas$All_in_jandas.ic" NAME="All in jandas Coverage Results" MODIFIED="1582305711929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/jandas$DataFrameGroupByNewTest_getGroup.ic" NAME="DataFrameGroupByNewTest.getGroup Coverage Results" MODIFIED="1582305696532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.github.primepotato.jandas.grouping.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/jandas$ColumnTest_getMissingValue.ic" NAME="ColumnTest.getMissingValue Coverage Results" MODIFIED="1582283184360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>io.github.primepotato.jandas.column.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/jandas$HeaderTest.ic" NAME="HeaderTest Coverage Results" MODIFIED="1582284586737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.github.primepotato.jandas.header.*</FILTER>
@@ -81,80 +61,104 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/ObjectColumn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="135" column="8" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="47" />
+            <state relative-caret-position="300">
+              <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3521#3522#0" expanded="true" />
-                <element signature="e#3575#3576#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/grouping/DataFrameGroupBy.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/CsvReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="-649">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
-                <element signature="e#1185#1186#0" expanded="true" />
-                <element signature="e#1247#1248#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/IntegerColumn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+            <state relative-caret-position="147">
+              <caret line="169" column="22" selection-start-line="169" selection-start-column="22" selection-end-line="169" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/containers/AbstractDataParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/containers/DynamicDataParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/grouping/DataFrameGroupByNew.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/impl/LongParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+            <state relative-caret-position="34">
+              <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/it/unimi/dsi/fastutil/8.2.2/fastutil-8.2.2.jar!/it/unimi/dsi/fastutil/ints/IntArrayList.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/AbstractParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="399">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/grouping/DataFrameGroupByNewTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/io/parsers/AbstractParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="459">
+              <caret line="42" column="48" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="42" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/dataframe/ColumnPosition.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/DataFrameCsvWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state>
+              <caret column="44" selection-start-column="44" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/dataframe/DataFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/impl/DateParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2895">
-              <caret line="242" selection-start-line="242" selection-end-line="242" />
+            <state relative-caret-position="201">
+              <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -224,7 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/visuals/DataFrameVisuals.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/visuals/templates/test.ftl" />
         <option value="$PROJECT_DIR$/.coveralls.yml" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/dataframe/DataFrame2.java" />
@@ -275,6 +278,7 @@
         <option value="$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/grouping/DataFrameGroupByNewTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/grouping/DataFrameGroupByNew.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/impl/LongParser.java" />
       </list>
     </option>
   </component>
@@ -314,7 +318,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -325,11 +329,6 @@
             <path>
               <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jandas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -358,6 +357,161 @@
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="column" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="column" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="csv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="csv" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="parsers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="parsers" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="column" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="dataframe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="demos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
               <item name="grouping" type="462c0819:PsiDirectoryNode" />
@@ -367,21 +521,9 @@
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
@@ -390,7 +532,27 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jandas" type="462c0819:PsiDirectoryNode" />
-              <item name="grouping" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="csv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jandas" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
@@ -408,26 +570,18 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="jandas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jandas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="csv" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582556993662" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583401473934" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/sql" />
@@ -451,13 +605,6 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/containers/fixed" />
-      <recent name="$PROJECT_DIR$/src/test/resources/sqlite" />
-      <recent name="$PROJECT_DIR$/src/test/resources/csv" />
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="io.github.primepotato.jandas.io" />
       <recent name="io.github.primepotato.jandas" />
@@ -475,6 +622,13 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/containers/fixed" />
+      <recent name="$PROJECT_DIR$/src/test/resources/sqlite" />
+      <recent name="$PROJECT_DIR$/src/test/resources/csv" />
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -775,7 +929,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230014000" />
+    <option name="totallyTimeSpent" value="230712000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -787,9 +941,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1920" height="1055" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5450644" visible="true" weight="0.23906083" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5450644" visible="true" weight="0.23667377" />
       <window_info id="Structure" order="1" sideWeight="0.454448" side_tool="true" weight="0.26840982" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -799,7 +953,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.32827735" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49199572" weight="0.37594798" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49573106" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49573106" weight="0.32827735" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4994664" weight="0.32936078" />
@@ -808,7 +962,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49893278" weight="0.21885157" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50426894" side_tool="true" weight="0.3304721" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.7156652" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4855923" weight="0.3261105" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4855923" visible="true" weight="0.3261105" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.32939914" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1027,24 +1181,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/CsvReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/csv/containers/AbstractDataParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-13.0.2/lib/src.zip!/java.base/java/text/Normalizer.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -1116,8 +1252,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/IntegerColumn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="147">
+          <caret line="169" column="22" selection-start-line="169" selection-start-column="22" selection-end-line="169" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1194,13 +1330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/AbstractParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1296,12 +1425,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/column/impl/ObjectColumn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="135" column="8" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="47" />
+        <state relative-caret-position="300">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3521#3522#0" expanded="true" />
-            <element signature="e#3575#3576#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1356,6 +1483,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/io/github/primepotato/jandas/io/parsers/AbstractParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="42" column="48" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="42" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/impl/TimeParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-703">
+          <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/AbstractParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/primepotato/jandas/io/parsers/impl/LongParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
         </state>
       </provider>
     </entry>
