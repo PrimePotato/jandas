@@ -41,13 +41,13 @@ public class LongParser extends AbstractParser<Long> {
         return parseLong(s);
     }
 
-  @Override
-  public Class<Long> elementClass() {
+    @Override
+    public Class<Long> elementClass() {
 
-    return Long.class;
-  }
+        return Long.class;
+    }
 
-  @Override
+    @Override
     public double parseDouble(String str) {
         return parseLong(str);
     }
@@ -55,6 +55,7 @@ public class LongParser extends AbstractParser<Long> {
     @Override
     public long parseLong(String str) {
         if (isMissing(str)) return Long.MIN_VALUE;
+
 
         if (str.endsWith(".0")) {
             str = str.substring(0, str.length() - 2);

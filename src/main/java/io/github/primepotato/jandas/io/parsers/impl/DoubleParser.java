@@ -34,7 +34,7 @@ public class DoubleParser extends AbstractParser<Double> {
 
     @Override
     public Double parse(String s) {
-        return parseDouble(s);
+        return  parseDouble(s);
     }
 
   @Override
