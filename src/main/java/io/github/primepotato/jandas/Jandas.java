@@ -13,18 +13,11 @@ import java.util.Map;
 public class Jandas {
 
     public static DataFrame readCsv(String path) {
-        CsvReader cr = new CsvReader();
-        File f = new File(path);
-        cr.parser.parse(f);
-        return cr.getDataFrame();
+        return readCsv(path, null, null);
     }
 
     public static DataFrame readCsv(String path, List<String> importHeaders) {
-
-        CsvReader cr = new CsvReader(importHeaders);
-        File f = new File(path);
-        cr.parser.parse(f);
-        return cr.getDataFrame();
+        return readCsv(path, importHeaders, null);
     }
 
     public static DataFrame readCsv(String path, List<String> importHeaders, Map<String, Class> dataTypes) {
